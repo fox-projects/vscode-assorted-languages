@@ -1,0 +1,1563 @@
+{
+	"name": "i3",
+	"author": "skk",
+	"scopeName": "source.i3",
+	"fileTypes": [".i3/config", "i3/config"],
+	"uuid": "bb9ebd33-1b88-4310-acef-41720bcac38f",
+	"patterns": [
+		{
+			"name": "criteria",
+			"match": "\\[(\\w+)=(\\\".*\\\")\\]",
+			"captures": {
+				"1": {
+					"name": "constant.language.i3"
+				},
+				"2": {
+					"name": "string.i3"
+				}
+			}
+		},
+		{
+			"name": "comment",
+			"match": "(\\#)(.*)",
+			"captures": {
+				"1": {
+					"name": "comment.line.number-sign.i3"
+				},
+				"2": {
+					"name": "comment.line.i3"
+				}
+			}
+		},
+		{
+			"name": "font_pango",
+			"match": "(font\\ pango\\:)\\s*([- ,\\w]*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "font",
+			"match": "(font)\\s*([-\\w]*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "fullscreen",
+			"match": "(fullscreen)\\s*(toggle)?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "floating_modifier",
+			"match": "(floating_modifier)\\s*(\\$?\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "floating_minimum_size",
+			"match": "(floating_minimum_size)\\s*(-?\\d*)\\s*(x)\\s*(-?\\d*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.numeric.i3"
+				},
+				"3": {
+					"name": "keyword.control.i3"
+				},
+				"4": {
+					"name": "constant.numeric.i3"
+				}
+			}
+		},
+		{
+			"name": "floating_maximum_size",
+			"match": "(floating_maximum_size)\\s*(-?\\d*)\\s*(x)\\s*(-?\\d*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.numeric.i3"
+				},
+				"3": {
+					"name": "keyword.control.i3"
+				},
+				"4": {
+					"name": "constant.numeric.i3"
+				}
+			}
+		},
+		{
+			"name": "default_orientation",
+			"match": "(default_orientation)\\s*(vertical|horizontal|v|h|auto|a)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "workspace_layout",
+			"match": "(workspace_layout)\\s*(default|stacking|tabbed|d|s|t)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "new_window_or_float",
+			"match": "(new_(?:window|float))\\s*(normal|none|(?:\\d*pixel\\s\\d*))",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "hide_edge_borders",
+			"match": "(hide_edge_borders)\\s*(vertical|horizontal|none|both|v|h|n|b)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "for_window",
+			"match": "(for_window)\\s*\\[(\\w+)=(\\\".*\\\")\\]\\s*",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "string.i3"
+				}
+			}
+		},
+		{
+			"name": "set1",
+			"match": "(set)\\s*(\\$\\w*)\\s*(\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "set2",
+			"match": "(set)\\s*(\\$\\w*)\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "constant.other.i3"
+				}
+			}
+		},
+		{
+			"name": "assign",
+			"match": "(assign)\\s*\\[(\\w+)=(\\\".*\\\")\\]\\s*(→)?\\s*([\\w\\d]*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "string.i3"
+				},
+				"4": {
+					"name": "keyword.operator.i3"
+				},
+				"5": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "exec_always",
+			"match": "(exec_always)\\s*(\\-\\-no-startup-id)?\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "source.i3"
+				}
+			}
+		},
+		{
+			"name": "exec",
+			"match": "(exec)\\s*(\\-\\-no-startup-id)?\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "source.i3"
+				}
+			}
+		},
+		{
+			"name": "client_focused1",
+			"match": "(client\\.focused)\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.other.i3"
+				},
+				"3": {
+					"name": "constant.other.i3"
+				},
+				"4": {
+					"name": "constant.other.i3"
+				},
+				"5": {
+					"name": "constant.other.i3"
+				},
+				"6": {
+					"name": "constant.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_focused2",
+			"match": "(client\\.focused)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_focused_inactive1",
+			"match": "(client\\.focused_inactive)\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.other.i3"
+				},
+				"3": {
+					"name": "constant.other.i3"
+				},
+				"4": {
+					"name": "constant.other.i3"
+				},
+				"5": {
+					"name": "constant.other.i3"
+				},
+				"6": {
+					"name": "constant.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_focused_inactive2",
+			"match": "(client\\.focused_inactive)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_unfocused1",
+			"match": "(client\\.unfocused)\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.other.i3"
+				},
+				"3": {
+					"name": "constant.other.i3"
+				},
+				"4": {
+					"name": "constant.other.i3"
+				},
+				"5": {
+					"name": "constant.other.i3"
+				},
+				"6": {
+					"name": "constant.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_unfocused2",
+			"match": "(client\\.unfocused)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_urgent1",
+			"match": "(client\\.urgent)\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.other.i3"
+				},
+				"3": {
+					"name": "constant.other.i3"
+				},
+				"4": {
+					"name": "constant.other.i3"
+				},
+				"5": {
+					"name": "constant.other.i3"
+				},
+				"6": {
+					"name": "constant.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_urgent2",
+			"match": "(client\\.urgent)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_placeholder1",
+			"match": "(client\\.placeholder)\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.other.i3"
+				},
+				"3": {
+					"name": "constant.other.i3"
+				},
+				"4": {
+					"name": "constant.other.i3"
+				},
+				"5": {
+					"name": "constant.other.i3"
+				},
+				"6": {
+					"name": "constant.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_placeholder2",
+			"match": "(client\\.placeholder)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_background1",
+			"match": "(client\\.background)\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.other.i3"
+				}
+			}
+		},
+		{
+			"name": "client_background2",
+			"match": "(client\\.background)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "ipc_socket",
+			"match": "(ipc-socket)\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "string.i3"
+				}
+			}
+		},
+		{
+			"name": "focus_follows_mouse",
+			"match": "(focus_follows_mouse)\\s*(yes|no|y|n)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "popup_during_fullscreen",
+			"match": "(popup_during_fullscreen)\\s*(smart|ignore|leave_fullscreen)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "force_focus_wrapping",
+			"match": "(force_focus_wrapping)\\s*(yes|no|y|n)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "force_xinerama",
+			"match": "(force_xinerama)\\s*(no|yes)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "force_xinerama",
+			"match": "(force_xinerama)\\s*(yes|no|y|n)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "workspace_auto_back_and_forth",
+			"match": "(workspace_auto_back_and_forth)\\s*(yes|no|y|n)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "force_display_urgency_hint",
+			"match": "(force_display_urgency_hint)\\s*(\\d*)\\s*ms",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.numeric.i3"
+				}
+			}
+		},
+		{
+			"name": "bar",
+			"match": "(?:^ *|\\G *)(bar)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				}
+			}
+		},
+		{
+			"name": "i3bar_command",
+			"match": "(i3bar_command)\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "status_command",
+			"match": "(status_command)\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "modifier",
+			"match": "(modifier)\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "hidden_state",
+			"match": "(hidden_state)\\s*(show|hide)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "mode",
+			"match": "(mode)\\s*(dock|hide|invisible)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "id",
+			"match": "(id)\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "position",
+			"match": "(position)\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "output",
+			"match": "(output)\\s*(\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "tray_output",
+			"match": "(tray_output)\\s*(\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "workspace_buttons",
+			"match": "(workspace_buttons)\\s*(yes|no|y|n)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "colors",
+			"match": "(colors)\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "block.i3"
+				}
+			}
+		},
+		{
+			"name": "background",
+			"match": "(background)\\s*([#$\\w]*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "statusline1",
+			"match": "(statusline)\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "statusline2",
+			"match": "(statusline)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "separator",
+			"match": "(separator)\\s*([#$\\w]*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "focused_workspace1",
+			"match": "(focused_workspace)\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				},
+				"4": {
+					"name": "constant.language.i3"
+				},
+				"5": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "focused_workspace2",
+			"match": "(focused_workspace)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "active_workspace1",
+			"match": "(active_workspace)\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				},
+				"4": {
+					"name": "constant.language.i3"
+				},
+				"5": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "active_workspace2",
+			"match": "(active_workspace)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "inactive_workspace1",
+			"match": "(inactive_workspace)\\s*([#\\$\\w]*)\\s*([#\\$\\w]*)\\s*([#\\$\\w]*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				},
+				"4": {
+					"name": "constant.language.i3"
+				},
+				"5": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "inactive_workspace2",
+			"match": "(inactive_workspace)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "urgent_workspace1",
+			"match": "(urgent_workspace)\\s*(#\\w{6})\\s*(#\\w{6})\\s*(#\\w{6})",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				},
+				"4": {
+					"name": "constant.language.i3"
+				},
+				"5": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "urgent_workspace2",
+			"match": "(urgent_workspace)\\s*(\\$\\w*)\\s*(\\$\\w*)\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "variable.other.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "bindcode",
+			"match": "(bindcode)\\s*(--release)?\\s*(\\d*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.numeric.i3"
+				}
+			}
+		},
+		{
+			"name": "bindsym",
+			"match": "(bindsym)\\s*(--release)?\\s*([$\\w\\+]*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "split",
+			"match": "(split)\\s*(vertical|horizontal|v|h)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "layout",
+			"match": "(layout)\\s*(default|tabbed|stacking|split v|split h)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "layout_toggle",
+			"match": "(layout toggle)\\s*(split|all)?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "floating",
+			"match": "(floating)\\s*(toggle|enable)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "focus",
+			"match": "(focus)\\s*(left|right|down|up|l|r|d|u|parent|child|floating|tiling|mode_toggle)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "focus_output",
+			"match": "(focus output)\\s*(left|right|down|up|l|r|d|u|(?:[-\\w]*))",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "sticky",
+			"match": "(sticky)\\s*(enable)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "move",
+			"match": "(move)\\s*(left|right|down|up|l|r|d|u)(?:\\s*(-?\\d*)\\s*(px)\\s*(?:(-?\\d*)\\s*(px))?)?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.numeric.i3"
+				},
+				"4": {
+					"name": "constant.language.i3"
+				},
+				"5": {
+					"name": "constant.numeric.i3"
+				},
+				"6": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "move_abs",
+			"match": "(move)\\s*(absolute)\\s*(position)\\s*(?:(\\d*)\\s*(px))?(?:\\s*(\\d*)\\s*(px))?(?:\\s*(center)|\\s*(?:(\\d*) (px))\\s*(?:(\\d*)\\s*(px)))?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				},
+				"4": {
+					"name": "constant.numeric.i3"
+				},
+				"5": {
+					"name": "constant.language.i3"
+				},
+				"6": {
+					"name": "constant.numeric.i3"
+				},
+				"7": {
+					"name": "constant.language.i3"
+				},
+				"8": {
+					"name": "constant.language.i3"
+				},
+				"9": {
+					"name": "constant.numeric.i3"
+				},
+				"10": {
+					"name": "constant.language.i3"
+				},
+				"11": {
+					"name": "constant.numeric.i3"
+				},
+				"12": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "workspace",
+			"match": "(workspace)\\s*(next|prev|next_on_output|prev_on_output|back_and_forth|(?:\\w)*|(?:\\d*\\s*\\w*))",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "rename_workspace",
+			"match": "(rename workspace)\\s*([:\\s\\w]*)\\s*(to)\\s*([:\\s\\w]*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "keyword.control.i3"
+				},
+				"4": {
+					"name": "constant.language.i3"
+				},
+				"5": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "move__container_or_workspace",
+			"match": "(move)\\s*(workspace|container)\\s*(to)\\s*(output)\\s*(left|right|down|up|[\\w]*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "keyword.control.i3"
+				},
+				"3": {
+					"name": "keyword.control.i3"
+				},
+				"4": {
+					"name": "keyword.control.i3"
+				},
+				"5": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "move_workspace",
+			"match": "(move)\\s*(workspace)\\s*(next|prev|next_on_output|prev_on_output|back_and_forth|(?:\\w)*|(?:\\d*\\s*\\w*))(\\$\\w*){0,1}",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "keyword.control.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "move__window_or_container1",
+			"match": "(move)\\s*(window|container)\\s*(to)?\\s*(workspace)?\\s*(\\$\\w*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "keyword.control.i3"
+				},
+				"3": {
+					"name": "keyword.control.i3"
+				},
+				"4": {
+					"name": "keyword.control.i3"
+				},
+				"5": {
+					"name": "variable.other.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "move__window_or_container2",
+			"match": "(move)\\s*(window|container)\\s*(to)?\\s*(workspace)?\\s*(\\d*)\\s*(\\$?\\w*)?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "keyword.control.i3"
+				},
+				"3": {
+					"name": "keyword.control.i3"
+				},
+				"4": {
+					"name": "variable.other.i3"
+				},
+				"5": {
+					"name": "constant.numeric.i3"
+				},
+				"6": {
+					"name": "variable.other.i3"
+				}
+			}
+		},
+		{
+			"name": "move__window_or_container3",
+			"match": "(move)\\s*(window|container)\\s*(to)?\\s*(workspace)\\s*(prev|next|current)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "keyword.control.i3"
+				},
+				"3": {
+					"name": "keyword.control.i3"
+				},
+				"4": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "resize_mode",
+			"match": "(mode)\\s*(\\\"resize\\\")\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "string.i3"
+				}
+			}
+		},
+		{
+			"name": "resize",
+			"match": "(resize)\\s*(grow|shrink)\\s*(width|height)\\s*(\\d*)\\s*(px)\\s*(or)\\s*(\\d*)\\s*(ppt)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				},
+				"4": {
+					"name": "constant.numeric.i3"
+				},
+				"5": {
+					"name": "constant.language.i3"
+				},
+				"6": {
+					"name": "constant.language.i3"
+				},
+				"7": {
+					"name": "constant.numeric.i3"
+				},
+				"8": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "resize_set",
+			"match": "(resize)\\s*(set)\\s*(\\d+)\\s*(px)?\\s*(\\d+)\\s*(px)?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.numeric.i3"
+				},
+				"4": {
+					"name": "constant.language.i3"
+				},
+				"5": {
+					"name": "constant.numeric.i3"
+				},
+				"6": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "resize_mode_default",
+			"match": "(mode)\\s*(\\\"default\\\")",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "string.i3"
+				}
+			}
+		},
+		{
+			"name": "focus",
+			"match": "(focus)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				}
+			}
+		},
+		{
+			"name": "mark_identifier",
+			"match": "(unmark|mark)\\s*(.*)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "border",
+			"match": "(border)\\s*(none|toggle|(\\d+)\\s*pixel|(?:pixel|normal)\\s*(\\d+))",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.numeric.i3"
+				}
+			}
+		},
+		{
+			"name": "shmlog",
+			"match": "(shmlog)\\s*(?:(on|off|toggle)|(\\d*))",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.numeric.i3"
+				}
+			}
+		},
+		{
+			"name": "shmlog",
+			"match": "(debuglog)\\s*(on|off|toggle)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.numeric.i3"
+				}
+			}
+		},
+		{
+			"name": "reload",
+			"match": "(reload)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				}
+			}
+		},
+		{
+			"name": "restart",
+			"match": "(restart)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				}
+			}
+		},
+		{
+			"name": "exit",
+			"match": "(exit)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				}
+			}
+		},
+		{
+			"name": "move_scratchpad",
+			"match": "(move)\\s*(scratchpad)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "keyword.control.i3"
+				}
+			}
+		},
+		{
+			"name": "scratchpad_show",
+			"match": "(scratchpad)\\s*(show)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "keyword.control.i3"
+				}
+			}
+		},
+		{
+			"name": "bar_hidden_state",
+			"match": "(bar hidden_state)\\s*(show|hide|toggle)\\s*(.*)?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "bar_mode",
+			"match": "(mode)\\s*(dock|hide|invisible|toggle)\\s*(.*)?",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.language.i3"
+				}
+			}
+		},
+		{
+			"name": "gaps",
+			"match": "(gaps)\\s*(inner|outer)\\s*(\\d+)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.numeric.i3"
+				}
+			}
+		},
+		{
+			"name": "gaps_full",
+			"match": "(gaps)\\s*(inner|outer)\\s*(current|all)?\\s*(set|plus|minus)?\\s*(\\d+)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.i3"
+				},
+				"2": {
+					"name": "constant.language.i3"
+				},
+				"3": {
+					"name": "constant.numeric.i3"
+				}
+			}
+		}
+	]
+}

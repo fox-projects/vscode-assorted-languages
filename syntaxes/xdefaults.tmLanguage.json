@@ -1,0 +1,68 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.xdefaults",
+	"name": "Xdefaults",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#commands"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment",
+					"match": "^!.*$"
+				}
+			]
+		},
+		"commands": {
+			"patterns": [
+				{
+					"name": "string",
+					"match": "^(.*?)(:)(.*)$",
+					"captures": {
+						"1": { "patterns": [{ "include": "#resource" }] },
+						"2": { "name": "keyword.operator" },
+						"3": { "patterns": [{ "include": "#value" }] }
+					}
+				}
+			]
+		},
+		"resource": {
+			"patterns": [
+				{
+					"name": "keyword.operator",
+					"match": "\\?"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "\\*"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "\\."
+				},
+				{
+					"name": "variable",
+					"match": "[^?*.]+"
+				}
+			]
+		},
+		"value": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "(?<=:)\\s*\\d+\\s*$"
+				},
+				{
+					"name": "constant",
+					"match": "(?<=:)\\s*(true|false)\\s*$"
+				}
+			]
+		}
+	}
+}

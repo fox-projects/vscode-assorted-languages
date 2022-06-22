@@ -1,0 +1,86 @@
+{
+	"fileTypes": ["ninja"],
+	"name": "Ninja",
+	"patterns": [
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.ninja"
+				}
+			},
+			"comment": "Comment line.",
+			"match": "(#).*$\\n?",
+			"name": "comment.line.number-sign.ninja"
+		},
+		{
+			"begin": "^(rule)\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.ninja"
+				}
+			},
+			"comment": "Rule keyword and keywords for a rule.",
+			"end": "^(?=\\S)",
+			"patterns": [
+				{
+					"include": "$self"
+				},
+				{
+					"match": "\\b(?:command|deps|depfile|description|generator|pool|restat|rspfile|rspfile_content)\\b",
+					"name": "keyword.other.ninja"
+				}
+			]
+		},
+		{
+			"begin": "^(pool)\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.ninja"
+				}
+			},
+			"comment": "Pool keyword and keywords for a pool.",
+			"end": "^(?=\\S)",
+			"patterns": [
+				{
+					"include": "$self"
+				},
+				{
+					"match": "\\b(?:depth)\\b",
+					"name": "keyword.other.ninja"
+				}
+			]
+		},
+		{
+			"comment": "Other Keywords.",
+			"match": "^(?:build|rule|default|include|subninja)\\b",
+			"name": "keyword.other.ninja"
+		},
+		{
+			"comment": "Operators for variable assignment (=), rule definition (:), implicit (|) and order only (||) dependencies.",
+			"match": "(?:[=:]|\\|{1,2})(?=\\s)",
+			"name": "keyword.operator.ninja"
+		},
+		{
+			"comment": "Line wrap.",
+			"match": "\\$$",
+			"name": "keyword.operator.ninja"
+		},
+		{
+			"comment": "Dollar literal.",
+			"match": "\\$\\$",
+			"name": "keyword.operator.ninja"
+		},
+		{
+			"comment": "Simple variables, e.g. $var.",
+			"match": "\\$[[:alnum:]_-]+",
+			"name": "variable.other.ninja"
+		},
+		{
+			"comment": "Variables, e.g. ${some.var.name}.",
+			"match": "\\${[[:alnum:]_.-]+}",
+			"name": "variable.other.ninja"
+		}
+	],
+	"scopeName": "source.ninja",
+	"uuid": "e837e9ed-6ad9-4103-b705-50503a86fc83"
+}

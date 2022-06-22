@@ -1,0 +1,120 @@
+{
+	"name": "sxhkdrc",
+	"scopeName": "source.sxhkdrc",
+	"patterns": [
+		{ "include": "#comment" },
+		{ "include": "#hotkey" },
+		{ "include": "#command" }
+	],
+	"repository": {
+		"comment": {
+			"match": "^(#)(.*)(\\r\\n|\\r|\\n)",
+			"captures": {
+				"1": { "name": "comment.line.number-sign.sxhkdrc" },
+				"2": { "name": "comment.line.sxhkdrc" }
+			}
+		},
+		"hotkey": {
+			"begin": "^(?=\\S)",
+			"end": "$",
+			"patterns": [
+				{ "include": "#chord_separator" },
+				{ "include": "#key_separator" },
+				{ "include": "#hotkey_sequence" },
+				{ "include": "#key" }
+			]
+		},
+		"hotkey_sequence": {
+			"begin": "\\{",
+			"end": "\\}",
+			"captures": {
+				"0": {
+					"name": "punctuation.definition.sxhkdrc"
+				}
+			},
+			"patterns": [
+				{ "include": "#range" },
+				{ "include": "#hotkey_sequence" },
+				{ "include": "#chord_separator" },
+				{ "include": "#key_separator" },
+				{ "include": "#sequence_separator" },
+				{ "include": "#key" }
+			]
+		},
+		"chord_separator": {
+			"match": "(;|:)",
+			"name": "keyword.control"
+		},
+		"key_separator": {
+			"match": "\\+",
+			"name": "keyword.operator"
+		},
+		"sequence_separator": {
+			"match": ",",
+			"name": "punctuation.separator.element.sxhkdrc"
+		},
+		"range": {
+			"match": "(?<=\\{)(([a-z]-[a-z])|([A-Z]-[A-Z])|([0-9]-[0-9]))(?=\\})",
+			"captures": {
+				"2": { "patterns": [{ "include": "#range_contents" }] },
+				"3": { "patterns": [{ "include": "#range_contents" }] },
+				"4": { "patterns": [{ "include": "#range_contents" }] }
+			}
+		},
+		"range_contents": {
+			"match": "(.)(-)(.)",
+			"captures": {
+				"1": { "name": "constant.language.sxhkdrc" },
+				"2": { "name": "punctuation.separator.element.sxhkdrc" },
+				"3": { "name": "constant.language.sxhkdrc" }
+			}
+		},
+		"key": {
+			"match": "\\b(super|hyper|meta|alt|control|ctrl|shift|mode_switch|lock|mod1|mod2|mod3|mod4|mod5|any)\\b|(@|~)?(?:(button1|button2|button3|button4|button5|button6|button7|button8|button9|button10|button11|button12|button13|button14|button15|button16|button17|button18|button19|button20|button21|button22|button23|button24)|(\\w+))",
+			"captures": {
+				"1": { "name": "constant.language.sxhkdrc" },
+				"2": { "name": "storage.modifier.sxhkdrc" },
+				"3": { "name": "variable.language.sxhkdrc" },
+				"4": { "name": "variable.other.sxhkdrc" }
+			}
+		},
+		"command": {
+			"begin": "^(?=[ \\t]+)",
+			"end": "$",
+			"patterns": [
+				{
+					"match": "(\\S*)({[^}]+})(\\S*)|(\\S+)",
+					"captures": {
+						"1": { "name": "string.other.sxhkdrc" },
+						"2": {
+							"patterns": [
+								{
+									"include": "#command_sequence"
+								}
+							]
+						},
+						"3": { "name": "string.other.sxhkdrc" },
+						"4": { "name": "string.other.sxhkdrc" }
+					}
+				}
+			]
+		},
+		"command_sequence": {
+			"begin": "\\{",
+			"end": "\\}",
+			"captures": {
+				"0": { "name": "punctuation.definition.sxhkdrc" }
+			},
+			"patterns": [
+				{ "include": "#range" },
+				{ "include": "#sequence_separator" },
+				{ "include": "#command_sequence_element" },
+				{ "include": "#command_sequence" }
+			]
+		},
+		"command_sequence_element": {
+			"match": "(?<=[{,]).*?(?=[,}])",
+			"name": "string.other.sxhkdrc"
+		}
+	}
+}

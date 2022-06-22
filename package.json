@@ -1,0 +1,327 @@
+{
+	"name": "vscode-assorted-languages",
+	"displayName": "hyperupcall",
+	"description": "Assorted Languages",
+	"version": "0.1.0",
+	"publisher": "EdwinKofler",
+	"engines": {
+		"vscode": "^1.54.0"
+	},
+	"license": "BSD-3-Clause",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hyperupcall/vscode-assorted-languages"
+	},
+	"bugs": {
+		"url": "https://github.com/hyperupcall/vscode-assorted-languages/issues"
+	},
+	"author": {
+		"name": "Edwin Kofler",
+		"url": "https://edwinkofler.com"
+	},
+	"categories": [
+		"Snippets",
+		"Programming Languages"
+	],
+	"keywords": [
+		"Linux",
+		"Systemd",
+		"Configurations",
+		"panda",
+		"utils"
+	],
+	"activationEvents": [
+		"onLanguage:env",
+		"workspaceContains:**/*"
+	],
+	"scripts": {
+		"watch": "tsc -w -p ./",
+		"build": "tsc -p ./"
+	},
+	"icon": "images/icon.jpg",
+	"contributes": {
+		"languages": [
+			{
+				"id": "awk",
+				"aliases": [
+					"AWK",
+					"awk"
+				],
+				"extensions": [
+					".awk",
+					".gawk"
+				],
+				"configuration": "./language-configuration/awk.language-configuration.json"
+			},
+			{
+				"id": "desktop",
+				"aliases": [
+					"Desktop",
+					"desktop"
+				],
+				"firstLine": "^\\[Desktop Entry\\]",
+				"extensions": [
+					".desktop",
+					".theme"
+				],
+				"configuration": "./language-configuration/desktop.language-configuration.json"
+			},
+			{
+				"id": "dircolors",
+				"aliases": [
+					"dir_colors"
+				],
+				"extensions": [
+					".dircolors",
+					".dir_colors"
+				],
+				"filenames": [
+					"dircolors",
+					"dir_colors"
+				],
+				"configuration": "./language-configuration/dircolors.language-configuration.json"
+			},
+			{
+				"id": "env",
+				"aliases": [
+					"Environment Variables",
+					"dotenv"
+				],
+				"extensions": [
+					".env",
+					".env.sample",
+					".env.example",
+					".env.development",
+					".env.staging",
+					".env.production",
+					".env.local"
+				],
+				"configuration": "./language-configuration/env.language-configuration.json"
+			},
+			{
+				"id": "handlebars",
+				"aliases": [
+					"Handlebars",
+					"handlebars"
+				],
+				"extensions": [
+					".handlebars",
+					".hbr",
+					".hbs",
+					".tpl"
+				],
+				"configuration": "language-configuration/handlebars.language-configuration.json"
+			},
+			{
+				"id": "i3",
+				"aliases": [
+					"i3_config"
+				],
+				"extensions": [
+					".i3.config"
+				],
+				"configuration": "./language-configuration/i3.language-configuration.json"
+			},
+			{
+				"id": "json5",
+				"aliases": [
+					"JSON5",
+					"json5"
+				],
+				"extensions": [
+					".json5"
+				],
+				"configuration": "./language-configuration/i3.language-configuration.json"
+			},
+			{
+				"id": "ninja",
+				"aliases": [
+					"Ninja"
+				],
+				"extensions": [
+					".ninja"
+				],
+				"configuration": "./language-configuration/ninja.language-configuration.json"
+			},
+			{
+				"id": "po",
+				"aliases": [
+					"gettext",
+					"po"
+				],
+				"extensions": [
+					".po",
+					".pot",
+					".potx"
+				],
+				"configuration": "./language-configuration/po.language-configuration.json"
+			},
+			{
+				"id": "sxhkdrc",
+				"aliases": [
+					"sxhkdrc"
+				],
+				"extensions": [
+					".sxhkdrc.conf"
+				],
+				"configuration": "./language-configuration/sxhkdrc.language-configuration.json"
+			},
+			{
+				"id": "systemd-conf",
+				"aliases": [
+					"Systemd Configuration",
+					"systemd-conf",
+					"systemd-unit-file"
+				],
+				"extensions": [
+					".link",
+					".netdev",
+					".network",
+					".service",
+					".socket",
+					".device",
+					".mount",
+					".automount",
+					".swap",
+					".target",
+					".path",
+					".timer",
+					".snapshot",
+					".slice",
+					".scope"
+				],
+				"configuration": "./language-configuration/systemd.language-configuration.json"
+			},
+			{
+				"id": "terminfo",
+				"aliases": [
+					"termcap"
+				],
+				"extensions": [
+					".termcap",
+					".src"
+				],
+				"configuration": "./language-configuration/terminfo.language-configuration.json"
+			},
+			{
+				"id": "xdefaults",
+				"aliases": [
+					"Xdefaults",
+					"xdefaults"
+				],
+				"extensions": [
+					".Xresources",
+					".xresources",
+					".Xdefaults",
+					".xdefaults"
+				],
+				"configuration": "./language-configuration/xresources.language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "desktop",
+				"scopeName": "source.desktop",
+				"path": "./syntaxes/desktop.tmLanguage.json"
+			},
+			{
+				"language": "dircolors",
+				"scopeName": "source.dircolors",
+				"path": "./syntaxes/dircolors.tmLanguage.json"
+			},
+			{
+				"scopeName": "text.html.ejs",
+				"path": "./syntaxes/ejs.tmLanguage.json",
+				"injectTo": [
+					"text.html"
+				],
+				"embeddedLanguages": {
+					"meta.embedded.block.ejs": "ejs",
+					"meta.embedded.block.javascript": "source.js"
+				}
+			},
+			{
+				"language": "env",
+				"scopeName": "source.env",
+				"path": "./syntaxes/env.tmLanguage.json"
+			},
+			{
+				"language": "handlebars",
+				"scopeName": "text.html.handlebars",
+				"path": "./syntaxes/handlebars.tmLanguage.json"
+			},
+			{
+				"language": "i3",
+				"scopeName": "source.i3",
+				"path": "./syntaxes/i3.tmLanguage.json"
+			},
+			{
+				"language": "json5",
+				"scopeName": "source.json5",
+				"path": "./syntaxes/json5.tmLanguage.json"
+			},
+			{
+				"language": "ninja",
+				"scopeName": "source.ninja",
+				"path": "./syntaxes/ninja.tmLanguage.json"
+			},
+			{
+				"language": "po",
+				"scopeName": "source.po",
+				"path": "./syntaxes/po.tmLanguage.json"
+			},
+			{
+				"language": "sxhkdrc",
+				"scopeName": "source.sxhkdrc",
+				"path": "./syntaxes/sxhkdrc.tmLanguage.json"
+			},
+			{
+				"language": "systemd-conf",
+				"scopeName": "source.systemd",
+				"path": "./syntaxes/systemd.tmLanguage.json"
+			},
+			{
+				"language": "terminfo",
+				"scopeName": "source.terminfo",
+				"path": "./syntaxes/terminfo.tmLanguage.json"
+			},
+			{
+				"language": "xdefaults",
+				"scopeName": "source.xdefaults",
+				"path": "./syntaxes/xdefaults.tmLanguage.json"
+			},
+			{
+				"language": "awk",
+				"scopeName": "source.awk",
+				"path": "./syntaxes/awk.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "html",
+				"path": "./snippets/ejs.code-snippets"
+			},
+			{
+				"language": "handlebars",
+				"path": "./snippets/handlebars.code-snippets"
+			}
+		],
+		"configurationDefaults": {
+			"files.associations": {
+				"*.ejs": "html"
+			},
+			"emmet.includeLanguages": {
+				"ejs": "html"
+			}
+		}
+	},
+	"devDependencies": {
+		"@types/mocha": "^9.1.1",
+		"@types/node": "^17.0.45",
+		"@types/vscode": "1.54.0",
+		"eslint": "^8.18.0",
+		"eslint-plugin-hyperupcall": "^0.1.0",
+		"prettier": "^2.7.1",
+		"typescript": "^4.7.4"
+	}
+}

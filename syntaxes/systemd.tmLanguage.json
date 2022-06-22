@@ -1,0 +1,242 @@
+{
+	"name": "systemd configuration file",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"begin": "^\\s*(CPUShares|StartupCPUShares|MemoryLimit|BlockIOAccounting|BlockIOWeight|StartupBlockIOWeight|BlockIODeviceWeight|BlockIOReadBandwidth|BlockIOWriteBandwidth|Capabilities)\\s*(=)[ \\t]*",
+			"end": "(?<!\\\\)\\n",
+			"beginCaptures": {
+				"1": {
+					"name": "invalid.deprecated"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#variables"
+				},
+				{
+					"include": "#quotedString"
+				},
+				{
+					"include": "#booleans"
+				},
+				{
+					"include": "#restartOptions"
+				},
+				{
+					"include": "#timeSpans"
+				},
+				{
+					"include": "#numbers"
+				}
+			]
+		},
+		{
+			"name": "meta.config-entry",
+			"begin": "^\\s*(Environment)\\s*(=)[ \\t]*",
+			"end": "(?<!\\\\)\\n",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.tag"
+				},
+				"2": {
+					"name": "keyword.operator.assignment"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"match": "(?<=\\G|[\\s\"'])([A-Za-z0-9\\_]+)(=)(?=[^\\s\"'])",
+					"captures": {
+						"1": {
+							"name": "variable.parameter"
+						},
+						"2": {
+							"name": "keyword.operator.assignment"
+						}
+					}
+				},
+				{
+					"include": "#variables"
+				},
+				{
+					"include": "#booleans"
+				},
+				{
+					"include": "#restartOptions"
+				},
+				{
+					"include": "#timeSpans"
+				},
+				{
+					"include": "#numbers"
+				}
+			]
+		},
+		{
+			"name": "meta.config-entry",
+			"begin": "^\\s*([\\w\\-\\.]+)\\s*(=)[ \\t]*",
+			"end": "(?<!\\\\)\\n",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.tag"
+				},
+				"2": {
+					"name": "keyword.operator.assignment"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#variables"
+				},
+				{
+					"include": "#quotedString"
+				},
+				{
+					"include": "#booleans"
+				},
+				{
+					"include": "#restartOptions"
+				},
+				{
+					"include": "#timeSpans"
+				},
+				{
+					"include": "#numbers"
+				}
+			]
+		},
+		{
+			"include": "#sections"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign",
+					"match": "^\\s*[#;].*\\n"
+				}
+			]
+		},
+		"sections": {
+			"patterns": [
+				{
+					"name": "entity.name.section",
+					"match": "^\\s*\\[(Automount|Bridge|DHCPServer|Distribution|Install|Link|Match|Mount|NetDev|Network|Output|Path|Partitions|Packages|Peer|Resolve|Service|Socket|Swap|Timer|Tunnel|Unit|VLAN)\\]"
+				},
+				{
+					"name": "entity.name.unknown-section",
+					"match": "\\s*\\[[\\w-]+\\]"
+				}
+			]
+		},
+		"timeSpans": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\b(?:\\d+(?:us(?:ec)?|ms(?:ec)?|s(?:ec|econds?)?|m(?:in|inutes?)?|h(?:r|ours?)?|d(?:ays?)?|w(?:eeks)?|M|months?|y(?:ears?)?)){1,}\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "(?<=\\s|=)\\d+(?:\\.\\d+)?(?=\\s|$)"
+				}
+			]
+		},
+		"quotedString": {
+			"patterns": [
+				{
+					"name": "string.quoted.single",
+					"begin": "(?<=\\G|\\s)'",
+					"end": "(?:(?<!\\\\)['\\n])",
+					"patterns": [
+						{
+							"name": "constant.character.escape",
+							"match": "\\\\(?:[abfnrtvs\\\\\"']|x[0-9A-Fa-f]{2}|[0-8]{3}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.double",
+					"begin": "(?<=\\G|\\s)\"",
+					"end": "(?:(?<!\\\\)[\"\\n])",
+					"patterns": [
+						{
+							"name": "constant.character.escape",
+							"match": "\\\\(?:[abfnrtvs\\\\\"']|x[0-9A-Fa-f]{2}|[0-8]{3}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})"
+						}
+					]
+				}
+			]
+		},
+		"booleans": {
+			"patterns": [
+				{
+					"name": "constant.language",
+					"match": "\\b(?<![-\\/\\.])(true|false|on|off|yes|no)(?![-\\/\\.])\\b"
+				}
+			]
+		},
+		"restartOptions": {
+			"patterns": [
+				{
+					"name": "constant.language",
+					"match": "\\b(?<![-\\/\\.])(no|always|on\\-(?:success|failure|abnormal|abort|watchdog))(?![-\\/\\.])\\b"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"match": "(\\$)([A-Za-z0-9\\_]+)\\b",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.variable"
+						},
+						"2": {
+							"name": "variable.other"
+						}
+					}
+				},
+				{
+					"match": "(\\$\\{)([A-Za-z0-9\\_]+)(\\})",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.variable"
+						},
+						"2": {
+							"name": "variable.other"
+						},
+						"3": {
+							"name": "punctuation.definition.variable"
+						}
+					}
+				},
+				{
+					"name": "constant.other.placeholder",
+					"match": "%%"
+				},
+				{
+					"name": "constant.other.placeholder",
+					"match": "%[aAbBCEfgGhHiIjJlLmMnNopPsStTuUvVwW]\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.systemd",
+	"uuid": "277f468c-7fcf-4987-9e55-51927eb0c911"
+}
