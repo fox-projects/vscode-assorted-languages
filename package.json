@@ -30,11 +30,6 @@
 		"panda",
 		"utils"
 	],
-	"activationEvents": [
-		"onLanguage:env",
-		"workspaceContains:**/*"
-	],
-	"icon": "images/icon.jpg",
 	"contributes": {
 		"languages": [
 			{
