@@ -29,13 +29,8 @@ Syntax highlighting for
 ## Acknowledgements
 
 - [vscode-awk](https://github.com/luggage66/vscode-awk) by luggage66 (MIT)
-- [comment-autocomplete](https://github.com/axetroy/vscode-comment-autocomplete) by axetroy (MIT)
-- [eslint-disable-snippets](https://github.com/drKnoxy/eslint-disable-snippets) by drKnoxy (MIT)
-- [stylelint-disable-snippets](https://github.com/hedinne/stylelint-disable-snippets) by hedinne (ISC)
-- [webpack-snippets](https://github.com/LiShiSangZi/webpack-snippets) by LiShiSangZi (MIT)
 - [vscode-dircolors](https://github.com/duniul/vscode-dircolors) by duniul (MIT)
 - [vscode-env](https://github.com/IronGeek/vscode-env) by IronGeek (MIT)
-- [vscode-sync-env](https://github.com/dongido001/vscode-sync-env) by dongido001 (MIT)
 - [terminfo.sublime-syntax](https://github.com/zgracem/terminfo.sublime-syntax) by zgracem (MIT)
 - [xresources](https://github.com/antcap96/xresources) by antcap96 (MIT)
 - [i3wm-syntax](https://github.com/dcasella/i3wm-syntax) by dcasella (Apache-2.0)
