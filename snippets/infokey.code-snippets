@@ -1,0 +1,128 @@
+{
+	"link-style": {
+		"prefix": "ls",
+		"body": "link-style",
+		"description": "Inserts link-style variable"
+	},
+	"active-link-style": {
+		"prefix": "als",
+		"body": "active-link-style",
+		"description": "Inserts active-link-style variable"
+	},
+	"match-style": {
+		"prefix": "ms",
+		"body": "match-style",
+		"description": "Inserts match-style variable"
+	},
+
+	"set-variable": {
+		"prefix": "sv",
+		"body": "set-variable",
+		"description": "Inserts set-variable variable"
+	},
+	"describe-variable": {
+		"prefix": "dv",
+		"body": "describe-variable",
+		"description": "Inserts describe-variable variable"
+	},
+	"automatic-footnotes": {
+		"prefix": "af",
+		"body": "automatic-footnotes",
+		"description": "Inserts automatic-footnotes variable"
+	},
+	"automatic-tiling": {
+		"prefix": "at",
+		"body": "automatic-tiling",
+		"description": "Inserts automatic-tiling variable"
+	},
+	"cursor-movement-scrolls": {
+		"prefix": "cms",
+		"body": "cursor-movement-scrolls",
+		"description": "Inserts cursor-movement-scrolls variable"
+	},
+	"errors-ring-bell": {
+		"prefix": "erb",
+		"body": "errors-ring-bell",
+		"description": "Inserts errors-ring-bell variable"
+	},
+	"follow-strategy": {
+		"prefix": "fs",
+		"body": "follow-strategy",
+		"description": "Inserts follow-strategy variable"
+	},
+	"gc-compressed-files": {
+		"prefix": "gcf",
+		"body": "gc-compressed-files",
+		"description": "Inserts gc-compressed-files variable"
+	},
+	"hide-note-references": {
+		"prefix": "hnr",
+		"body": "hide-note-references",
+		"description": "Inserts hide-note-references variable"
+	},
+	"highlight-searches": {
+		"prefix": "hs",
+		"body": "highlight-searches",
+		"description": "Inserts highlight-searches variable"
+	},
+	"infopath-no-defaults": {
+		"prefix": "ind",
+		"body": "infopath-no-defaults",
+		"description": "Inserts infopath-no-defaults variable"
+	},
+	"ISO-Latin": {
+		"prefix": "il",
+		"body": "ISO-Latin",
+		"description": "Inserts ISO-Latin variable"
+	},
+	"key-time": {
+		"prefix": "kt",
+		"body": "key-time",
+		"description": "Inserts key-time variable"
+	},
+	"min-search-length": {
+		"prefix": "msl",
+		"body": "min-search-length",
+		"description": "Inserts min-search-length variable"
+	},
+	"mouse": {
+		"prefix": "m",
+		"body": "mouse",
+		"description": "Inserts mouse variable"
+	},
+	"nodeline": {
+		"prefix": "n",
+		"body": "nodeline",
+		"description": "Inserts nodeline variable"
+	},
+	"scroll-behavior": {
+		"prefix": "sb",
+		"body": "scroll-behavior",
+		"description": "Inserts scroll-behavior variable"
+	},
+	"scroll-last-node": {
+		"prefix": "sln",
+		"body": "scroll-last-node",
+		"description": "Inserts scroll-last-node variable"
+	},
+	"scroll-step": {
+		"prefix": "ss",
+		"body": "scroll-step",
+		"description": "Inserts scroll-step variable"
+	},
+	"search-skip-screen": {
+		"prefix": "sss",
+		"body": "search-skip-screen",
+		"description": "Inserts search-skip-screen variable"
+	},
+	"show-index-match": {
+		"prefix": "sim",
+		"body": "show-index-match",
+		"description": "Inserts show-index-match variable"
+	},
+	"visible-bell": {
+		"prefix": "vb",
+		"body": "visible-bell",
+		"description": "Inserts visible-bell variable"
+	}
+}

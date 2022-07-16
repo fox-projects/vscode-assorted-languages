@@ -1,0 +1,45 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "infokey",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#numbers"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.infokey",
+				"match": "#.*"
+			}]
+		},
+		"variables": {
+			"patterns": [{
+				"name": "variable.name.infokey",
+				"match": "\\b((active-)?link-style|match-style|(set|describe)-variable|automatic-(footnotes|tiling)|cursor-movement-scrolls|errors-ring-bell|follow-strategy|gc-compressed-files|hide-note-references|highlight-searches|infopath-no-defaults|ISO-Latin|key-time|min-search-length|mouse|nodeline|scroll-(behaviou?r|last-node|step)|search-skip-screen|show-index-match|visible-bell)\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "variable.name.infokey",
+				"match": "\\b((bg)?(black|red|green|yellow|blue|magenta|cyan|white)|(bg)?nocolou?r|(no)?(underline|bold|blink|regular|standout)|O(n|ff)|remain|path)\\b"
+			}]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric.infokey",
+				"match": "\\b\\d+\\b"
+			}]
+		}
+	},
+	"scopeName": "source.infokey"
+}

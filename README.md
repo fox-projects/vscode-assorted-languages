@@ -18,6 +18,7 @@ Syntax highlighting for
 - env
 - Handlebars
 - i3
+- infokey
 - JSON5
 - Ninja
 - gettext
@@ -42,3 +43,4 @@ Syntax highlighting for
 - [vscode-systemd](https://github.com/hangxingliu/vscode-systemd) by hangxingliu (MIT)
 - [ejs-grammar](https://github.com/Digitalbrainstem/ejs-grammar) by Digitalbrainstem (MIT)
 - [vscode-handlebars](https://github.com/andrejunges/vscode-handlebars) by andrejunges (MIT)
+- [vscode-infokey-plugin](https://github.com/UI-Apps/vscode-infokey-plugin) by UI-Apps (MIT)

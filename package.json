@@ -114,6 +114,16 @@
 				"configuration": "./language-configuration/i3.language-configuration.json"
 			},
 			{
+				"id": "infokey",
+				"aliases": [
+					"infokey"
+				],
+				"extensions": [
+					"infokey"
+				],
+				"configuration": "./language-configuration/infokey.language-configuration.json"
+			},
+			{
 				"id": "json5",
 				"aliases": [
 					"JSON5",
@@ -247,6 +257,11 @@
 				"path": "./syntaxes/i3.tmLanguage.json"
 			},
 			{
+				"language": "infokey",
+				"scopeName": "source.infokey",
+				"path": "./syntaxes/infokey.tmLanguage.json"
+			},
+			{
 				"language": "json5",
 				"scopeName": "source.json5",
 				"path": "./syntaxes/json5.tmLanguage.json"
@@ -295,6 +310,10 @@
 			{
 				"language": "handlebars",
 				"path": "./snippets/handlebars.code-snippets"
+			},
+			{
+				"language": "infokey",
+				"path": "./snippets/infokey.code-snippets"
 			}
 		],
 		"configurationDefaults": {
