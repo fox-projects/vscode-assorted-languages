@@ -1,0 +1,38 @@
+{
+	"comments": {
+		"lineComment": "//",
+		"blockComment": ["/*", "*/"]
+	},
+	"brackets": [
+		["{", "}"],
+		["[", "]"],
+		["(", ")"],
+		["#(", ")#"],
+		["#{", "}#"]
+	],
+	"autoClosingPairs": [
+		{ "open": "{", "close": "}" },
+		{ "open": "[", "close": "]" },
+		{ "open": "(", "close": ")" },
+		{ "open": "#(", "close": ")#", "notIn": ["string", "comment"] },
+		{ "open": "#{", "close": "}#", "notIn": ["string", "comment"] },
+		{ "open": "\"", "close": "\"", "notIn": ["string"] },
+		{ "open": "'", "close": "'", "notIn": ["string", "comment"] },
+		{ "open": "/*", "close": "*/", "notIn": ["string"] }
+	],
+	"surroundingPairs": [
+		["{", "}"],
+		["[", "]"],
+		["(", ")"],
+		["\"", "\""],
+		["'", "'"],
+		["#(", ")#"],
+		["#{", "}#"],
+		["/*", "*/"]
+	],
+	"indentationRules": {
+		"increaseIndentPattern": "(?<!//.*)\\b(begin|namespace|forever|for|do|repeat|then|else|switch|case|default|try|anyexception|unprotected|class|record)\\b.*$",
+		"decreaseIndentPattern": "^\\s*\\b(else|elseif|end(if|for|try)|end|until|case|default|anyexception|unprotected)\\b",
+		"indentNextLinePattern": "^\\s*\\b(abstract|const|label|proc|static|type|var)\\b"
+	}
+}

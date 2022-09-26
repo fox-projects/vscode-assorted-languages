@@ -101,7 +101,18 @@
 					".hbs",
 					".tpl"
 				],
-				"configuration": "language-configuration/handlebars.language-configuration.json"
+				"configuration": "./language-configuration/handlebars.language-configuration.json"
+			},
+			{
+				"id": "hla",
+				"aliases": [
+					"High Level Assembly"
+				],
+				"extensions": [
+					".hla",
+					".hhf"
+				],
+				"configuration": "./language-configuration/hla.language-configuration.json"
 			},
 			{
 				"id": "i3",
@@ -250,6 +261,11 @@
 				"language": "handlebars",
 				"scopeName": "text.html.handlebars",
 				"path": "./syntaxes/handlebars.tmLanguage.json"
+			},
+			{
+				"language": "hla",
+				"scopeName": "source.hla",
+				"path": "./syntaxes/hla.tmLanguage.json"
 			},
 			{
 				"language": "i3",

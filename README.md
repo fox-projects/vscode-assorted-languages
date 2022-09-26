@@ -17,6 +17,7 @@ Syntax highlighting for
 - EJS
 - env
 - Handlebars
+- HLA
 - i3
 - infokey
 - JSON5
@@ -43,4 +44,5 @@ Syntax highlighting for
 - [vscode-systemd](https://github.com/hangxingliu/vscode-systemd) by hangxingliu (MIT)
 - [ejs-grammar](https://github.com/Digitalbrainstem/ejs-grammar) by Digitalbrainstem (MIT)
 - [vscode-handlebars](https://github.com/andrejunges/vscode-handlebars) by andrejunges (MIT)
+- [vscode-hla](https://github.com/GreenXenith/vscode-hla) by GreenXenith (MIT)
 - [vscode-infokey-plugin](https://github.com/UI-Apps/vscode-infokey-plugin) by UI-Apps (MIT)

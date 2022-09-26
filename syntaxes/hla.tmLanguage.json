@@ -1,0 +1,180 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "High Level Assembly",
+	"scopeName": "source.hla",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#x86"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.hla",
+					"match": "//.*"
+				},
+				{
+					"name": "comment.block.hla",
+					"begin": "(\\/\\*)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.comment.begin.hla"
+						}
+					},
+					"end": "(\\*\\/)",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.definition.comment.end.hla"
+						}
+					}
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.other.procedure.hla",
+					"match": "(?<!\\w)(@(?:a|abs|abstract|ae|align|alignstack|arb|arity|at|b|baseptype|basereg|basetype|be|boolean|bound|byte|c|cdecl|ceil|char|class|cos|cset|curdir|curlex|curobject|curoffset|date|debughla|defined|delete|dim|display|dword|e|elements|elementsize|enter|enumsize|env|eos|eval|exactlynchar|exactlyncset|exactlynichar|exactlyntomchar|exactlyntomcset|exactlyntomichar|exceptions|exp|external|extract|fast|filename|firstnchar|firstncset|firstnichar|floor|forward|fpureg|frame|g|ge|global|here|index|insert|int128|int16|int32|int64|int8|into|isalpha|isalphanum|isclass|isconst|isdigit|IsExternal|isfreg|islower|ismem|isreg|isreg16|isreg32|isreg8|isspace|istype|isupper|isxdigit|l|label|lastobject|le|leave|length|lex|linenumber|localoffset|localsyms|log|log10|lowercase|lword|match|match2|matchchar|matchcset|matchichar|matchid|matchintconst|matchistr|matchiword|matchnumericconst|matchrealconst|matchstr|matchstrconst|matchtoistr|matchtostr|matchword|max|min|mmxreg|na|nae|name|nb|nbe|nc|ne|ng|nge|nl|nle|no|noalignstack|nodisplay|noenter|noframe|noleave|norlesschar|norlesscset|norlessichar|normorechar|normorecset|normoreichar|nostackalign|nostorage|np|ns|ntomchar|ntomcset|ntomichar|nz|o|odd|offset|onechar|onecset|oneichar|oneormorechar|oneormorecset|oneormoreichar|oneormorews|optstrings|p|parmoffset|parms|pascal|pclass|pe|peekchar|peekcset|peekichar|peekistr|peekstr|peekws|po|pointer|pos|ptype|qword|random|randomize|read|real128|real32|real64|real80|reg|reg16|reg32|reg8|regex|returns|rindex|s|section|sin|size|sort|sqrt|stackalign|staticname|stdcall|strbrk|string|strset|strspan|substr|system|tab|tan|tbyte|text|thread|time|tokenize|tostring|trace|trim|type|typename|uns128|uns16|uns32|uns64|uns8|uppercase|uptochar|uptocset|uptoichar|uptoistr|uptostr|use|volatile|wchar|word|ws|wsoreos|wstheneos|wstring|xmmreg|z|zeroormorechar|zeroormorecset|zeroormoreichar|zeroormorews|zerooronechar|zerooronecset|zerooroneichar|zstring))(?!\\w)"
+				},
+				{
+					"name": "keyword.other.preprocessor.hla",
+					"match": "(?<!\\w)(#(?:append|asm|closeread|closewrite|else|elseif|emit|endasm|endfor|endif|endmacro|endmatch|endregex|endstring|endtext|endwhile|error|for|id|if|include|includeonce|keyword|linker|macro|match|openread|openwrite|print|regex|return|rw|string|system|terminator|text|while|write))(?!\\w)"
+				},
+				{
+					"name": "keyword.control.hla",
+					"match": "(?<!\\w)(abstract|align|anyexception|begin|break|breakif|call|case|class|continue|continueif|default|do|downto|dup|else|elseif|end|endclass|endconst|endfor|endif|endlabel|endproc|endreadonly|endrecord|endstatic|endstorage|endswitch|endtry|endtype|endunion|endval|endvar|endwhile|enter|exception|exit|exitif|external|f2xml|felse|fnclex|fninit|fnsave|fnstcw|fnstenv|fnstsw|for|foreach|forever|forward|frstor|fsave|fstenv|haddpd|haddps|hsubpd|hsubps|if|in|inherits|iterator|label|lazy|leave|method|monitor|mwait|name|namespace|overloads|override|overrides|pause|proc|procedure|program|raise|record|regex|repeat|result|returns|segment|std|storage|switch|sysenter|sysexit|test|then|this|to|try|type|union|unit|unprotected|until|verr|verw|vmt|wait|welse|while|wrmsr)(?!\\w)"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.hla",
+					"match": "(?<!\\w)(boolean|char|cset|enum|[w|z]?string|(t)?byte|int(8|16|32|64|128)|uns(8|16|32|64|128)|real(32|64|80)|(d|q|l)?word|thunk|pointer)(?!\\w)"
+				},
+				{
+					"name": "storage.modifier.hla",
+					"match": "(?<!\\w)(const|readonly|static|text|val|valres|var)(?!\\w)"
+				},
+				{
+					"name": "constant.language.hla",
+					"match": "(?<!\\w)(true|false|null|NULL)(?!\\w)"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.hla",
+					"match": "(?<!\\w)((_A|a)lignof|_Generic|offsetof|(_S|s)tatic_assert|sizeof|typeof)(?!\\w)"
+				},
+				{
+					"name": "keyword.operator.hla",
+					"match": "[\\*/+\\-<>=?&|^!@:;]"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.hla",
+					"match": "(?<!\\w)(?:[#uU]?(?:(\\$[0-9a-fA-F_]+)|(%[01_]+)|(\\d[\\d_]*?(?:\\.[\\d_]+?(?:e[+-]\\d+)?)?)))(?!\\w)",
+					"captures": {
+						"1": {
+							"name": "constant.numeric.hexadecimal.hla"
+						},
+						"2": {
+							"name": "constant.numeric.binary.hla"
+						},
+						"3": {
+							"name": "constant.numeric.real.hla"
+						}
+					}
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.hla",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.hla",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.hla",
+					"begin": "[uU]?'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.hla",
+							"match": "\\\\."
+						}
+					]
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"match": "([a-zA-Z_][\\w_]+)(?=\\([^)]*?\\))",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.hla",
+							"patterns": [
+								{
+									"include": "#keywords"
+								},
+								{
+									"include": "#operators"
+								},
+								{
+									"include": "#x86"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"x86": {
+			"patterns": [
+				{
+					"name": "keyword.operator.registers.hla",
+					"match": "(?<!\\w)((ah|al|ax|eax|rax)|(bh|bl|bx|ebx|rbx)|(ch|cl|cx|ecx|rcx)|(dh|dl|dx|edx|rdx)|(si|esi)|(di|edi)|(bp|ebp)|(sp|esp)|cr[0-7]+|([c-g]|s)seg|dr[0-7]+|dx:ax|edx:eax|[x]?mm[0-7]+|st[0-7]+)(?!\\w)"
+				},
+				{
+					"name": "keyword.operator.instructions.hla",
+					"match": "(?<!\\w)(aaa|aad|aam|aas|adc|add|addpd|addps|adds|addss|addsubpd|addsubps|and|andnpd|andnps|andpd|andps|arpl|bound|bsf|bsr|bswap|bt|btc|btr|bts|cbw|cdq|clc|cld|clflush|cli|clts|cmc|cmova|cmovae|cmovb|cmovbe|cmovc|cmove|cmovg|cmovge|cmovl|cmovle|cmovna|cmovnae|cmovnb|cmovnbe|cmovnc|cmovne|cmovng|cmovnge|cmovnl|cmovnle|cmovno|cmovnp|cmovns|cmovnz|cmovo|cmovp|cmovpe|cmovpo|cmovs|cmovz|cmp|cmpeqpd|cmpeqps|cmpeqsd|cmpeqss|cmplepd|cmpleps|cmplesd|cmpless|cmpltpd|cmpltps|cmpltsd|cmpltss|cmpneqpd|cmpneqps|cmpneqsd|cmpneqss|cmpnlepd|cmpnleps|cmpnlesd|cmpnless|cmpnltpd|cmpnltps|cmpnltsd|cmpnltss|cmpordpd|cmpordps|cmpordsd|cmpordss|cmppd|cmpps|cmpsb|cmpsd|cmpss|cmpsw|cmpunordpd|cmpunordps|cmpunordsd|cmpunordss|cmpxchg|cmpxchg8b|comisd|comiss|cpuid|cvtdq2pd|cvtdq2ps|cvtpd2dq|cvtpd2pi|cvtpd2ps|cvtpi2pd|cvtpi2ps|cvtps2dq|cvtps2pd|cvtps2pi|cvtsd2si|cvtsd2ss|cvtsi2sd|cvtsi2ss|cvtss2sd|cvtss2si|cvttpd2dq|cvttpd2pi|cvttps2dq|cvttps2pi|cvttsd2si|cvttss2si|cwd|cwde|daa|das|dec|div|divpd|divps|divsd|divss|emms|fabs|fadd|faddp|fbld|fbstp|fchs|fclex|fcmova|fcmovae|fcmovb|fcmovbe|fcmove|fcmovna|fcmovnae|fcmovnb|fcmovnbe|fcmovne|fcmovnu|fcmovu|fcom|fcomi|fcomip|fcomp|fcompp|fcos|fdecstp|fdiv|fdivp|fdivr|fdivrp|ffree|fiadd|ficom|ficomp|fidiv|fidivr|fild|fimul|fincstp|finit|fist|fistp|fisttp|fisub|fisubr|fld|fld1|fldcw|fldenv|fldl2e|fldl2t|fldlg2|fldln2|fldpi|fldz|fmul|fmulp|fnop|fpatan|fprem|fprem1|fptan|frndint|fscale|fsin|fsincos|fsqrt|fst|fstcw|fstp|fstsw|fsub|fsubp|fsubr|fsubrp|ftst|fucom|fucomi|fucomip|fucomp|fucompp|fwait|fxam|fxch|fxrstor|fxsave|fxtract|fyl2x|fyl2xp1|hlt|idiv|imod|imul|inc|insb|insd|insw|int|intmul|into|invd|invlpg|iret|iretd|ja|jae|jb|jbe|jc|jcxz|je|jecxz|jf|jg|jge|jl|jle|jmp|jna|jnae|jnb|jnbe|jnc|jne|jng|jnge|jnl|jnle|jno|jnp|jns|jnz|jo|jp|jpe|jpo|js|jt|jz|lahf|lar|lddqu|ldmxcsr|lds|lea|les|lfence|lfs|lgdt|lgs|lidt|lldt|lmsw|lock.adc|lock.add|lock.and|lock.btc|lock.btr|lock.bts|lock.cmpxchg|lock.dec|lock.inc|lock.neg|lock.not|lock.or|lock.sbb|lock.sub|lock.xadd|lock.xchg|lock.xor|lodsb|lodsd|lodsw|loop|loope|loopne|loopnz|loopz|lsl|lss|ltreg|maskmovdqu|maskmovq|maxpd|maxps|maxsd|maxss|mfence|minpd|minps|minsd|minss|mod|mov|movapd|movaps|movd|movddup|movdq2q|movdqa|movdqu|movhlps|movhpd|movhps|movlhps|movlpd|movlps|movmskpd|movmskps|movntdq|movnti|movntpd|movntps|movntq|movq|movq2dq|movsb|movsd|movshdup|movsldup|movss|movsw|movsx|movupd|movups|movzx|mul|mulpd|mulps|mulsd|mulss|neg|nop|not|or|orpd|orps|out|outsb|outsd|outsw|packssdw|packsswb|packuswb|paddb|paddd|paddq|paddsb|paddsw|paddusb|paddusw|paddw|pand|pandn|pavgb|pavgw|pcmpeqb|pcmpeqd|pcmpeqw|pcmpgtb|pcmpgtd|pcmpgtw|pextrw|pinsrw|pmaddwd|pmaxsw|pmaxub|pminsw|pminub|pmovmskb|pmulhuw|pmulhw|pmullw|pmuludq|pop|popa|popad|popf|popfd|por|prefetchnta|prefetcht0|prefetcht1|prefetcht2|psadbw|pshufd|pshufhw|pshuflw|pshufw|pslld|pslldq|psllq|psllw|psrad|psraw|psrld|psrldq|psrlq|psrlw|psubb|psubd|psubq|psubsb|psubsw|psubusb|psubusw|psubw|punpckhbw|punpckhdq|punpckhqdq|punpckhwd|punpcklbw|punpckldq|punpcklqdq|punpcklwd|push|pusha|pushad|pushd|pushf|pushfd|pushw|pxor|rcl|rcpps|rcpss|rcr|rdmsr|rdpmc|rdtsc|rep.insb|rep.insd|rep.insw|rep.movsb|rep.movsd|rep.movsw|rep.outsb|rep.outsd|rep.outsw|rep.stosb|rep.stosd|rep.stosw|repe.cmpsb|repe.cmpsd|repe.cmpsw|repe.scasb|repe.scasd|repe.scasw|repne.cmpsb|repne.cmpsd|repne.cmpsw|repne.scasb|repne.scasd|repne.scasw|repnz.cmpsb|repnz.cmpsd|repnz.cmpsw|repnz.scasb|repnz.scasd|repnz.scasw|repz.cmpsb|repz.cmpsd|repz.cmpsw|repz.scasb|repz.scasd|repz.scasw|ret|rol|ror|rsm|rsqrtps|rsqrtss|sahf|sal|sar|sbb|scasb|scasd|scasw|seta|setae|setb|setbe|setc|sete|setg|setge|setl|setle|setna|setnae|setnb|setnbe|setnc|setne|setng|setnge|setnl|setnle|setno|setnp|setns|setnz|seto|setp|setpe|setpo|sets|setz|sfence|sgdt|shl|shld|shr|shrd|shufpd|shufps|sidt|sldt|smsw|sqrtpd|sqrtps|sqrtsd|sqrtss|stc|sti|stmxcsr|stosb|stosd|stosw|streg|sub|subpd|subps|subsd|subss|ucomisd|ucomiss|ud2|unpckhpd|unpckhps|unpcklpd|unpcklps|wbinvd|xadd|xchg|xlat|xor|xorpd|xorps)(?!\\w)"
+				}
+			]
+		}
+	}
+}
