@@ -1,0 +1,9 @@
+[project]
+ecosystem = 'unknown'
+form = 'lib'
+for = 'anyone'
+status = 'maintained'
+
+[discovery]
+categories = []
+tags = []

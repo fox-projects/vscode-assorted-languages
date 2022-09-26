@@ -1,5 +1,6 @@
-# foxomate start
-* text=auto eol=lf
-bake linguist-generated
-# foxomate end
-*.json linguist-detectable
+# foxxo start
+* text=auto eol=lf 
+bake linguist-generated 
+# foxxo end
+
+*.json linguist-detectable 
