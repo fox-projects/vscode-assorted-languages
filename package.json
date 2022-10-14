@@ -135,6 +135,16 @@
 				"configuration": "./language-configuration/infokey.language-configuration.json"
 			},
 			{
+				"id": "inputrc",
+				"aliases": [
+					"inputrc"
+				],
+				"extensions": [
+					"inputrc"
+				],
+				"configuration": "./language-configuration/inputrc.language-configuration.json"
+			},
+			{
 				"id": "json5",
 				"aliases": [
 					"JSON5",
@@ -276,6 +286,11 @@
 				"language": "infokey",
 				"scopeName": "source.infokey",
 				"path": "./syntaxes/infokey.tmLanguage.json"
+			},
+			{
+				"language": "inputrc",
+				"scopeName": "source.inputrc",
+				"path": "./syntaxes/inputrc.tmLanguage.json"
 			},
 			{
 				"language": "json5",

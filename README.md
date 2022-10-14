@@ -8,6 +8,7 @@ Snippets for
 
 - EJS
 - Handlebars
+- infokey
 
 Syntax highlighting for
 
@@ -20,6 +21,7 @@ Syntax highlighting for
 - HLA
 - i3
 - infokey
+- inputrc
 - JSON5
 - Ninja
 - gettext
