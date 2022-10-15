@@ -15,7 +15,15 @@
 #
 # Learn more about it [on GitHub](https://github.com/hyperupcall/bake)
 
-__global_bake_version='1.10.1'
+__global_bake_version='1.11.1'
+
+if [ "$BAKE_INTERNAL_ONLY_VERSION" = 'yes' ]; then
+	# This is unused, but keep it here just in case
+	# shellcheck disable=SC2034
+	BAKE_INTERNAL_ONLY_VERSION_SUCCESS='yes'
+
+	return 0
+fi
 
 if [ "$0" != "${BASH_SOURCE[0]}" ] && [ "$BAKE_INTERNAL_CAN_SOURCE" != 'yes' ]; then
 	printf '%s\n' 'Error: This file should not be sourced' >&2
@@ -31,7 +39,7 @@ bake.die() {
 	else
 		__bake_error 'Exiting'
 	fi
-	__bake_print_big '<- ERROR'
+	__bake_print_big --show-time '<- ERROR'
 
 	__bake_print_stacktrace
 
@@ -141,8 +149,7 @@ bake.cfg() {
 		;;
 	big-print)
 		case $value in
-			yes|no) __bake_internal_warn "Passing either 'yes' or 'no' as a value for 'bake.cfg big-print' is deprecated. Instead, use either 'on' or 'off'" ;;
-			on|off) ;;
+			yes|no|on|off) __bake_internal_warn "Passing any once-valid value to 'bake.cfg big-print' is deprecated. Instead, use function comments" ;;
 			*) __bake_internal_bigdie "Config property '$cfg' accepts only either 'on' or 'off'" ;;
 		esac
 		;;
@@ -184,7 +191,7 @@ __bake_print_stacktrace() {
 __bake_trap_err() {
 	local error_code=$?
 
-	__bake_print_big "<- ERROR"
+	__bake_print_big --show-time '<- ERROR'
 	__bake_internal_error "Your Bakefile did not exit successfully (exit code $error_code)"
 	__bake_print_stacktrace
 
@@ -286,6 +293,66 @@ __bake_error() {
 	fi
 } >&2
 
+
+# @description Tests if the './bake' file should be replaced. It should only
+# be replaced if we're not in an interactive Git context
+# @internal
+__bake_should_replace_bakescript() {
+	local dir="$BAKE_ROOT"
+	while [ ! -d "$dir/.git" ] && [[ -n "$dir" ]]; do
+		dir=${dir%/*}
+	done
+
+	if [ -d "$dir/.git" ]; then
+		# ref: https://github.com/git/git/blob/d420dda0576340909c3faff364cfbd1485f70376/wt-status.c#L1749
+		# ref2: https://github.com/Byron/gitoxide/blob/375051fa97d79f95fa7179b536e616c4aefd88e2/git-repository/src/repository/state.rs#L8
+		local file=
+		for file in {rebase-apply/applying,rebase-apply/rebasing,rebase-apply,rebase-merge/interactive,rebase-merge,CHERRY_PICK_HEAD,MERGE_HEAD,BISECT_LOG,REVERT_HEAD}; do
+			if [ -f "$dir/.git/$file" ]; then
+				return 1
+			fi
+		done; unset -v file
+	fi
+
+	return 0
+}
+
+# @description Prepares internal variables for time setting
+# @internal
+__bake_time_prepare() {
+	if ((BASH_VERSINFO[0] >= 5)); then
+		__bake_global_timestart=$EPOCHSECONDS
+	fi
+}
+
+# @description Determines total approximate execution time of a task
+# @set string REPLY
+# @internal
+__bake_time_get_total_pretty() {
+	unset -v REPLY; REPLY=
+
+	if ((BASH_VERSINFO[0] >= 5)); then
+		local timediff=$((EPOCHSECONDS - __bake_global_timestart))
+		if ((timediff < 1)); then
+			return
+		fi
+
+		local seconds=$((timediff % 60))
+		local minutes=$((timediff / 60 % 60))
+		local hours=$((timediff / 3600 % 60))
+
+		REPLY="${seconds}s"
+
+		if ((minutes > 0)); then
+			REPLY="${minutes}m $REPLY"
+		fi
+
+		if ((hours > 0)); then
+			REPLY="${hours}h $REPLY"
+		fi
+	fi
+}
+
 # @description Parses the configuration for functions embeded in comments. This properly
 # parses inherited config from the 'init' function
 # @set string __bake_config_docstring
@@ -294,14 +361,6 @@ __bake_error() {
 # @internal
 __bake_parse_task_comments() {
 	local task_name="$1"
-
-	declare -g __bake_config_docstring=
-	declare -ga __bake_config_watchexec_args=()
-	declare -gA __bake_config_map=(
-		[stacktrace]='off'
-		[big-print]='on'
-		[pedantic-cd]='off'
-	)
 
 	local tmp_docstring=
 	local -a tmp_watch_args=()
@@ -426,11 +485,20 @@ __bake_print_tasks() {
 # @arg $1 string Text to print
 # @internal
 __bake_print_big() {
-	local print_text="$1"
-
-	if [ "$__bake_cfg_big_print" = 'off' ]; then
+	if [ "${__bake_config_map[big-print]}" = 'off' ]; then
 		return
 	fi
+
+	if [ "$1" = '--show-time' ]; then
+		local flag_show_time='yes'
+		local print_text="$2"
+	else
+		local flag_show_time='no'
+		local print_text="$1"
+	fi
+
+	__bake_time_get_total_pretty
+	local time_str=" (time: $REPLY) "
 
 	# shellcheck disable=SC1007
 	local _stty_height= _stty_width=
@@ -451,6 +519,9 @@ __bake_print_big() {
 	# shellcheck disable=SC2183
 	printf -v separator_text '%*s' $((_stty_width - ${#print_text} - 1))
 	printf -v separator_text '%s' "${separator_text// /=}"
+	if [[ "$flag_show_time" == 'yes' && -n "$time_str" ]]; then
+		separator_text="${separator_text::5}${time_str}${separator_text:5+${#time_str}:${#separator_text}}"
+	fi
 	if __bake_is_color; then
 		printf '\033[1m%s %s\033[0m\n' "$print_text" "$separator_text"
 	else
@@ -471,7 +542,7 @@ __bake_parse_args() {
 	-f)
 		BAKE_FILE=$2
 		if [ -z "$BAKE_FILE" ]; then
-			__bake_internal_die "A value was not specified for for flag '-f"
+			__bake_internal_die "A value was not specified for for flag '-f'"
 		fi
 		((total_shifts += 2))
 		if ! shift 2; then
@@ -492,7 +563,7 @@ __bake_parse_args() {
 		fi
 
 		if [[ ! -v 'BAKE_INTERNAL_NO_WATCH_OVERRIDE' ]]; then
-			FLAG_WATCH='yes'
+			BAKE_FLAG_WATCH='yes'
 		fi
 		;;
 	-v)
@@ -550,10 +621,6 @@ __bake_parse_args() {
 # @description Main function
 # @internal
 __bake_main() {
-	bake.cfg stacktrace 'off'
-	bake.cfg big-print 'on'
-	bake.cfg pedantic-task-cd 'off'
-
 	# Environment and configuration boilerplate
 	set -ETeo pipefail
 	shopt -s dotglob extglob globasciiranges globstar lastpipe shift_verbose
@@ -566,8 +633,8 @@ __bake_main() {
 	declare -ga __bake_args_original=("$@")
 
 	# Parse arguments
-	# Set `BAKE_{ROOT,FILE}`
-	BAKE_ROOT=; BAKE_FILE=; FLAG_WATCH=
+	# Set `BAKE_{ROOT,FILE,FLAG_WATCH}`
+	BAKE_ROOT=; BAKE_FILE=; BAKE_FLAG_WATCH=
 	__bake_parse_args "$@"
 	if ! shift $REPLY; then
 		__bake_internal_die 'Failed to shift'
@@ -577,32 +644,33 @@ __bake_main() {
 	# shellcheck disable=SC1007
 	local __bake_key= __bake_value= __bake_arg=
 	for __bake_arg; do case $__bake_arg in
-		*=*)
-			IFS='=' read -r __bake_key __bake_value <<< "$__bake_arg"
+	*=*)
+		IFS='=' read -r __bake_key __bake_value <<< "$__bake_arg"
 
-			# breaking: remove in v2
-			# If 'key=value' is passed, create global varaible $value
-			declare -g "$__bake_key"
-			local -n __bake_variable="$__bake_key"
-			__bake_variable="$__bake_value"
+		# If 'key=value' is passed, create global variable $value
+		declare -g "$__bake_key"
+		local -n __bake_variable="$__bake_key"
+		__bake_variable="$__bake_value"
 
-			# If 'key=value' is passed, create global varaible $value_key
-			declare -g "var_$__bake_key"
-			local -n __bake_variable="var_$__bake_key"
-			__bake_variable="$__bake_value"
+		# If 'key=value' is passed, create global variable $value_key
+		declare -g "var_$__bake_key"
+		local -n __bake_variable="var_$__bake_key"
+		__bake_variable="$__bake_value"
 
-			if ! shift; then
-				__bake_internal_die 'Failed to shift'
-			fi
-			;;
-		*) break
+		if ! shift; then
+			__bake_internal_die 'Failed to shift'
+		fi
+		;;
+	*)
+		break
+		;;
 	esac done; unset -v __bake_arg
 	unset -v __bake_key __bake_value
 	unset -vn __bake_variable
 
 	local __bake_task="$1"
 	if [ -z "$__bake_task" ]; then
-		__bake_internal_error "No valid task supplied"
+		__bake_internal_error 'No valid task supplied'
 		__bake_print_tasks
 		exit 1
 	fi
@@ -612,7 +680,15 @@ __bake_main() {
 
 	declare -ga __bake_args_userflags=("$@")
 
-	if [ "$FLAG_WATCH" = 'yes' ]; then
+	declare -g __bake_config_docstring=
+	declare -ga __bake_config_watchexec_args=()
+	declare -gA __bake_config_map=(
+		[stacktrace]='off'
+		[big-print]='on'
+		[pedantic-cd]='off'
+	)
+
+	if [ "$BAKE_FLAG_WATCH" = 'yes' ]; then
 		if ! command -v watchexec &>/dev/null; then
 			__bake_internal_die "Executable not found: 'watchexec'"
 		fi
@@ -632,19 +708,17 @@ __bake_main() {
 		if declare -f task."$__bake_task" >/dev/null 2>&1; then
 			__bake_parse_task_comments "$__bake_task"
 
-			bake.cfg stacktrace "${__bake_config_map[stacktrace]}"
-			bake.cfg big-print "${__bake_config_map[big-print]}"
-			bake.cfg pedantic-task-cd "${__bake_config_map[pedantic-cd]}"
-
 			__bake_print_big "-> RUNNING TASK '$__bake_task'"
 
 			if declare -f init >/dev/null 2>&1; then
 				init "$__bake_task"
 			fi
 
+			__bake_time_prepare
+
 			task."$__bake_task" "${__bake_args_userflags[@]}"
 
-			__bake_print_big "<- DONE"
+			__bake_print_big --show-time "<- DONE"
 		else
 			__bake_internal_error "Task '$__bake_task' not found"
 			__bake_print_tasks
