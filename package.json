@@ -250,6 +250,7 @@
 				"path": "./syntaxes/dircolors.tmLanguage.json"
 			},
 			{
+				"language": "ejs",
 				"scopeName": "text.html.ejs",
 				"path": "./syntaxes/ejs.tmLanguage.json",
 				"injectTo": [
