@@ -20,15 +20,12 @@
 		"url": "https://edwinkofler.com"
 	},
 	"categories": [
-		"Snippets",
-		"Programming Languages"
+		"Programming Languages",
+		"Snippets"
 	],
 	"keywords": [
 		"Linux",
-		"Systemd",
-		"Configurations",
-		"panda",
-		"utils"
+		"systemd"
 	],
 	"contributes": {
 		"languages": [
@@ -40,7 +37,8 @@
 				],
 				"extensions": [
 					".awk",
-					".gawk"
+					".gawk",
+					".mawk"
 				],
 				"configuration": "./language-configuration/awk.language-configuration.json"
 			},
@@ -335,7 +333,7 @@
 		],
 		"snippets": [
 			{
-				"language": "html",
+				"language": "ejs",
 				"path": "./snippets/ejs.code-snippets"
 			},
 			{
