@@ -25,6 +25,7 @@ Syntax highlighting for
 - JSON5
 - Ninja
 - gettext
+- [STOL](https://ntrs.nasa.gov/citations/19780014834) (Systems Test and Operation Language)
 - sxhkdrc
 - systemd
 - terminfo

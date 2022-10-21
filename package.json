@@ -187,6 +187,16 @@
 				"configuration": "./language-configuration/sxhkdrc.language-configuration.json"
 			},
 			{
+				"id": "stol",
+				"aliases": [
+					"stol"
+				],
+				"extensions": [
+					".stol"
+				],
+				"configuration": "./language-configuration/stol.language-configuration.json"
+			},
+			{
 				"id": "systemd-conf",
 				"aliases": [
 					"Systemd Configuration",
@@ -310,6 +320,11 @@
 				"language": "sxhkdrc",
 				"scopeName": "source.sxhkdrc",
 				"path": "./syntaxes/sxhkdrc.tmLanguage.json"
+			},
+			{
+				"language": "stol",
+				"scopeName": "source.stol",
+				"path": "./syntaxes/stol.tmLanguage.json"
 			},
 			{
 				"language": "systemd-conf",

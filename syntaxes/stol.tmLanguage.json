@@ -1,0 +1,118 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "stol",
+	"scopeName": "source.stol",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"match": "-",
+					"name": "keyword.operator.c"
+				}
+			]
+		},
+		"number": {
+			"patterns": [
+				{
+					"match": "[E0-9.]+",
+					"name": "constant.numeric.decimal.stol"
+				},
+				{
+					"begin": "B'",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.other.unit.binary.stol"
+						}
+					},
+					"end": "'",
+					"endCaptures": {
+						"0": {
+							"name": "keyword.other.unit.binary.stol"
+						}
+					},
+					"name": "constant.numeric.binary.stol",
+					"patterns": [
+						{
+							"match": "[0-9]*"
+						}
+					]
+				},
+				{
+					"begin": "O'",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.other.unit.octal.stol"
+						}
+					},
+					"end": "'",
+					"endCaptures": {
+						"0": {
+							"name": "keyword.other.unit.octal.stol"
+						}
+					},
+					"name": "constant.numeric.octal.stol",
+					"patterns": [
+						{
+							"match": "[0-9]*"
+						}
+					]
+				},
+				{
+					"begin": "X'",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.other.unit.hexadecimal.stol"
+						}
+					},
+					"end": "'",
+					"endCaptures": {
+						"0": {
+							"name": "keyword.other.unit.hexadecimal.stol"
+						}
+					},
+					"name": "constant.numeric.hexadecimal.stol",
+					"patterns": [
+						{
+							"match": "[0-9][A-F]*"
+						}
+					]
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "string.quoted.double.stol"
+						}
+					},
+					"end": "'",
+					"endCaptures": {
+						"0": {
+							"name": "string.quoted.double.stol"
+						}
+					},
+					"name": "constant.numeric.hexadecimal.stol",
+					"patterns": [
+						{
+							"match": "[0-9][A-F]*"
+						}
+					]
+				}
+			]
+		}
+	}
+}
