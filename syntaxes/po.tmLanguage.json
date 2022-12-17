@@ -1,5 +1,4 @@
 {
-	"comment": "\nTODO:  Command for copy original to untranslated, label as fuzzy, remove fuzzy, next fuzzy etc\nCreate meta scope for each entry\n\t\t",
 	"fileTypes": ["po", "pot", "potx"],
 	"keyEquivalent": "^~G",
 	"name": "Gettext",
