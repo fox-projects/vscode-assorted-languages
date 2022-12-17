@@ -250,7 +250,6 @@
 				"path": "./syntaxes/dircolors.tmLanguage.json"
 			},
 			{
-				"language": "ejs",
 				"scopeName": "text.html.ejs",
 				"path": "./syntaxes/ejs.tmLanguage.json",
 				"injectTo": [
@@ -334,7 +333,7 @@
 		],
 		"snippets": [
 			{
-				"language": "ejs",
+				"language": "html",
 				"path": "./snippets/ejs.code-snippets"
 			},
 			{
