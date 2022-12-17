@@ -2,6 +2,8 @@
 
 Never worry about syntax highlighting for miscellaneous files again!
 
+Extension icon by Pierre Bamin on [Unsplash](https://unsplash.com/photos/BFvNJXf2rpg).
+
 ## Usage
 
 Snippets for
