@@ -2,8 +2,6 @@
 
 Never worry about syntax highlighting for miscellaneous files again!
 
-Extension icon by Pierre Bamin on [Unsplash](https://unsplash.com/photos/BFvNJXf2rpg).
-
 ## Usage
 
 Snippets for
@@ -50,3 +48,5 @@ Syntax highlighting for
 - [vscode-handlebars](https://github.com/andrejunges/vscode-handlebars) by andrejunges (MIT)
 - [vscode-hla](https://github.com/GreenXenith/vscode-hla) by GreenXenith (MIT)
 - [vscode-infokey-plugin](https://github.com/UI-Apps/vscode-infokey-plugin) by UI-Apps (MIT)
+
+Extension icon by Pierre Bamin on [Unsplash](https://unsplash.com/photos/BFvNJXf2rpg).
