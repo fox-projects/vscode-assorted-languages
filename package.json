@@ -2,7 +2,7 @@
 	"name": "vscode-assorted-languages",
 	"displayName": "Assorted Languages",
 	"description": "Syntax Highlighting for an assortment of languages",
-	"version": "0.15.1",
+	"version": "0.15.2",
 	"publisher": "EdwinKofler",
 	"icon": "assets/icon.png",
 	"engines": {
