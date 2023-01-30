@@ -1,0 +1,356 @@
+{
+	"$schema": "https://cdn.rawgit.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Automake",
+	"scopeName": "source.automake",
+	"fileTypes": ["am", "am.inc", "Makefile.in"],
+	"repository": {
+		"escaped-char": {
+			"comment": "Copy of Makefile",
+			"name": "constant.character.escape.makefile",
+			"match": "\\\\.",
+			"patterns": []
+		},
+		"variable-reference": {
+			"comment": "Copy of Makefile",
+			"begin": "\\$\\(",
+			"end": "\\)",
+			"name": "string.interpolated.makefile",
+			"contentName": "variable.other.makefile",
+			"patterns": [
+				{
+					"include": "$self"
+				},
+				{
+					"name": "meta.scope.function.makefile",
+					"begin": "\n\t\t\t\t\t\t\t(?<=\\$\\()(addprefix|addsuffix|and|basename|call|dir|error|eval|file|filter|filter-out|findstring|firstword|flavor|foreach|guile|if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|value|warning|wildcard|word|words)\\b",
+					"end": "(?=\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "support.function.makefile"
+						}
+					},
+					"contentName": "string.interpolated.makefile",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "string.other.substitution.makefile",
+					"match": "(:)[a-zA-Z0-9_%.]+(=)[a-zA-Z0-9_%.]+",
+					"captures": {
+						"1": {
+							"name": "keyword.operator.substitution.makefile"
+						},
+						"2": {
+							"name": "keyword.operator.substitution.makefile"
+						}
+					}
+				}
+			]
+		},
+		"automatic-variable": {
+			"comment": "Copy of Makefile",
+			"name": "variable.language.makefile",
+			"match": "\\$([@%<?^+*]|\\([@*%<^?][DF]\\))",
+			"patterns": []
+		},
+		"shell-variable-reference": {
+			"comment": "Copy of Makefile",
+			"begin": "\\$\\{",
+			"end": "\\}",
+			"contentName": "variable.other.shell.makefile",
+			"patterns": []
+		},
+		"simple-variable": {
+			"name": "variable.other.shell.makefile",
+			"match": "\\$\\$?\\w+",
+			"patterns": []
+		},
+		"variables": {
+			"patterns": [
+				{
+					"include": "#shell-variable-variable"
+				},
+				{
+					"include": "#variable-reference"
+				},
+				{
+					"include": "#simple-variable"
+				}
+			]
+		},
+		"double-quoted-string": {
+			"comment": "Copy of Makefile",
+			"name": "string.quoted.double.makefile",
+			"begin": "\\\"",
+			"end": "\\\"",
+			"patterns": [
+				{
+					"include": "#escaped-char"
+				}
+			]
+		},
+		"single-quoted-string": {
+			"comment": "Copy of Makefile",
+			"name": "string.quoted.single.makefile",
+			"begin": " end: ",
+			"patterns": [
+				{
+					"include": "#escaped-char"
+				}
+			]
+		},
+		"backtick-subshell": {
+			"comment": "Copy of Makefile",
+			"begin": "`",
+			"end": "`",
+			"name": "string.interpolated.backtick.makefile",
+			"patterns": [
+				{
+					"include": "source.shell"
+				},
+				{
+					"include": "#variables"
+				}
+			]
+		},
+		"substitution": {
+			"comment": "Substitutions from AC_SUBST",
+			"name": "string.interpolated.substitution.automake",
+			"match": "@\\w+@",
+			"patterns": []
+		},
+		"no-subst-comment": {
+			"comment": "Lines starting with ## are not copied into Makefile.in, and no substitutions are\n\t\t\t\t\tperformed",
+			"name": "comment.line.double-number-sign.automake",
+			"begin": "^##",
+			"end": "$",
+			"patterns": []
+		},
+		"comment": {
+			"comment": "Copy of makefile's comment, but substitutions are allowed",
+			"begin": "#",
+			"end": "$",
+			"name": "comment.line.number-sign.automake",
+			"patterns": [
+				{
+					"include": "#substitution"
+				}
+			]
+		},
+		"flags-assignment": {
+			"comment": "Assignment to a FLAGS variable",
+			"name": "meta.assignment.flags.automake",
+			"begin": " ^\n\t\t\t\t\t*((?:AM_)?(?:C|CCAS|CPP|CXX|F|GCJ|JAVAC|L|LD|LIBTOOL|(?:[A-Z]+_)?LOG|MAKEINFO(?:HTML)?|OBJC|R|UPC|VALA|Y)FLAGS)\\s*([\\+\\?:]?=)",
+			"end": "(?<!\\\\)\\n$",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.flags.automake"
+				},
+				"2": {
+					"name": "keyword.operator.assignment.automake"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#assignment-rhs"
+				}
+			]
+		},
+		"keyword-assignment": {
+			"comment": "Assignment to a non-primary, secondary, flags, or dir variable",
+			"name": "meta.assignment.keyword.automake",
+			"begin": " ^\n\t\t\t\t\t*(AM_(?:DEFAULT_SOURCE_EXT|DISTCHECK_CONFIGURE_FLAGS|TESTS_(?:ENVIRONMENT|FD_REDIRECT))|AUTOMAKE_OPTIONS|BUILT_SOURCES|CC|CLASSPATH_ENV|(?:DIST|MAINTAINER|MOSTLY)?CLEANFILES|COMPILE|(?:CXX|FC|OBJC|UPC)(?:COMPILE|LINK)?|DEFAULT_INCLUDES|DEFS|DVIPS|ETAGS_ARGS|EXTRA_DIST|F77(?:COMPILE)?|FLINK|INCLUDE|JAVAC|JAVAROOT|LIBS|LINK|(?:[A-Z]+_)?LOG_COMPILER|MAKEINFO(?:HTML)?|(?:OMIT|TAGS)_DEPENDENCIES|(?:DIST_)?SUBDIRS|SUFFIXES|TESTS(?:_ENVIRONMENT)?|TEXI2(?:DVI|PDF)|TEXINFO_TEX|VALAC)\\s*([\\+\\?:]?=)",
+			"end": "(?<!\\\\)\\n$",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.automake"
+				},
+				"2": {
+					"name": "keyword.operator.assignment.automake"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#assignment-rhs"
+				}
+			]
+		},
+		"primary-assignment": {
+			"comment": "Assignment to a primary: any number of prefixes_, then either a nondir target (e.g.\n\t\t\t\t\tnoinst), a dir target (e.g. bin), or a user-defined dir, then finally a _PRIMARY",
+			"name": "meta.assignment.primary.automake",
+			"begin": " ^\n\t\t\t\t\t*(?:((?:(?:(?:no)?dist|no(?:base|trans))_)*)(?:(noinst|check|EXTRA)|(s?bin|(?:pkg)?lib(?:exec)?|(?:pkg)?data|(?:pkg|old)?include|dataroot|sysconf|(?:shared|local)state|doc|info|html|dvi|pdf|ps|lisp|locale|man[1-8]?(?:ext)?|src|(?:pkg)?python|(?:pkg)?pyexec)|([\\w@]+))(_(?:PROGRAMS|(?:LT)?LIBRARIES|LISP|PYTHON|JAVA|SCRIPTS|DATA|HEADERS|MANS|TEXINFOS)))\\s*([\\+\\?:]?=)",
+			"end": "(?<!\\\\)\\n$",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.prefix.automake"
+				},
+				"2": {
+					"name": "keyword.other.nondir-target.automake"
+				},
+				"3": {
+					"name": "keyword.other.dir-target.automake"
+				},
+				"4": {
+					"name": "variable.other.dir-target.automake"
+				},
+				"5": {
+					"name": "storage.type.primary.automake"
+				},
+				"6": {
+					"name": "keyword.operator.assignment.automake"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#assignment-rhs"
+				}
+			]
+		},
+		"secondary-assignment": {
+			"comment": "Assignment to a secondary: any number of prefix_ or EXTRA_, then the\n\t\t\t\t\tcanonicalized_program_name, and finally a _SECONDARY",
+			"name": "meta.assignment.secondary.automake",
+			"begin": " ^\n\t\t\t\t\t*((?:(?:(?:no)?dist|no(?:base|trans)|EXTRA)_)*)([\\w@]+)(_(?:AR|DEPENDENCIES|LDADD|LIBADD|LINK|SHORTNAME|SOURCES|(?:C|CCAS|CPP|CXX|F|GCJ|JAVAC|L|LD|LIBTOOL|(?:[A-Z]+_)?LOG|MAKEINFO(?:HTML)?|OBJC|R|UPC|VALA|Y)FLAGS))\\s*([\\+\\?:]?=)",
+			"end": "(?<!\\\\)\\n$",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.prefix.automake"
+				},
+				"2": {
+					"name": "variable.other.canonicalized-program-name.automake"
+				},
+				"3": {
+					"name": "keyword.other.secondary.automake"
+				},
+				"4": {
+					"name": "keyword.operator.assignment.automake"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#assignment-rhs"
+				}
+			]
+		},
+		"dir-assignment": {
+			"comment": "Assignment to a directory variable (e.g. foobardir)",
+			"name": "meta.assignment.directory.automake",
+			"begin": "^ *([\\w@]+)(dir)\\s*([\\+\\?:]?=)",
+			"end": "(?<!\\\\)\\n$",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.other.directory.automake"
+				},
+				"2": {
+					"name": "keyword.other.automake"
+				},
+				"3": {
+					"name": "keyword.operator.assignment.automake"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#assignment-rhs"
+				}
+			]
+		},
+		"special-assignment": {
+			"comment": "The contexts listed here represent an assignment to an Automake variable",
+			"patterns": [
+				{
+					"include": "#flags-assignment"
+				},
+				{
+					"include": "#keyword-assignment"
+				},
+				{
+					"include": "#primary-assignment"
+				},
+				{
+					"include": "#secondary-assignment"
+				},
+				{
+					"include": "#dir-assignment"
+				}
+			]
+		},
+		"assignment-rhs": {
+			"comment": "What is allowed on the right-hand-side of an assignment",
+			"patterns": [
+				{
+					"include": "#automatic-variable"
+				},
+				{
+					"include": "#variables"
+				},
+				{
+					"include": "#escaped-char"
+				},
+				{
+					"include": "#double-quoted-string"
+				},
+				{
+					"include": "#single-quoted-string"
+				},
+				{
+					"include": "#backtick-subshell"
+				},
+				{
+					"include": "#substitution"
+				},
+				{
+					"include": "#escaped-newline"
+				},
+				{
+					"include": "#comment"
+				}
+			]
+		},
+		"escaped-newline": {
+			"name": "constant.character.escape.automake",
+			"match": "\\\\$",
+			"patterns": []
+		}
+	},
+	"patterns": [
+		{
+			"include": "#no-subst-comment"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#special-assignment"
+		},
+		{
+			"name": "meta.assignment.automake",
+			"begin": "^([a-zA-Z_@][\\w@]*)\\s*([\\+\\?:]?=)",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.other.automake"
+				},
+				"2": {
+					"name": "keyword.operator.assignment.automake"
+				}
+			},
+			"end": "(?<!\\\\)\\n$",
+			"patterns": [
+				{
+					"include": "#assignment-rhs"
+				},
+				{
+					"include": "#comment"
+				}
+			]
+		},
+		{
+			"include": "source.makefile2"
+		},
+		{
+			"include": "#substitution"
+		}
+	],
+	"uuid": "db931ddb-e919-4736-bd7d-fcf6e1ceca7f"
+}

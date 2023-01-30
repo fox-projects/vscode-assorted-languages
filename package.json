@@ -31,6 +31,33 @@
 	"contributes": {
 		"languages": [
 			{
+				"id": "m4",
+				"aliases": [
+					"autoconf m4",
+					"m4",
+					"m4sh"
+				],
+				"extensions": [
+					"configure.ac",
+					"configure.in",
+					".m4"
+				],
+				"configuration": "./language-configuration/autoconf.language-configuration.json"
+			},
+			{
+				"id": "automake",
+				"aliases": [
+					"Automake",
+					"automake"
+				],
+				"extensions": [
+					".am",
+					".am.inc",
+					"Makefile.in"
+				],
+				"configuration": "./language-configuration/automake.tmLanguage.json"
+			},
+			{
 				"id": "awk",
 				"aliases": [
 					"AWK",
@@ -241,6 +268,24 @@
 		],
 		"grammars": [
 			{
+				"language": "m4",
+				"scopeName": "source.m4",
+				"path": "./language-configuration/autoconf.language-configuration.json",
+				"embeddedLanguages": {
+					"source.shell": "shellscript"
+				}
+			},
+			{
+				"language": "automake",
+				"scopeName": "source.automake",
+				"path": "./language-configuration/automake.language-configuration.json"
+			},
+			{
+				"language": "awk",
+				"scopeName": "source.awk",
+				"path": "./syntaxes/awk.tmLanguage.json"
+			},
+			{
 				"language": "desktop",
 				"scopeName": "source.desktop",
 				"path": "./syntaxes/desktop.tmLanguage.json"
@@ -325,11 +370,6 @@
 				"language": "xdefaults",
 				"scopeName": "source.xdefaults",
 				"path": "./syntaxes/xdefaults.tmLanguage.json"
-			},
-			{
-				"language": "awk",
-				"scopeName": "source.awk",
-				"path": "./syntaxes/awk.tmLanguage.json"
 			}
 		],
 		"snippets": [

@@ -1,0 +1,1741 @@
+{
+	"$schema": "https://cdn.rawgit.com/martinring/tmlanguage/master/tmlanguage.json",
+	"comment": "Adapted from https://git.gnome.org/browse/gtksourceview/tree/data/language-specs/m4.lang",
+	"name": "Autoconf M4",
+	"scopeName": "source.m4",
+	"fileTypes": ["configure.ac", "configure.in", "m4"],
+	"repository": {
+		"m4-quoted": {
+			"comment": "'m4-quoted' matches text between quote brackets and highlights it as pure M4 (no shell code allowed).",
+			"begin": "\\[",
+			"end": "\\]",
+			"patterns": [
+				{
+					"include": "#m4-pure"
+				}
+			]
+		},
+		"m4-quoted-shell": {
+			"comment": "'m4-quoted-shell' matches text between quote brackets and highlights it as a mix of M4 and shell code.",
+			"begin": "\\[",
+			"end": "\\]",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		"m4-function-call": {
+			"comment": "This context matches text between parentheses that comes after a word, and treats it as a variable-length list of 'm' arguments. This is necessary for unknown or user-defined macros - without this context, their arguments would all be highlighted as shell code.",
+			"begin": "(?<=[\\w\\d_])\\((?!\\))",
+			"end": "\\)",
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"begin": ",",
+					"end": "(?=\\))",
+					"patterns": [
+						{
+							"include": "#ARG-M"
+						}
+					]
+				}
+			]
+		},
+		"m4-comment": {
+			"comment": "M4 'dnl' comments are removed from the output, as opposed to shell '#' comments, which appear in the output.",
+			"name": "comment.line.dnl.m4",
+			"begin": "dnl",
+			"end": "$",
+			"patterns": []
+		},
+		"quadrigraph": {
+			"comment": "@<:@ and @:>@ to replace left and right brackets",
+			"name": "constant.character.escape.quadrigraph.m4",
+			"match": "@(<:|:>)@",
+			"patterns": []
+		},
+		"NO-ARGS": {
+			"comment": "In the following section, the contexts form a pretty straightforward state machine that consumes each macro argument and moves on to the next state. This state means all the expected arguments have been consumed, and so any remaining arguments are errors.",
+			"name": "invalid.illegal.supernumerary-argument.m4",
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": []
+		},
+		"ARG-M": {
+			"comment": "This is an argument containing only pure M4.",
+			"patterns": [
+				{
+					"include": "#m4-pure"
+				}
+			]
+		},
+		"ARG-S": {
+			"comment": "This is an argument containing a mix of M4 and shell code.",
+			"patterns": [
+				{
+					"include": "#m4-quoted-shell"
+				},
+				{
+					"include": "#m4-pure"
+				}
+			]
+		},
+		"TO-ARGS-M": {
+			"comment": "The TO-ARGS- states match a comma, and then enter the corresponding ARGS- state",
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-M"
+				}
+			]
+		},
+		"TO-ARGS-S": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-S"
+				}
+			]
+		},
+		"TO-ARGS-MM": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MM"
+				}
+			]
+		},
+		"TO-ARGS-MS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MS"
+				}
+			]
+		},
+		"TO-ARGS-SM": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-SM"
+				}
+			]
+		},
+		"TO-ARGS-SS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-SS"
+				}
+			]
+		},
+		"TO-ARGS-MMM": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MMM"
+				}
+			]
+		},
+		"TO-ARGS-MMS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MMS"
+				}
+			]
+		},
+		"TO-ARGS-MSS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MSS"
+				}
+			]
+		},
+		"TO-ARGS-SSM": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-SSM"
+				}
+			]
+		},
+		"TO-ARGS-SSS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-SSS"
+				}
+			]
+		},
+		"TO-ARGS-MMMM": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MMMM"
+				}
+			]
+		},
+		"TO-ARGS-MMSS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MMSS"
+				}
+			]
+		},
+		"TO-ARGS-MSSM": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MSSM"
+				}
+			]
+		},
+		"TO-ARGS-MSSS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MSSS"
+				}
+			]
+		},
+		"TO-ARGS-MMMMM": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MMMMM"
+				}
+			]
+		},
+		"TO-ARGS-MMMSS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MMMSS"
+				}
+			]
+		},
+		"TO-ARGS-MVARARGS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-MVARARGS"
+				}
+			]
+		},
+		"TO-ARGS-SVARARGS": {
+			"begin": ",",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#ARGS-SVARARGS"
+				}
+			]
+		},
+		"ARGS-S": {
+			"comment": "The ARGS- states match an argument of the type of the head of the argument list, and then enter the TO-ARGS- state corresponding to the tail of the argument list. (Or CAR and CDR, if you prefer.)",
+			"patterns": [
+				{
+					"include": "#ARG-S"
+				},
+				{
+					"include": "#NO-ARGS"
+				}
+			]
+		},
+		"ARGS-M": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#NO-ARGS"
+				}
+			]
+		},
+		"ARGS-MM": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-M"
+				}
+			]
+		},
+		"ARGS-MS": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-S"
+				}
+			]
+		},
+		"ARGS-SM": {
+			"patterns": [
+				{
+					"include": "#ARG-S"
+				},
+				{
+					"include": "#TO-ARGS-M"
+				}
+			]
+		},
+		"ARGS-SS": {
+			"patterns": [
+				{
+					"include": "#ARG-S"
+				},
+				{
+					"include": "#TO-ARGS-S"
+				}
+			]
+		},
+		"ARGS-MMM": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MM"
+				}
+			]
+		},
+		"ARGS-MMS": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MS"
+				}
+			]
+		},
+		"ARGS-MSM": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-SM"
+				}
+			]
+		},
+		"ARGS-MSS": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-SS"
+				}
+			]
+		},
+		"ARGS-SSM": {
+			"patterns": [
+				{
+					"include": "#ARG-S"
+				},
+				{
+					"include": "#TO-ARGS-SM"
+				}
+			]
+		},
+		"ARGS-SSS": {
+			"patterns": [
+				{
+					"include": "#ARG-S"
+				},
+				{
+					"include": "#TO-ARGS-SS"
+				}
+			]
+		},
+		"ARGS-MMMM": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MMM"
+				}
+			]
+		},
+		"ARGS-MMMS": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MMS"
+				}
+			]
+		},
+		"ARGS-MMSS": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MSS"
+				}
+			]
+		},
+		"ARGS-MSSM": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-SSM"
+				}
+			]
+		},
+		"ARGS-MSSS": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-SSS"
+				}
+			]
+		},
+		"ARGS-SSSS": {
+			"patterns": [
+				{
+					"include": "#ARG-S"
+				},
+				{
+					"include": "#TO-ARGS-SSS"
+				}
+			]
+		},
+		"ARGS-MMMMM": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MMMM"
+				}
+			]
+		},
+		"ARGS-MMMSS": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MMSS"
+				}
+			]
+		},
+		"ARGS-MMSSM": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MSSM"
+				}
+			]
+		},
+		"ARGS-MMSSS": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MSSS"
+				}
+			]
+		},
+		"ARGS-MMMMMM": {
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MMMMM"
+				}
+			]
+		},
+		"ARGS-SMMMSS": {
+			"patterns": [
+				{
+					"include": "#ARG-S"
+				},
+				{
+					"include": "#TO-ARGS-MMMSS"
+				}
+			]
+		},
+		"ARGS-MVARARGS": {
+			"comment": "The ARGS-?VARARGS states go to their own TO-ARGS- states, of course",
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-MVARARGS"
+				}
+			]
+		},
+		"ARGS-SVARARGS": {
+			"patterns": [
+				{
+					"include": "#ARG-S"
+				},
+				{
+					"include": "#TO-ARGS-SVARARGS"
+				}
+			]
+		},
+		"ARGS-AS-CASE": {
+			"comment": "AS_CASE is the odd man out. Its signature should actually be M(MS)+S?, i.e. an M followed by one or more pairs of MS, ending with an optional S, but there's no way to highlight that properly without knowing whether a given argument is the last one. Therefore, we highlight it as M plus SVARARGS.",
+			"patterns": [
+				{
+					"include": "#ARG-M"
+				},
+				{
+					"include": "#TO-ARGS-SVARARGS"
+				}
+			]
+		},
+		"func-m": {
+			"comment": "The func- contexts are the ones actually included in the 'm4-pure' context below. They match the macro names, and the opening and closing parentheses.",
+			"begin": "\\b(AC_(?:CHECK_(?:DECL|FUNC|HEADER)S_ONCE|CHECKING|CONFIG_(?:(?:(?:AUX|LIBOBJ)_|SRC)DIR|MACRO_DIRS?|SUBDIRS)|COPYRIGHT|ERLANG_NEED_ERLC?|F(?:77|C)_LIBRARY_LDFLAGS|FATAL|INCLUDES_DEFAULT|LANG(?:_(?:ASSERT|CONFTEST|FUNC_LINK_TRY|POP|PUSH|SOURCE))?|LIB(?:OBJS|SOURCES?)|MSG_(?:CHECKING|NOTICE|RESULT|WARN)|OPENMP|PREFIX_(?:DEFAULT|PROGRAM)|PREREQ|PROG_(?:CC|CXX|F77|OBJC(?:XX)?)|REPLACE_FUNCS|REQUIRE(?:_AUX_FILE)?|REVISION|SUBST_FILE|WARNING)|AH_(?:BOTTOM|TOP)|AS_(?:DIRNAME|(?:EXECUTABLE|MKDIR)_P|EXIT|SET_STATUS|TR_(?:CPP|SH)|VAR_(?:POPDEF|TEST_SET))|m4_(?:chomp(?:_all)?|cleardivert|debug(?:file|mode)|decr|defn|divert(?:_(?:pop|push))?|errprintn|(?:re_)?escape|exit|expand|flatten|s?include|incr|len|(?:make|mks)temp|n|newline|normalize|pattern_(?:allow|forbid)|popdef|set_(?:delete|list|listc|size)|sign|strip|to(?:lower|upper)|warning|wrap(?:_lifo)?)|AT_(?:BANNER|CAPTURE_FILE|COPYRIGHT|INIT|KEYWORDS|SETUP|TESTED)|AM_(?:GNU_GETTEXT_(?:VERSION|NEED)|EXTRA_RECURSIVE_TARGETS|ICONV|INIT_AUTOMAKE|MAINTAINER_MODE|PROG_UPC|SUBST_NOTMAKE|XGETTEXT_OPTION)|LT_(?:INIT|LANG|PREREQ)|IT_PO_SUBDIR|GOBJECT_INTROSPECTION_(?:CHECK|REQUIRE)|PKG_PREREQ|PKG_(?:NOARCH_)?INSTALLDIR)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-M"
+				}
+			]
+		},
+		"func-s": {
+			"begin": "\\b(AC_CONFIG_COMMANDS_(?:PRE|POST)|AS_(?:ECHO(?:_N)?|UNSET)|m4_(?:esyscmd(?:_s)?|syscmd)|AT_(?:X?FAIL|SKIP)_IF)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-S"
+				}
+			]
+		},
+		"func-mm": {
+			"begin": "\\b(AC_(?:ARG_VAR|BEFORE|CHECK_ALIGNOF|CONFIG_TESTDIR|DIAGNOSE|ERLANG_(?:PATH_ERLC?|SUBST_INSTALL_LIB_SUBDIR)|F(?:77|C)_FUNC|LANG_(?:CALL|PROGRAM)|MSG_(?:ERROR|FAILURE)|PROG_FC)|AH_(?:TEMPLATE|VERBATIM)|AU_ALIAS|AS_(?:BOX|ESCAPE|TMPDIR|VAR_(?:APPEND|COPY|PUSHDEF))|m4_(?:append_uniq_w|apply|assert|change(?:com|quote)|(?:list)?cmp|(?:copy|rename)(?:_force)?|default(?:_nblank)?(?:_quoted)?|define(?:_default)?|defun|divert_(?:once|text)|fatal|index|map(?:all)?|pushdef|set_(?:contents|difference|dump|intersection|map|union)|split|stack_foreach(?:_lifo)?|text_box|version_compare|warn)|AT_DATA|AM_MISSING_PROG|GTK_DOC_CHECK|IT_PROG_INTLTOOL)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MM"
+				}
+			]
+		},
+		"func-ms": {
+			"begin": "\\b(AC_(?:CACHE_VAL|DEFUN(?:_ONCE)?|SUBST)|AS_(?:INIT_GENERATED|VAR_(?:ARITH|SET))|AM_CONDITIONAL)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MS"
+				}
+			]
+		},
+		"func-ss": {
+			"begin": "\\b(AC_(?:F(?:77|C)_(?:DUMMY_MAIN|IMPLICIT_NONE)|FC_(?:CHECK_BOUNDS|(?:FREE|FIXED)FORM|MODULE_(?:OUTPUT_)?FLAG|PP_DEFINE)))\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-SS"
+				}
+			]
+		},
+		"func-mmm": {
+			"begin": "\\b(AC_(?:CHECK_SIZEOF|DEFINE(?:_UNQUOTED)?)|AS_SET_CATFILE|m4_(?:append|bpatsubst|bregexp|eval|ifn?blank|ifn?def|ifset|ifvaln?|map(?:all)?_sep|set_(?:empty|foreach)|substr|translit|version-prereq)|AM_GNU_GETTEXT)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMM"
+				}
+			]
+		},
+		"func-mms": {
+			"begin": "\\b(AC_CACHE_CHECK|m4_foreach(?:_w)?)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMS"
+				}
+			]
+		},
+		"func-msm": {
+			"begin": "\\b(AU_DEFUN)\\s*(\\()\"",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MSM"
+				}
+			]
+		},
+		"func-mss": {
+			"begin": "\\b(AC_(?:CHECK_(?:FILE|FUNC)(?:S)?|(?:COMPILE|LINK|PREPROC)_IFELSE|CONFIG_(?:COMMANDS|FILES|HEADERS|LINKS)|ERLANG_CHECK_LIB|FC_(?:LINE_LENGTH|(?:PP_)?SRCEXT))|AS_VAR_SET_IF|AM_(?:COND_IF|PATH_PYTHON|PROG_VALAC)|PKG_CHECK_EXISTS)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MSS"
+				}
+			]
+		},
+		"func-mmmm": {
+			"begin": "\\b(AC_(?:CHECK_(?:PROGS|(?:TARGET_)?TOOLS?)|PATH_(?:PROGS?|(?:TARGET_)?TOOL))|AS_HELP_STRING|m4_(?:map_args_w|set_(?:add|contains|map_sep|remove)|stack_foreach_sep(?:_lifo)?|text|wrap))\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMMM"
+				}
+			]
+		},
+		"func-mmms": {
+			"begin": "\\b(AC_COMPUTE_INT)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMMS"
+				}
+			]
+		},
+		"func-mmss": {
+			"begin": "\\b(AC_(?:ARG_(?:ENABLE|WITH)|EGREP_(?:CPP|HEADER))|AS_VAR_IF|AT_ARG_OPTION(?:_ARG)?|PKG_CHECK_MODULES(?:_STATIC)?)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMSS"
+				}
+			]
+		},
+		"func-mssm": {
+			"begin": "\\b(AC_CHECK_(?:DECL|HEADER|MEMBER|TYPE)(?:S)?)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MSSM"
+				}
+			]
+		},
+		"func-msss": {
+			"begin": "\\b(AC_RUN_IFELSE)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MSSS"
+				}
+			]
+		},
+		"func-ssss": {
+			"begin": "\\b(AC_C_BIGENDIAN|AS_LITERAL_(?:WORD_)?IF)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-SSSS"
+				}
+			]
+		},
+		"func-mmmmm": {
+			"begin": "\\b(m4_(?:append_uniq|for)|AC_INIT)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMMMM"
+				}
+			]
+		},
+		"func-mmmss": {
+			"begin": "\\b(AT_CHECK_EUNIT|PKG_CHECK_VAR)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMMSS"
+				}
+			]
+		},
+		"func-mmssm": {
+			"begin": "\\b(AC_(?:CHECK_LIB|SEARCH_LIBS|PATH_PROGS_FEATURE_CHECK))\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMSSM"
+				}
+			]
+		},
+		"func-mmsss": {
+			"begin": "\\b(AS_VERSION_COMPARE)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMSSS"
+				}
+			]
+		},
+		"func-mmmmmm": {
+			"begin": "\\b(AC_CHECK_PROG)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MMMMMM"
+				}
+			]
+		},
+		"func-smmmss": {
+			"begin": "\\b(AT_CHECK(?:_UNQUOTED)?)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-SMMMSS"
+				}
+			]
+		},
+		"func-mvarargs": {
+			"begin": "\\b(m4_(?:argn|bmatch|bpatsubsts|car|case|cdr|builtin|combine|cond|count|curry|do|dquote(?:_elt)?|dumpdefs?|echo|errprint|format|if|ignore|indir|join(?:all)?|makelist|map_args(?:_(?:pair|sep))?|max|min|(?:un)?quote|reverse|set_add_all|shift(?:2|3|n)?|trace(?:off|on)|undefine|undivert))\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-MVARARGS"
+				}
+			]
+		},
+		"func-svarargs": {
+			"begin": "\\b(AS_IF)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-SVARARGS"
+				}
+			]
+		},
+		"func-as-case": {
+			"begin": "\\b(AS_CASE)\\s*(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.macro.m4sh"
+				},
+				"2": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.function-call.m4"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#ARGS-AS-CASE"
+				}
+			]
+		},
+		"m4-macros-noargs": {
+			"comment": "Now come the macros that don't take any arguments. They are not called with empty parentheses, just with the macro name: e.g. AC_OUTPUT.",
+			"name": "keyword.other.macro.m4",
+			"match": "\\bm4_(divnum|init|location|sysval)",
+			"patterns": []
+		},
+		"m4-macros-optargs": {
+			"comment": "We also have contexts for macros that do take arguments, but can also be called without any; for example, AC_PROG_CC takes a list of compiler names to search for, but is mostly just called without it. Since the 'func-m' context would only match AC_PROG_CC(), we repeat this kind of macros in '-optargs' contexts.",
+			"name": "keyword.other.macro.m4",
+			"match": "\\bm4_(change(com|quote)|debug(file|mode)|divert_pop|newline|trace(on|off))",
+			"patterns": []
+		},
+		"ac-macros-noargs": {
+			"name": "keyword.other.macro.autoconf",
+			"match": "\\bAC_(ARG_PROGRAM|AUTOCONF_VERSION|C_BACKSLASH_A|CACHE_(LOAD|SAVE)|CANONICAL_(BUILD|HOST|TARGET)|CHECK_HEADER_STDBOOL|C_(CHAR_UNSIGNED|CONST|FLEXIBLE_ARRAY_MEMBER|INLINE|PROTOTYPES|RESTRICT|STRINGIZE|TYPEOF|VARARRAYS|VOLATILE)|DISABLE_OPTION_CHECKING|ERLANG_SUBST_(((INSTALL_)?LIB|ROOT)_DIR|ERTS_VER)|F77_(MAIN|WRAPPERS)|FC_(MAIN|MODULE_EXTENSION|WRAPPERS)|FUNC_(ALLOCA|CHOWN|CLOSEDIR_VOID|FNMATCH(_GNU)?|FORK|FSEEKO|GETGROUPS|GETLOADAVG|GETMNTENT|GETPGRP|LSTAT|MALLOC|MBRTOWC|MEMCMP|MMAP|OBSTACK|REALLOC|SELECT_ARGTYPES|SETPGRP|STAT|STRCOLL|STRERROR_R|STRFTIME|STRNLEN|STRTOLD|UTIME_NULL|VPRINTF)|HEADER_(ASSERT|DIRENT|MAJOR|RESOLV|STAT|STDBOOL|STDC|SYS_WAIT|TIME|TIOCGWINSZ)|LANG_(DEFINES_PROVIDED|WERROR)|OUTPUT|PACKAGE_(BUGREPORT|NAME|STRING|TARNAME|URL|VERSION)|PATH_X(TRA)?|PRESERVE_HELP_ORDER|PROG_(AWK|CC(_C(89|99|_O))|CC_STDC|CPP(_WERROR)?|CXX(CPP|_C_O)?|EGREP|F77_C_O|FC_C_O|FGREP|GCC_TRADITIONAL|GREP|INSTALL|LEX|LN_S|MAKE_SET|MKDIR_P|OBJ(CXX)?CPP|RANLIB|SED|YACC)|REPLACE_FNMATCH|REQUIRE_CPP|STRUCT_(DIRENT_D_(INO|TYPE)|ST_BLOCKS|TIMEZONE|TM)|SYS_(INTERPRETER|LARGEFILE|LONG_FILE_NAMES|POSIX_TERMIOS)|TYPE_(GETGROUPS|INT(16_T|32_T|64_T|8_T)|INTMAX_T|INTPTR_T|LONG_DOUBLE(_WIDER)?|LONG_LONG_INT|MBSTATE_T|MODE_T|OFF_T|PID_T|SIGNAL|SIZE_T|SSIZE_T|UID_T|UINT(16_T|32_T|64_T|8_T)|UINTMAX_T|UINTPTR_T|UNSIGNED_LONG_LONG_INT)|USE_SYSTEM_EXTENSIONS)",
+			"patterns": []
+		},
+		"ac-macros-noargs2": {
+			"name": "keyword.other.macro.autoconf",
+			"match": "\\bA(H_HEADER|S_(BOURNE_COMPATIBLE|INIT|LINENO_PREPARE|ME_PREPARE|MESSAGE_FD|MESSAGE_LOG_FD|ORIGINAL_STDIN_FD|SHELL_SANITIZE)|T_(CLEANUP|COLOR_TESTS))",
+			"patterns": []
+		},
+		"ac-macros-optargs": {
+			"name": "keyword.other.macro.autoconf",
+			"match": "\\bAC_(C_BIGENDIAN|ERLANG_(PATH|NEED)_ERLC?|F(77|C)_DUMMY_MAIN|FC_((FIXED|FREE)FORM|LINE_LENGTH)|INCLUDES_DEFAULT|LANG_POP|PROG_(CC|CXX|OBJC(XX)?|F(77|C)))",
+			"patterns": []
+		},
+		"ac-macros-optargs2": {
+			"name": "keyword.other.macro.autoconf",
+			"match": "\\bA(S_EXIT|T_INIT)",
+			"patterns": []
+		},
+		"ac-macros-obsolete": {
+			"comment": "Deprecated macros are highlighted as errors. We don't bother highlighting their arguments properly, because they're deprecated anyway!",
+			"name": "invalid.deprecated.macro.autoconf",
+			"match": "\\bAC_(AIX|ALLOCA|ARG_ARRAY|CANONICAL_SYSTEM|C_(CROSS|LONG_DOUBLE)|CHAR_UNSIGNED|CHECKING|COMPILE_CHECK|CONFIG_HEADER|CONST|CROSS_CHECK|CYGWIN|DECL_(SYS_SIGLIST|YYTEXT)|DIR_HEADER|DISABLE_(FAST_INSTALL|SHARED|STATIC)|DYNIX_SEQ|ENABLE(_(SHARED|STATIC))?|EMXOS2|ERROR|EXEEXT|FIND_X(TRA)?|FOREACH|FUNC_(CHECK|ERROR_AT_LINE|LSTAT_FOLLOWS_SLASHED_SYMLINK|MKTIME|SETVBUF_REVERSED|STRTOD|WAIT3)|GCC_TRADITIONAL|GETGROUPS_T|GETLOADAVG|GNU_SOURCE|HAVE_(FUNCS|HEADERS|LIBRARY|POUNDBANG)|HEADER_(CHECK|EGREP)|HELP_STRING|INLINE|INT_16_BITS|IRIX_SUN|LANG_(CPLUSPLUS|C|FORTRAN77|RESTORE|SAVE)|LIBTOOL_(DLOPEN|WIN32_DLL)|LINK_FILES|LN_S|LONG_(64_BITS|DOUBLE|FILE_NAMES)|MAJOR_HEADER|MEMORY_H|MINGW32|MINIX|MINUS_C_MINUS_O|MMAP|MODE_T|OBJEXT|OBSOLETE|OFF_T|OUTPUT_COMMANDS|PID_T|PREFIX|PROG_(INTL|LIB)TOOL|PROGRAM_(CHECK|EGREP|PATH)|PROGRAMS_(CHECK|PATH)|REMOTE_TAPE|RESTARTABLE_SYSCALLS|RETSIGTYPE|RSH|SCO_INTL|SET_MAKE|SETVBUF_REVERSED|SIZEOF_TYPE|SIZE_T|STAT_MACROS_BROKEN|ST_(BLKSIZE|BLOCKS|RDEV)|STDC_HEADERS|STRCOLL|SYS_(RESTARTABLE_SYSCALLS|SIGLIST_DECLARED)|TEST_(CPP|PROGRAM)|TIME_WITH_SYS_TIME|TIMEZONE|TRY_(COMPILE|CPP|LINK_FUNC|LINK|RUN)|UID_T|UNISTD_H|USG|UTIME_NULL|VALIDATE_CACHED_SYSTEM_TUPLE|VERBOSE|VFORK|VPRINTF|WAIT3|WARN|WITH|WORDS_BIGENDIAN|XENIX_DIR|YYTEXT_POINTER)",
+			"patterns": []
+		},
+		"am-macros-noargs": {
+			"name": "keyword.other.macro.automake",
+			"match": "\\bAM_(ENABLE_MULTILIB|GCONF_SOURCE_2|GLIB_GNU_GETTEXT|GNU_GETTEXT_INTL_SUBDIR|PATH_LISPDIR|PO_SUBDIRS|PROG_(AR|AS|GCJ|LEX)|SILENT_RULES|WITH_DMALLOC)",
+			"patterns": []
+		},
+		"am-macros-optargs": {
+			"name": "keyword.other.macro.automake",
+			"match": "\\bAM_(INIT_AUTOMAKE|MAINTAINER_MODE|PATH_PYTHON|PROG_(UPC|VALAC))",
+			"patterns": []
+		},
+		"am-macros-private": {
+			"name": "invalid.illegal.private.automake",
+			"match": "\\bAM_(DEP_TRACK|MAKE_INCLUDE|OUTPUT_DEPENDENCY_COMMANDS|PROG_INSTALL_STRIP|SANITY_CHECK|SET_DEPDIR)",
+			"patterns": []
+		},
+		"am-macros-obsolete": {
+			"name": "invalid.deprecated.macro.automake",
+			"match": "\\bAM_(C_PROTOTYPES|CONFIG_HEADER|HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL|PATH_CHECK|PROG_(CC_(STDC|C_O)|LIBTOOL|MKDIR_P)|SYS_POSIX_TERMIOS|WITH_REGEX|(DIS|EN)ABLE_(STATIC|SHARED))",
+			"patterns": []
+		},
+		"misc-macros-noargs": {
+			"name": "keyword.other.macro.autotools",
+			"match": "\\b(__(file|o?line)__|LT_(CMD_MAX_LEN|FUNC_DLSYM_USCORE|LIB_(M|DLLOAD)|OUTPUT|PATH_(LD|NM)|SYS_(DLOPEN_(SELF|DEPLIBS)|MODULE_(EXT|PATH)|DLSEARCH_PATH|SYMBOL_USCORE)))",
+			"patterns": []
+		},
+		"misc-macros-optargs": {
+			"name": "keyword.other.macro.autotools",
+			"match": "\\b(LT_INIT|PKG_PROG_PKG_CONFIG)",
+			"patterns": []
+		},
+		"m4-pure": {
+			"comment": "This context highlights pure M4 code.",
+			"patterns": [
+				{
+					"include": "#m4-comment"
+				},
+				{
+					"include": "#quadrigraph"
+				},
+				{
+					"include": "#func-m"
+				},
+				{
+					"include": "#func-s"
+				},
+				{
+					"include": "#func-mm"
+				},
+				{
+					"include": "#func-ms"
+				},
+				{
+					"include": "#func-ss"
+				},
+				{
+					"include": "#func-mmm"
+				},
+				{
+					"include": "#func-mms"
+				},
+				{
+					"include": "#func-msm"
+				},
+				{
+					"include": "#func-mss"
+				},
+				{
+					"include": "#func-mmmm"
+				},
+				{
+					"include": "#func-mmms"
+				},
+				{
+					"include": "#func-mmss"
+				},
+				{
+					"include": "#func-mssm"
+				},
+				{
+					"include": "#func-msss"
+				},
+				{
+					"include": "#func-ssss"
+				},
+				{
+					"include": "#func-mmmmm"
+				},
+				{
+					"include": "#func-mmmss"
+				},
+				{
+					"include": "#func-mmssm"
+				},
+				{
+					"include": "#func-mmsss"
+				},
+				{
+					"include": "#func-mmmmmm"
+				},
+				{
+					"include": "#func-smmmss"
+				},
+				{
+					"include": "#func-mvarargs"
+				},
+				{
+					"include": "#func-svarargs"
+				},
+				{
+					"include": "#func-as-case"
+				},
+				{
+					"include": "#m4-macros-noargs"
+				},
+				{
+					"include": "#m4-macros-optargs"
+				},
+				{
+					"include": "#ac-macros-noargs"
+				},
+				{
+					"include": "#ac-macros-noargs2"
+				},
+				{
+					"include": "#ac-macros-optargs"
+				},
+				{
+					"include": "#ac-macros-optargs2"
+				},
+				{
+					"include": "#ac-macros-obsolete"
+				},
+				{
+					"include": "#am-macros-noargs"
+				},
+				{
+					"include": "#am-macros-optargs"
+				},
+				{
+					"include": "#am-macros-obsolete"
+				},
+				{
+					"include": "#am-macros-private"
+				},
+				{
+					"include": "#misc-macros-noargs"
+				},
+				{
+					"include": "#misc-macros-optargs"
+				},
+				{
+					"include": "#m4-function-call"
+				},
+				{
+					"include": "#m4-quoted"
+				},
+				{
+					"name": "invalid.illegal.syntax-error",
+					"match": "\\]"
+				}
+			]
+		},
+		"shell-interpolation": {
+			"comment": "This is a copy of some of the patterns from the #interpolation pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+			"patterns": [
+				{
+					"name": "string.interpolated.backtick.shell",
+					"begin": "`",
+					"end": "`",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.shell"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.shell"
+						}
+					},
+					"patterns": [
+						{
+							"match": "\\\\[`\\\\$]",
+							"name": "constant.character.escape.shell"
+						},
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "string.interpolated.dollar.shell",
+					"begin": "\\$\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.shell"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		},
+		"shell-compound-command": {
+			"comment": "This is a copy of some of the patterns from #compound-command from source.shell, so that anywhere shell includes $self, M4 code is also legal.",
+			"patterns": [
+				{
+					"name": "meta.scope.logical-expression.shell",
+					"begin": "(\\[{2})",
+					"end": "(\\]{2})",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.logical-expression.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "source.shell.logical-expression"
+						},
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "meta.scope.subshell.shell",
+					"begin": "(\\()",
+					"end": "(\\))",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.subshell.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "meta.scope.group.shell",
+					"begin": "(?<=\\s|^)(\\{)(?=\\s|$)",
+					"end": "(?<=^|;)\\s*(\\})",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.group.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		},
+		"shell-pathname": {
+			"comment": "This is a copy of one of the patterns from #pathname from source.shell, so that anywhere shell includes $self, M4 code is also legal.",
+			"patterns": [
+				{
+					"name": "meta.structure.extglob.shell",
+					"begin": "([?*+@!])(\\()",
+					"end": "(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.operator.extglob.shell"
+						},
+						"2": {
+							"name": "punctuation.definition.extglob.shell"
+						}
+					},
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.definition.extglob.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		},
+		"shell-string": {
+			"comment": "This is a copy of #string from source.shell so that we can include our doctored #shell-interpolation before source.shell.interpolation",
+			"patterns": [
+				{
+					"name": "string.quoted.double.shell",
+					"begin": "\\$?\"",
+					"end": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.shell"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.shell"
+						}
+					},
+					"patterns": [
+						{
+							"match": "\\\\[\\$`\"\\\\n]",
+							"name": "constant.character.escape.shell"
+						},
+						{
+							"include": "source.shell.variable"
+						},
+						{
+							"include": "#shell-interpolation"
+						},
+						{
+							"include": "source.shell.interpolation"
+						}
+					]
+				}
+			]
+		},
+		"shell-loop": {
+			"comment": "This is a copy of the #loop pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+			"patterns": [
+				{
+					"name": "meta.scope.for-loop.shell",
+					"begin": "\\b(for)\\s+(?=\\({2})",
+					"end": "\\b(done)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.control.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "meta.scope.for-in-loop.shell",
+					"begin": "\\b(for)\\s+((?:[^\\s\\\\]|\\\\.)+)\\b",
+					"end": "\\b(done)\\b",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.shell"
+						},
+						"2": {
+							"name": "variable.other.loop.shell"
+						}
+					},
+					"endCaptures": {
+						"1": {
+							"name": "keyword.control.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "meta.scope.while-loop.shell",
+					"begin": "\\b(while|until)\\b",
+					"end": "\\b(done)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.control.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "meta.scope.select-block.shell",
+					"begin": "\\b(select)\\s+((?:[^\\s\\\\]|\\\\.)+)\\b",
+					"end": "\\b(done)\\b",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.shell"
+						},
+						"2": {
+							"name": "variable.other.loop.shell"
+						}
+					},
+					"endCaptures": {
+						"1": {
+							"name": "keyword.control.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "meta.scope.case-block.shell",
+					"begin": "\\b(case)\\b",
+					"end": "\\b(esac)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.control.shell"
+						}
+					},
+					"patterns": [
+						{
+							"name": "meta.scope.case-body.shell",
+							"begin": "\\b(?:in)\\b",
+							"end": "(?=\\b(?:esac)\\b)",
+							"beginCaptures": {
+								"1": {
+									"name": "keyword.control.shell"
+								}
+							},
+							"patterns": [
+								{
+									"include": "source.shell.comment"
+								},
+								{
+									"include": "#shell-case-clause"
+								},
+								{
+									"include": "source.shell.case-clause"
+								},
+								{
+									"include": "$self"
+								}
+							]
+						},
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "meta.scope.if-block.shell",
+					"begin": "\\b(if)\\b",
+					"end": "\\b(fi)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.control.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		},
+		"shell-function-definition": {
+			"comment": "This is a copy of the #function-definition pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+			"patterns": [
+				{
+					"name": "meta.function.shell",
+					"begin": "\\b(function)\\s+([^\\s\\\\]+)(?:\\s*(\\(\\)))?",
+					"end": ";|&|$",
+					"beginCaptures": {
+						"1": {
+							"name": "storage.type.function.shell"
+						},
+						"2": {
+							"name": "entity.name.function.shell"
+						},
+						"3": {
+							"name": "punctuation.definition.arguments.shell"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.function.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"name": "meta.function.shell",
+					"begin": "\\b([^\\s\\\\=]+)\\s*(\\(\\))",
+					"end": ";|&|$",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.function.shell"
+						},
+						"2": {
+							"name": "punctuation.definition.arguments.shell"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.function.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		},
+		"shell-case-clause": {
+			"comment": "This is a copy of the #case-clause pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+			"patterns": [
+				{
+					"name": "meta.scope.case-clause.shell",
+					"begin": "(?=\\S)",
+					"end": ";;",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.terminator.case-clause.shell"
+						}
+					},
+					"patterns": [
+						{
+							"name": "meta.scope.case-pattern.shell",
+							"begin": "(\\(|(?=\\S))",
+							"end": "\\)",
+							"captures": {
+								"0": {
+									"name": "punctuation.definition.case-pattern.shell"
+								}
+							},
+							"patterns": [
+								{
+									"match": "\\|",
+									"name": "punctuation.separator.pipe-sign.shell"
+								},
+								{
+									"include": "#shell-string"
+								},
+								{
+									"include": "source.shell.string"
+								},
+								{
+									"include": "source.shell.variable"
+								},
+								{
+									"include": "#shell-interpolation"
+								},
+								{
+									"include": "source.shell.interpolation"
+								},
+								{
+									"include": "#shell-pathname"
+								},
+								{
+									"include": "source.shell.pathname"
+								}
+							]
+						},
+						{
+							"name": "meta.scope.case-clause-body.shell",
+							"begin": "(?<=\\))",
+							"end": "(?=;;)",
+							"patterns": [
+								{
+									"include": "$self"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"shell-redirection": {
+			"comment": "This is a copy of one of the patterns from the #redirection pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+			"patterns": [
+				{
+					"name": "string.interpolated.process-substitution.shell",
+					"begin": "[><]\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.shell"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.shell"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		}
+	},
+	"patterns": [
+		{
+			"include": "#m4-quoted-shell"
+		},
+		{
+			"include": "#m4-pure"
+		},
+		{
+			"include": "#shell-interpolation"
+		},
+		{
+			"include": "#shell-compound-command"
+		},
+		{
+			"include": "#shell-pathname"
+		},
+		{
+			"include": "#shell-string"
+		},
+		{
+			"include": "#shell-loop"
+		},
+		{
+			"include": "#shell-function-definition"
+		},
+		{
+			"include": "#shell-redirection"
+		},
+		{
+			"include": "source.shell"
+		},
+		{
+			"name": "invalid.illegal.syntax-error",
+			"match": "\\)"
+		}
+	],
+	"uuid": "cd50bfc0-2ccb-47b9-a157-98b00816d909"
+}

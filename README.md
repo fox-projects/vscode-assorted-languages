@@ -12,6 +12,7 @@ Snippets for
 
 Syntax highlighting for
 
+- autotools
 - AWK
 - Desktop Files
 - dircolors
@@ -32,6 +33,7 @@ Syntax highlighting for
 
 ## Acknowledgements
 
+- [vscode_autotools](https://github.com/maelvls/vscode_autotools) by maelvls (GPL-3.0 license)
 - [vscode-awk](https://github.com/luggage66/vscode-awk) by luggage66 (MIT)
 - [vscode-dircolors](https://github.com/duniul/vscode-dircolors) by duniul (MIT)
 - [vscode-env](https://github.com/IronGeek/vscode-env) by IronGeek (MIT)
