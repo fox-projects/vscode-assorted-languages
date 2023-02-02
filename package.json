@@ -21,8 +21,7 @@
 		"url": "https://edwinkofler.com"
 	},
 	"categories": [
-		"Programming Languages",
-		"Snippets"
+		"Programming Languages"
 	],
 	"contributes": {
 		"languages": [
@@ -211,17 +210,6 @@
 					".hhf"
 				],
 				"configuration": "./language-configuration/hla.language-configuration.json"
-			},
-			{
-				"id": "hosts",
-				"aliases": [
-					"Hosts File",
-					"hosts"
-				],
-				"extensions": [
-					"hosts"
-				],
-				"configuration": "./language-configuration/hosts.language-configuration.json"
 			},
 			{
 				"id": "i3",
@@ -593,11 +581,6 @@
 				"path": "./syntaxes/hla.tmLanguage.json"
 			},
 			{
-				"language": "hosts",
-				"scopeName": "text.hosts",
-				"path": "./syntaxes/hosts.tmLanguage.json"
-			},
-			{
 				"language": "i3",
 				"scopeName": "source.i3",
 				"path": "./syntaxes/i3.tmLanguage.json"
@@ -721,20 +704,6 @@
 				"language": "yarnlock",
 				"scopeName": "text.yarnlock",
 				"path": "./syntaxes/yarnlock.tmLanguage.json"
-			}
-		],
-		"snippets": [
-			{
-				"language": "html",
-				"path": "./snippets/ejs.code-snippets"
-			},
-			{
-				"language": "handlebars",
-				"path": "./snippets/handlebars.code-snippets"
-			},
-			{
-				"language": "infokey",
-				"path": "./snippets/infokey.code-snippets"
 			}
 		],
 		"configurationDefaults": {
