@@ -1,0 +1,86 @@
+{
+	"scopeName": "source.mapfile",
+	"patterns": [
+		{ "include": "#title" },
+		{ "include": "#memory-config" },
+		{ "include": "#common-symbols" },
+		{ "include": "#object" },
+		{ "include": "#flag" },
+		{ "include": "#number" },
+		{ "include": "#string" },
+		{ "include": "#keyword" },
+		{ "include": "#section" },
+		{ "include": "#path" },
+		{ "include": "#operator" }
+	],
+	"repository": {
+		"title": {
+			"match": "^(Discarded input sections|Archive member included to satisfy reference by file \\(symbol\\)|Memory Configuration|Linker script and memory map|Allocating common symbols|Cross Reference Table)$",
+			"name": "markup.heading"
+		},
+		"common-symbols": {
+			"match": "^Common\\s+symbol\\s+size\\s+file$",
+			"name": "markup.underline"
+		},
+		"memory-config": {
+			"begin": "^Name\\s+Origin\\s+Length\\s+Attributes$",
+			"end": "^$",
+			"beginCaptures": {
+				"0": { "name": "markup.underline" }
+			},
+			"patterns": [
+				{
+					"match": "^(\\*default\\*)\\s+(0x[0-9a-fA-F]+|\\d+)\\s+(0x[0-9a-fA-F]+|\\d+)(?:\\s+([rwxali!RWXALI]+))?$",
+					"captures": {
+						"1": { "name": "constant.language" },
+						"2": { "name": "constant.numeric" },
+						"3": { "name": "constant.numeric" },
+						"4": { "name": "keyword.control" }
+					}
+				},
+				{
+					"match": "^(\\S+)\\s+(0x[0-9a-fA-F]+|\\d+)\\s+(0x[0-9a-fA-F]+|\\d+)(?:\\s+([rwxali!RWXALI]+))?$",
+					"captures": {
+						"1": { "name": "support.variable" },
+						"2": { "name": "constant.numeric" },
+						"3": { "name": "constant.numeric" },
+						"4": { "name": "keyword.control" }
+					}
+				}
+			]
+		},
+		"object": {
+			"match": "\\([-\\w.]+\\.(obj|o|a)\\)"
+		},
+		"flag": {
+			"match": "\\(--.*?\\)",
+			"captures": {
+				"0": { "name": "constant.language" }
+			}
+		},
+		"number": {
+			"match": "\\b(0x[0-9a-fA-F]+|\\d+)\\b",
+			"name": "constant.numeric"
+		},
+		"string": {
+			"match": "\".*?\"",
+			"name": "string.quoted.double"
+		},
+		"keyword": {
+			"match": "(\\(size before relaxing\\)|\\*fill\\*|LOAD linker stubs|\\/DISCARD\\/|COMMON|CONSTRUCTORS|load address|linker stubs|LOADADDR|ALIGN|START GROUP|END GROUP|EXCLUDE_FILE|SECTIONS|PROVIDE|SIZEOF|SORT_BY_(NAME|ALIGNMENT|INIT_PRIORITY)|SORT_NONE|SORT|\\[!provide\\]|LOAD|OUTPUT)",
+			"name": "constant.language"
+		},
+		"section": {
+			"match": "(\\.[\\w-]+)+(\\.\\*)?",
+			"name": "support.variable"
+		},
+		"operator": {
+			"match": "[<>+*=/^-]",
+			"name": "keyword.operator"
+		},
+		"path": {
+			"match": "([a-zA-Z]:[\\\\/]|/)?([~%$&+.\\w-]+[\\\\/])*[~%$&+.\\w-]+(\\.\\w+)+",
+			"name": "entity.name.type"
+		}
+	}
+}

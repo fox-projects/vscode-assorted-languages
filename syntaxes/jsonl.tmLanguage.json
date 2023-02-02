@@ -1,0 +1,17 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "JSON Lines",
+	"patterns": [
+		{
+			"include": "#line"
+		}
+	],
+	"repository": {
+		"line": {
+			"begin": "^",
+			"patterns": [{ "include": "source.json" }],
+			"end": "\n"
+		}
+	},
+	"scopeName": "source.jsonl"
+}

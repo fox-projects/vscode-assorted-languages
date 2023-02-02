@@ -1,0 +1,9 @@
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Xml" #>
+<#
+ System.Xml.XmlDocument configurationData = ...; // Read a data file here.
+#>
+namespace Fabrikam.<#= configurationData.SelectSingleNode("jobName").Value #>
+{
+  ... // More code here.
+}

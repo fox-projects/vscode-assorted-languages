@@ -1,0 +1,79 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "vCard",
+	"patterns": [
+		{
+			"name": "support.function.vcard",
+			"begin": "^BEGIN:VCARD$",
+			"end": "^END:VCARD$",
+			"patterns": [
+				{ "include": "#versionNum" },
+				{ "include": "#properties" },
+				{ "include": "#extensionProperties" },
+				{ "include": "#attributeTypes" },
+				{ "include": "#attributeValues" },
+				{ "include": "#values" },
+				{ "include": "#valuesMultiline" }
+			]
+		}
+	],
+	"repository": {
+		"versionNum": {
+			"patterns": [
+				{
+					"name": "variable.language.version.vcard",
+					"match": "(?<=^VERSION:).+$"
+				}
+			]
+		},
+		"properties": {
+			"patterns": [
+				{
+					"name": "keyword.control.property.vcard",
+					"match": "^\\b(VERSION|ADR|AGENT|ANNIVERSARY|BDAY|CALADRURI|CALURI|CATEGORIES|CLASS|CLIENTPIDMAP|EMAIL|FBURL|FN|GENDER|GEO|IMPP|KEY|KIND|LABEL|LANG|LOGO|MAILER|MEMBER|N|NAME|NICKNAME|NOTE|ORG|PHOTO|PRODID|PROFILE|RELATED|REV|ROLE|SORT-STRING|SOUND|SOURCE|TEL|TITLE|TZ|UID|URL|XML)\\b"
+				}
+			]
+		},
+		"extensionProperties": {
+			"patterns": [
+				{
+					"name": "keyword.other.expansion.property.vcard",
+					"match": "^\\S.*?(?=:)"
+				}
+			]
+		},
+		"attributeTypes": {
+			"patterns": [
+				{
+					"name": "entity.name.type.attribute.vcard",
+					"match": "(?<=;)\\b\\w+?\\b(?=[:;=])"
+				}
+			]
+		},
+		"attributeValues": {
+			"patterns": [
+				{
+					"name": "variable.attribute.vcard",
+					"match": "(?<=\\=).+?(?=[:;])"
+				}
+			]
+		},
+		"values": {
+			"patterns": [
+				{
+					"name": "string.unquoted.value.vcard",
+					"match": "(?<=:).+"
+				}
+			]
+		},
+		"valuesMultiline": {
+			"patterns": [
+				{
+					"name": "string.unquoted.value.vcard",
+					"match": "^ \\S.*"
+				}
+			]
+		}
+	},
+	"scopeName": "source.vcard"
+}

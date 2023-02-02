@@ -1,0 +1,26 @@
+ Address         Publics by Value              Rva+Base     Lib:Object
+0001:00000000       _WinMain@16                00401000 f   MAPFILE.obj
+0001:000000c0       ?MyRegisterClass@@YAGPAUHINSTANCE__@@@Z 004010c0 f   MAPFILE.obj
+0001:00000150       ?InitInstance@@YAHPAUHINSTANCE__@@H@Z 00401150 f   MAPFILE.obj
+0001:000001b0       ?WndProc@@YGJPAUHWND__@@IIJ@Z 004011b0 f   MAPFILE.obj
+0001:00000310       ?About@@YGJPAUHWND__@@IIJ@Z 00401310 f   MAPFILE.obj
+0001:00000350       _WinMainCRTStartup         00401350 f   LIBC:wincrt0.obj
+0001:00000446       __amsg_exit                00401446 f   LIBC:wincrt0.obj
+0001:0000048f       __cinit                    0040148f f   LIBC:crt0dat.obj
+0001:000004bc       _exit                      004014bc f   LIBC:crt0dat.obj
+0001:000004cd       __exit                     004014cd f   LIBC:crt0dat.obj
+0001:00000591       __XcptFilter               00401591 f   LIBC:winxfltr.obj
+0001:00000715       __wincmdln                 00401715 f   LIBC:wincmdln.obj
+//SNIPPED FOR BETTER READING
+0003:00002ab4       __FPinit                   00408ab4     <common>
+0003:00002ab8       __acmdln                   00408ab8     <common>
+
+entry point at        0001:00000350
+
+Static symbols
+
+0001:000035d0       LeadUp1                    004045d0 f   LIBC:memmove.obj
+0001:000035fc       LeadUp2                    004045fc f   LIBC:memmove.obj
+ //SNIPPED FOR BETTER READING
+0001:00000577       __initterm                 00401577 f   LIBC:crt0dat.obj
+0001:0000046b       _fast_error_exit           0040146b f   LIBC:wincrt0.obj

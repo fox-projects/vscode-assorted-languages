@@ -1,0 +1,179 @@
+{
+	"fileTypes": ["ios"],
+	"foldingStartMarker": "^interface|^router|^ip access-list extended",
+	"foldingStopMarker": "^!",
+	"name": "Cisco",
+	"patterns": [
+		{
+			"match": "^\\s*no ",
+			"name": "invalid.illegal.cisco"
+		},
+		{
+			"match": "access-list",
+			"name": "support.function.cisco"
+		},
+		{
+			"match": "crypto ",
+			"name": "string.unquoted.cisco"
+		},
+		{
+			"begin": "\\^C",
+			"end": "\\^C",
+			"name": "string.quoted.cisco"
+		},
+		{
+			"match": "any[46]? ",
+			"name": "string.unquoted.cisco"
+		},
+		{
+			"match": "deny ",
+			"name": "support.constant.cisco"
+		},
+		{
+			"match": "permit ",
+			"name": "constant.character.escape.cisco"
+		},
+		{
+			"match": "object-group",
+			"name": "markup.list.cisco"
+		},
+		{
+			"match": "object",
+			"name": "markup.list.cisco"
+		},
+		{
+			"match": "host",
+			"name": "markup.list.cisco"
+		},
+		{
+			"match": "^[\\s]*!(.*)",
+			"name": "comment.cisco"
+		},
+		{
+			"match": "static",
+			"name": "constant.numeric.cisco"
+		},
+		{
+			"match": "tunnel-group",
+			"name": "support.class.cisco"
+		},
+		{
+			"match": "crypto",
+			"name": "support.class.cisco"
+		},
+		{
+			"match": "\\d+\\.\\d+\\.\\d+\\.\\d+(/\\d{1,2})?",
+			"name": "constant.numeric.cisco"
+		},
+		{
+			"match": "[0-9a-fA-F]{0,4}:([0-9a-fA-F]{0,4}:)+[0-9a-fA-F]{0,4}(/\\d{1,3})?",
+			"name": "constant.numeric.cisco"
+		},
+		{
+			"match": "(\\bshutdown\\b|^boot-(start|end)-marker)",
+			"name": "invalid.illegal.cisco"
+		},
+		{
+			"match": "((^$|no )(interface|line|ip (access-list (extended|standard)|dhcp (pool|excluded-address)|route|classless|subnet-zero|nat|http|local pool|flow-export|flow-top-talkers|inspect|domain|ips|host)|router|voice-(card|port)|dial-peer|voice (translation-(rule|profile)|register (global|pool|dn)|service)|application$|crypto (pki|keyring|isakmp (profile|policy|client configuration)|ipsec (profile|transform-set)|(dynamic-)?map)|telephony-service|ephone(-dn)?|banner|(class|policy|route)-map|map-class)|\\b(ssid|pvc|certificate)|service|clock|boot|logging|control-plane|aaa|(tftp|snmp|radius)-server|ntp|bridge|(access|dialer)-list|archive)\\b",
+			"name": "support.control.cisco"
+		},
+		{
+			"match": "\\b([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}|\\h{1,4}\\.\\h{1,4}\\.\\h{1,4}(\\.\\h{1,2})?)\\b",
+			"name": "constant.numeric.cisco"
+		},
+		{
+			"match": "\\b((Fast|Gigabit|TenGigabit|FortyGigabit)?Ethernet|Dialer|Dot11Radio|ATM|BRI|Tunnel(Group-)?Async|BVI|[Ll]oopback|Null|[Pp]ort-channel|Virtual-(Access|Dot11Radio|PPP|Template)|TenGigE|TwentyFiveGigE|HundredGigE|tunnel-ip|Bundle-Ether|MgmtEth0)",
+			"name": "constant.language.cisco"
+		},
+		{
+			"match": "\\binterface",
+			"name": "constant.language.cisco"
+		},
+		{
+			"match": "^!.*$",
+			"name": "comment.bang.cisco"
+		},
+		{
+			"match": "\\b(description|remark|system message)\\s.*$",
+			"name": "comment.documentation.cisco"
+		},
+		{
+			"match": "\\bno\\b",
+			"name": "constant.language.cisco"
+		},
+		{
+			"match": "^version.*$",
+			"name": "constant.language.cisco"
+		},
+		{
+			"match": "^(username|hostname|enable)\\b",
+			"name": "keyword.other.cisco"
+		},
+		{
+			"match": "\\b(network|passive-interface|redistribute|auto-summary|synchronization|bgp|neighbor|default-information)\\b",
+			"name": "keyword.other.routing.cisco"
+		},
+		{
+			"match": "\\b(ip (address|unnumbered|proxy-arp|nat|nbar|virtual-reassembly|access-group|verify)|speed|(full-|half-)?duplex|cdp enable|encapsulation|dialer(-group)?|compress|ppp|crypto|channel|station-role|encryption|broadcast-key|snmp|isdn|dsl|tunnel|bandwidth|fair-queue|physical-layer|async mode|peer default|switchport|media-type|clockrate)\\b",
+			"name": "keyword.other.interface.cisco"
+		},
+		{
+			"match": "\\b(ipv(4|6) (address|address-family|unnumbered|proxy-arp|nat|nbar|virtual-reassembly|access-group|verify)|speed|(full-|half-)?duplex|cdp enable|encapsulation|dialer(-group)?|compress|ppp|crypto|channel|station-role|encryption|broadcast-key|snmp|isdn|dsl|tunnel|bandwidth|fair-queue|physical-layer|async mode|peer default|switchport|media-type|clockrate|bundle|vrf|mtu|lacp|bfd)\\b",
+			"name": "keyword.control.cisco"
+		},
+		{
+			"match": "\\b((session|exec)-timeout|login|password|stopbits|access-class|transport (input|output))\\b",
+			"name": "keyword.other.line.cisco"
+		},
+		{
+			"match": "\\b(domain-name|default-router|dns-server|host|client-(name|identifier)|option)\\b",
+			"name": "keyword.other.dhcp.cisco"
+		},
+		{
+			"match": "\\baddress-family\\b",
+			"name": "constant.language.address-family.cisco"
+		},
+		{
+			"match": "\\b(device-security-mode|mac-address|type|button|video|username)\\b",
+			"name": "keyword.other.ephone.cisco"
+		},
+		{
+			"match": "\\b(number|name|call-forward|hold-alert)\\b",
+			"name": "keyword.other.ephonedn.cisco"
+		},
+		{
+			"match": "\\b(load|max-ephones|max-dn|ip|auto|calling-number|timeouts|time-zone|time-format|date-format|dialplan-pattern|max-conferences|moh|web|(dn|time)-webedit|transfer-(system|pattern)|create)\\b",
+			"name": "keyword.other.telephony.cisco"
+		},
+		{
+			"match": "\\b(translation-profile|answer-address|destination-pattern|progress_ind|incoming|direct-inward-dial|port|max-conn|information-type|session (target|protocol)|dtmf-relay|codec|vad)\\b",
+			"name": "keyword.other.dial-peer.cisco"
+		},
+		{
+			"match": "\\b(compand-type|comfort-noise|cptone)\\b",
+			"name": "keyword.other.voice-port.cisco"
+		},
+		{
+			"match": "\\b(permit|deny|log|established|evaluate)\\b",
+			"name": "keyword.other.acl.cisco"
+		},
+		{
+			"match": "\\b(auth(entic|oriz)ation|accounting)\\b",
+			"name": "keyword.other.aaa.cisco"
+		},
+		{
+			"match": "\\bmatch (ip precedence|protocol|access-group)\\b",
+			"name": "keyword.other.class-map.cisco"
+		},
+		{
+			"match": "\\b(class(-default)?|set ip dscp|priority)\\b",
+			"name": "keyword.other.policy-map.cisco"
+		},
+		{
+			"match": "\\b(frame-relay|service-policy)\\b",
+			"name": "keyword.other.map-class.cisco"
+		}
+	],
+	"scopeName": "text.cisco",
+	"uuid": "f3ba50f0-2bad-48b7-9509-f6d72e353ddb"
+}

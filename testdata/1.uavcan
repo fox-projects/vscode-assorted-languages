@@ -1,0 +1,13 @@
+#
+# A header comment.
+# Note that the formatting is broken deliberately.
+#
+
+@union
+
+float16 foo
+
+float16 BAR    = 12.34  # This is BAR
+truncated uint8    bar
+
+int32  FOO =   - 42

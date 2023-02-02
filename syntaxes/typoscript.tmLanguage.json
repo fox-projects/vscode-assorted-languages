@@ -1,0 +1,241 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "TypoScript",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#includes"
+		},
+		{
+			"include": "#conditions"
+		},
+		{
+			"comment": "Everything after the equal sign",
+			"begin": "(=)(\\s?)",
+			"captures": {
+				"0": {
+					"name": "keyword.operator"
+				}
+			},
+			"end": "(?:\n|$)",
+			"name": "string.interpolated.typoscript",
+			"patterns": [
+				{
+					"include": "#cobjects"
+				},
+				{
+					"include": "#constants"
+				},
+				{
+					"include": "#interpolation"
+				},
+				{
+					"include": "#strings"
+				}
+			]
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.typoscript"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.typoscript"
+				},
+				{
+					"begin": "(^\\s+)?(?=//)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.typoscript"
+						}
+					},
+					"end": "(?!\\G)",
+					"patterns": [
+						{
+							"begin": "//",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.typoscript"
+								}
+							},
+							"end": "\\n|(?=\\?>)",
+							"name": "comment.line.double-slash.typoscript"
+						}
+					]
+				},
+				{
+					"begin": "(^\\s+)?(?=#)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.typoscript"
+						}
+					},
+					"end": "(?!\\G)",
+					"patterns": [
+						{
+							"begin": "#",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.typoscript"
+								}
+							},
+							"end": "\\n|(?=\\?>)",
+							"name": "comment.line.number-sign.typoscript"
+						}
+					]
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "variable.other.typoscript",
+					"match": "{\\$.*}"
+				}
+			]
+		},
+		"conditions": {
+			"patterns": [
+				{
+					"name": "variable.other.typoscript",
+					"match": "\\[(adminUser|language|IP|hostname|applicationContext|hour|minute|month|year|dayofweek|dayofmonth|dayofyear|usergroup|loginUser|page|treeLevel|PIDinRootline|PIDupinRootline|compatVersion|globalVar|globalString|global|userFunc|end|((?:\\{1,2}\\w+|\\w+\\\\{1,2})(?:\\w+\\\\{0,2})+)).*\\]"
+				}
+			]
+		},
+		"cobjects": {
+			"patterns": [
+				{
+					"name": "support.class.cobject.typoscript",
+					"match": "(CASE|COA|COA_INT|CONTENT|EDITPANEL|FILE|FILES|FLUIDTEMPLATE|HMENU|TMENU|IMAGE|IMG_RESOURCE|LOAD_REGISTER|RECORDS|RESTORE_REGISTER|SVG|TEMPLATE|TEXT|USER|USER_INT|PAGE)\\b(?:\n|$)"
+				}
+			]
+		},
+		"interpolation": {
+			"patterns": [
+				{
+					"match": "\\\\[0-7]{1,3}",
+					"name": "constant.numeric.octal.typoscript"
+				},
+				{
+					"match": "\\\\x[0-9A-Fa-f]{1,2}",
+					"name": "constant.numeric.hex.typoscript"
+				},
+				{
+					"match": "\\\\[enrt\\\\\\$\\\"]",
+					"name": "constant.character.escape.typoscript"
+				}
+			]
+		},
+		"string-double-quoted": {
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.typoscript"
+				}
+			},
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.typoscript"
+				}
+			},
+			"name": "string.quoted.double.typoscript",
+			"patterns": [
+				{
+					"include": "#interpolation"
+				}
+			]
+		},
+		"string-single-quoted": {
+			"begin": "'",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.typoscript"
+				}
+			},
+			"end": "'",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.typoscript"
+				}
+			},
+			"name": "string.quoted.single.typoscript",
+			"patterns": [
+				{
+					"match": "\\\\[\\\\']",
+					"name": "constant.character.escape.typoscript"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"include": "#string-double-quoted"
+				},
+				{
+					"include": "#string-single-quoted"
+				}
+			]
+		},
+		"include_at_rule": {
+			"begin": "\\s*((@)import\\b)\\s*",
+			"captures": {
+				"1": {
+					"name": "keyword.control.include.typoscript"
+				},
+				"2": {
+					"name": "punctuation.definition.keyword.typoscript"
+				}
+			},
+			"end": "\\s",
+			"name": "meta.include.typoscript",
+			"patterns": [
+				{
+					"include": "#strings"
+				}
+			]
+		},
+		"include_tag_rule": {
+			"begin": "<INCLUDE_TYPOSCRIPT:",
+			"beginCaptures": {
+				"0": {
+					"name": "support.function.typoscript"
+				}
+			},
+			"end": ">",
+			"endCaptures": {
+				"0": {
+					"name": "support.function.typoscript"
+				}
+			},
+			"patterns": [
+				{
+					"name": "variable.parameter.typoscript",
+					"match": "(source|extensions|condition)(=)"
+				},
+				{
+					"include": "#strings"
+				}
+			]
+		},
+		"includes": {
+			"patterns": [
+				{
+					"include": "#include_at_rule"
+				},
+				{
+					"include": "#include_tag_rule"
+				}
+			]
+		}
+	},
+	"scopeName": "source.typoscript"
+}

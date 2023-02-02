@@ -1,0 +1,361 @@
+{
+	"fileTypes": ["qvs"],
+	"name": "QlikView",
+	"patterns": [
+		{
+			"include": "#scriptStatements"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#numerics"
+		},
+		{
+			"include": "#rangeFunctions"
+		},
+		{
+			"include": "#stringFunctions"
+		},
+		{
+			"include": "#dateTimeFunctions"
+		},
+		{
+			"include": "#colorFunctions"
+		},
+		{
+			"include": "#interRecordFunctions"
+		},
+		{
+			"include": "#counterFunctions"
+		},
+		{
+			"include": "#aggregationFunctions"
+		},
+		{
+			"include": "#systemFunctions"
+		},
+		{
+			"include": "#logicalFunctions"
+		},
+		{
+			"include": "#macros"
+		},
+		{
+			"include": "#fieldNames"
+		},
+		{
+			"match": "&|\\+|\\\\|<|<=|>|>=|\\/|,|;|=",
+			"name": "keyword.operator.qvs"
+		},
+		{
+			"begin": "'",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.qvs"
+				}
+			},
+			"end": "'",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.qvs"
+				}
+			},
+			"name": "string.quoted.single.qvs"
+		},
+		{
+			"comment": "Star * as joker for all fields",
+			"match": "\\*",
+			"name": "keyword.operator.star.qvs"
+		},
+		{
+			"match": "(?i:\\b(and|or)\\b)",
+			"name": "keyword.operator.logical.qvs"
+		},
+		{
+			"match": "(?i)\\bAS\\b",
+			"name": "keyword.other.alias.qvs"
+		},
+		{
+			"comment": "LOAD and MAPPING LOAD keywords",
+			"match": "(?i:\\b(qualify|call|exit\\s*script)\\b)",
+			"name": "keyword.other.load.qvs"
+		},
+		{
+			"comment": "LOAD and MAPPING LOAD keywords",
+			"match": "(?i:\\b(rename\\s+field|rename\\s+table|to)\\b)",
+			"name": "keyword.other.load.qvs"
+		},
+		{
+			"match": "(?i:\\b(concatenate)(?=\\s*\\()\\b)",
+			"name": "keyword.other.load.qvs"
+		},
+		{
+			"match": "\n\t\t\t\t\t(?i)\\b(endif|end\\s+if|elseif|else|then|not|or|and|sub|end\\s+sub|switch|case|default|end\\s+switch|for|step|exit\\s+for|next|do\\s+while|do\\s+until|exit\\s+do|do|loop\\s+while|loop\\s+until|loop)\\b",
+			"name": "keyword.control.qvs"
+		},
+		{
+			"match": "(?i)\\b(if)\\b(?!\\s*\\()",
+			"name": "keyword.control.qvs"
+		},
+		{
+			"match": "(?i)\\b(if|applymap)(?=\\s*\\()",
+			"name": "support.function.other.qvs"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.other.store.qvs"
+				},
+				"2": {
+					"name": "keyword.other.qvs"
+				}
+			},
+			"comment": "STORE xxx INTO",
+			"match": "(?i:^\\s*(store)\\s+\\[*\\w*\\]*\\s+(into))",
+			"name": "meta.store.qvs"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.other.create.qvs"
+				},
+				"2": {
+					"name": "keyword.other.qvs"
+				}
+			},
+			"comment": "DROP statement",
+			"match": "(?i:^\\s*(drop)\\s+(tables|table|fields|field))",
+			"name": "meta.drop.qvs"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.other.create.qvs"
+				},
+				"2": {
+					"name": "keyword.other.qvs"
+				}
+			},
+			"comment": "TAG statement",
+			"match": "(?i:^\\s*(tag|untag)\\s+(fields|field))",
+			"name": "meta.tag.qvs"
+		}
+	],
+	"repository": {
+		"aggregationFunctions": {
+			"patterns": [
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i:\\b(sum|max|maxstring|minstring|min|avg|concat|count|NumAvg|NumericCount|NumMax|NumMin|NumSum|Median|NullCount|NumCount|textcount|only)(?=\\s*\\())",
+					"name": "support.function.aggregate.qvs"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"match": "(//).*$\\n?",
+					"name": "comment.line.double-slash.source.qvs"
+				},
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.qvs"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.qvs"
+				},
+				{
+					"begin": "(?i:^rem\\b)",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.qvs"
+						}
+					},
+					"end": ";",
+					"name": "comment.block.qvs"
+				}
+			]
+		},
+		"counterFunctions": {
+			"patterns": [
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(recno|rowno|iterno|autonumber|autonumberhash128|autonumberhash256|fieldvaluecount)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				}
+			]
+		},
+		"dateTimeFunctions": {
+			"patterns": [
+				{
+					"comment": "Functions that take a date as input",
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(second|minute|hour|day|dayname|daynumberofquarter|daynumberofyear|weekday|week|WeekName|weekyear|month|MonthName|MonthsName|year|YearName|QuarterName)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				},
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(now|today|localtime|makedate|makeweekdate|maketime|converttolocaltime)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				},
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(yeartodate|setdateyear|setdateyearmonth|yearstart|yearend|inyear|inyeartodate|inquarter|inquartertodate|inday|indaytotime)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				},
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(addyears|addmonths|daystart|dayend|monthstart|MonthsStart|monthend|MonthsEnd|inmonth|inmonthtodate|inmonths|inmonthstodate|inweek|inweektodate|inlunarweek|inlunarweektodate|LastWorkDate|NetWorkDays|LunarWeekEnd|LunarWeekName|LunarWeekStart|QuarterEnd|QuarterStart|WeekEnd|WeekStart)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				},
+				{
+					"comment": "no imput functions",
+					"match": "(?i)\\b(timezone|gmt|utc|daylightsaving)(?=\\s*\\(\\))",
+					"name": "support.function.other.qvs"
+				},
+				{
+					"match": "(?i)\\b(date|date#|time|time#|timestamp|timestamp#)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				}
+			]
+		},
+		"colorFunctions": {
+			"patterns": [
+				{
+					"comment": "Color functions",
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(argb|color|colormaphue|colormapjet|colormix1|colormix2|white|black|red|green|blue|brown|cyan|darkgray|LightBlue|LightCyan|LightGray|LightGreen|LightMagenta|LightRed|Magenta|QlikTechBlue|QlikTechGray|rgb|SysColor|yellow)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				}
+			]
+		},
+		"fieldNames": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.qvs"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "definition.punctuation.string.end.qvs"
+						}
+					},
+					"name": "string.quoted.double.qvs"
+				},
+				{
+					"begin": "\\[",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.qvs"
+						}
+					},
+					"end": "\\]",
+					"endCaptures": {
+						"0": {
+							"name": "definition.punctuation.string.end.qvs"
+						}
+					},
+					"name": "string.quoted.other.qvs"
+				}
+			]
+		},
+		"interRecordFunctions": {
+			"patterns": [
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(exists|fieldindex|fieldvalue|peek|previous|lookup|FieldName|FieldNumber|TableName|TableNumber|NoOfFields|NoOfReports|NoOfRows|NoOfTables)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				}
+			]
+		},
+		"logicalFunctions": {
+			"patterns": [
+				{
+					"match": "(?i)\\b(isnull|isnum|IsText|true|false|null)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				}
+			]
+		},
+		"macros": {
+			"patterns": [
+				{
+					"captures": {
+						"1": {
+							"name": "constant.numeric.qvs"
+						}
+					},
+					"comment": "Variables like $PARAM1, $TM_SELECTION...",
+					"match": "\\$\\(([A-Za-z][A-Za-z0-9_]+)\\)",
+					"name": "keyword.qvs"
+				}
+			]
+		},
+		"numerics": {
+			"patterns": [
+				{
+					"match": "\\b([1-9]+[0-9]*|0)",
+					"name": "constant.numeric.integer.decimal.qvs"
+				},
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(num|num#|interval|interval#|money|money#|dual|ceil|floor|round|even|odd|log|log10|mode|pow|rand|sqr|sqrt|pi)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				}
+			]
+		},
+		"rangeFunctions": {
+			"patterns": [
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(RangeAvg|RangeCorrel|RangeCount|RangeFractile|RangeIRR|RangeKurtosis|RangeMax|RangeMaxString|RangeMin|RangeMinString|RangeMissingCount|RangeMode|RangeNPV|RangeNullCount|RangeNumericCount|RangeOnly|RangeSkew|RangeStdev|RangeSum|RangeTextCount|RangeXIRR|RangeXNPV)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				}
+			]
+		},
+		"scriptStatements": {
+			"patterns": [
+				{
+					"comment": "LOAD and MAPPING LOAD keywords",
+					"match": "\n\t\t\t\t\t\t\t(?i:\\b(join|left\\s+join|right\\s+join|inner\\s+join|outer\\s+join|left\\s+keep|right\\s+keep|inner\\s+keep|mapping\\s+load|info\\s+load|bundle\\s+info\\s+load|load\\s+distinct|load|direct\\s+query|dimension|measure|detail|native|sql\\s+select|inline|resident|autogenerate|from|where|group\\sby|order\\sby|asc|desc)\\b)",
+					"name": "keyword.other.load.qvs"
+				},
+				{
+					"match": "(?i)\\b(crosstable)(?=\\s*\\()",
+					"name": "keyword.other.load.qvs"
+				},
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i:\\b(add|alias|binary|buffer|directory|concatenate|noconcatenate|intervalmatch|trace|unqualify|qualify|include)\\b)",
+					"name": "keyword.other.source.qvs"
+				},
+				{
+					"match": "(?i:\\b(odbc|connect\\sto)\\b)",
+					"name": "keyword.other.source.qvs"
+				},
+				{
+					"match": "(?i:\\b(set|let)\\b)",
+					"name": "keyword.other.qvs"
+				},
+				{
+					"match": "(?i:\\b(with|using)\\b)",
+					"name": "keyword.other.qvs"
+				}
+			]
+		},
+		"stringFunctions": {
+			"patterns": [
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(text|len|trim|ltrim|rtrim|subfield|left|right|replace|keepchar|purgechar|capitalize|chr|findoneof|index|upper|lower|midMapSubString|substringcount|TextBetween)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				}
+			]
+		},
+		"systemFunctions": {
+			"patterns": [
+				{
+					"match": "\n\t\t\t\t\t\t\t(?i)\\b(filesize|FileBaseName|FileDir|FileTime|FileExtension|FileName|FilePath|filesize|documentname|DocumentPath|DocumentTitle|attribute|author|computername|GetExtendedProperty|GetFolderPath|GetObjectField|GetRegistryString|OSUser|QlikViewVersion|QvdCreateTime|QvdFieldName|QvdNoOfFields|QvdNoOfRecords|QvdTableName|QVUser|ReloadTime)(?=\\s*\\()",
+					"name": "support.function.other.qvs"
+				}
+			]
+		}
+	},
+	"scopeName": "source.qvs",
+	"uuid": "76c5d355-f146-4396-8714-8a4b1e687fc2"
+}

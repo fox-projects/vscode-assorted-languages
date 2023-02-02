@@ -1,0 +1,84 @@
+{
+	"$schema": "https://raw.githubusercontent.com/Septh/tmlanguage/master/tmLanguage.schema.json",
+	"scopeName": "text.m3u",
+	"name": "M3U",
+	"fileTypes": ["m3u", "m3u8"],
+	"patterns": [
+		{
+			"match": "^[ \t].*",
+			"name": "invalid.illegal.m3u"
+		},
+		{
+			"match": "^#EXTM3U$",
+			"name": "support.class.m3u"
+		},
+		{
+			"begin": "^#EXTINF:",
+			"beginCaptures": {
+				"0": {
+					"name": "support.constant.m3u"
+				}
+			},
+			"end": "(,)(.*)|$",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.control.m3u"
+				},
+				"2": {
+					"name": "support.variable.m3u"
+				}
+			},
+			"name": "meta.function.extinf.m3u",
+			"patterns": [
+				{
+					"match": "[0-9]+",
+					"name": "constant.numeric.m3u"
+				}
+			]
+		},
+		{
+			"begin": "^#EXT[A-Za-z0-9]+(\\:|\\-\\-)",
+			"beginCaptures": {
+				"0": {
+					"name": "support.constant.m3u"
+				}
+			},
+			"end": "(=)(.*)|$",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.control.m3u"
+				},
+				"2": {
+					"name": "support.variable.m3u"
+				}
+			},
+			"name": "meta.function.ext.m3u"
+		},
+		{
+			"begin": "^#EXT\\-X\\-[A-Za-z0-9]+(\\:|\\-\\-)",
+			"beginCaptures": {
+				"0": {
+					"name": "support.constant.m3u"
+				}
+			},
+			"end": "(=)(.*)|$",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.control.m3u"
+				},
+				"2": {
+					"name": "support.variable.m3u"
+				}
+			},
+			"name": "meta.function.ext.m3u"
+		},
+		{
+			"match": "^[^#].+",
+			"name": "string.unquoted.m3u"
+		},
+		{
+			"match": "^#.*",
+			"name": "comment.line.number-sign.m3u"
+		}
+	]
+}

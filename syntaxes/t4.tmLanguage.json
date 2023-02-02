@@ -1,0 +1,50 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "T4 Text Template",
+	"patterns": [
+		{
+			"match": "(<#@|<#=|<#\\+|<#)(.*?)(#>)",
+			"name": "constant.t4",
+			"captures": {
+				"1": { "name": "constant.t4" },
+				"2": {
+					"patterns": [{ "include": "source.cs" }]
+				},
+				"3": { "name": "constant.t4" }
+			}
+		},
+		{
+			"begin": "(<#=|<#@|<#\\+|<#)",
+			"beginCaptures": {
+				"1": {
+					"name": "constant.t4"
+				}
+			},
+			"end": "(.*?)(#>).*?",
+			"endCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "source.cs"
+						}
+					]
+				},
+				"2": {
+					"name": "constant.t4"
+				}
+			},
+			"patterns": [
+				{
+					"begin": "(^|\\G)(?!((<#@|<#=|<#\\+|<#).*?))",
+					"while": "(^|\\G)(?!((.*?)#>))",
+					"patterns": [
+						{
+							"include": "source.cs"
+						}
+					]
+				}
+			]
+		}
+	],
+	"scopeName": "source.t4"
+}

@@ -1,0 +1,263 @@
+{
+	"fileTypes": ["gp", "gnuplot", "gnu", "plot", "plt"],
+	"keyEquivalent": "^~G",
+	"name": "gnuplot",
+	"patterns": [
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#string_single"
+		},
+		{
+			"include": "#string_double"
+		},
+		{
+			"begin": "\\b(for)\\b\\s*(\\[)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.iteration.gnuplot"
+				},
+				"2": {
+					"name": "punctuation.definition.range.begin.gnuplot"
+				}
+			},
+			"comment": "gnuplot iteration statement. There are two forms: numeric [n = 1:2{:inc}] string\n\t\t\t\t\tbased [str in \"x y z\"] but both can also iterate over lists etc, so this is kept\n\t\t\t\t\tloose.",
+			"end": "\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.range.end.gnuplot"
+				}
+			},
+			"name": "meta.structure.iteration.gnuplot",
+			"patterns": [
+				{
+					"include": "#number"
+				},
+				{
+					"include": "#operator"
+				},
+				{
+					"include": "#string_double"
+				},
+				{
+					"include": "#string_single"
+				},
+				{
+					"match": ":",
+					"name": "punctuation.separator.range.gnuplot"
+				},
+				{
+					"match": "\\b([a-zA-Z]\\w*)\\b\\s*(=|in)",
+					"name": "variable-assignment.range.gnuplot"
+				}
+			]
+		},
+		{
+			"begin": "\\[",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.range.begin.gnuplot"
+				}
+			},
+			"comment": "gnuplot range statement [a:b]. Lots of things are legal, still more make no\n\t\t\t\t\tsense!",
+			"end": "\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.range.end.gnuplot"
+				}
+			},
+			"name": "meta.structure.range.gnuplot",
+			"patterns": [
+				{
+					"include": "#number"
+				},
+				{
+					"include": "#operator"
+				},
+				{
+					"match": ":",
+					"name": "punctuation.separator.range.gnuplot"
+				}
+			]
+		},
+		{
+			"match": "\\\\.",
+			"name": "constant.character.escape.gnuplot"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.gnuplot"
+				}
+			},
+			"match": "(?<!\\$)(#)(?!\\{).*$\\n?",
+			"name": "comment.line.number-sign.gnuplot"
+		},
+		{
+			"comment": "introduce in gnuplot 4.3.",
+			"match": "for",
+			"name": "keyword.other.iteration.gnuplot"
+		},
+		{
+			"match": "\n\t\t\t\t\t\\b(angles|arrow|autoscale|bind|bmargin|border|boxwidth|color|colorsequence|clabel|clip|cntrlabel|cntrparam|colorbox|colornames|contour|dashtype|datastyle|datafile|decimalsign|dgrid3d|dummy|encoding|errorbars|fit|fontpath|format|functionstyle|functions|grid|hidden3d|historysize|history|isosamples|jitter|key|label|linetype|link|lmargin|loadpath|locale|logscale|macros|mapping|margin|micro|minussign|monochrome|mouse|mttics|multiplot|mx2tics|mxtics|my2tics|mytics|mztics|nonlinear|object|offsets|origin|output|parametric|paxis|plot|pm3d|palette|pointintervalbox|pointsize|polar|print|psdir|raxis|rgbmax|rlabel|rmargin|rrange|rtics|samples|size|style|surface|table|terminal|termoption|theta|tics|ticslevel|ticscale|timestamp|timefmt|title|tmargin|trange|ttics|urange|variables|version|view|vrange|x2data|x2dtics|x2label|x2mtics|x2range|x2tics|x2zeroaxis|xdata|xdtics|xlabel|xl|xmtics|xrange|xr|xtics|xyplane|xzeroaxis|y2data|y2dtics|y2label|y2mtics|y2range|y2tics|y2zeroaxis|ydata|ydtics|ylabel|yl|ymtics|yrange|yr|ytics|yzeroaxis|zdata|zdtics|zzeroaxis|cbdata|cbdtics|zero|zeroaxis|zlabel|zl|zmtics|zrange|zr|ztics|cblabel|cbl|cbmtics|cbrange|cbr|cbtics)\\b",
+			"name": "keyword.other.setting.gnuplot"
+		},
+		{
+			"comment": "missuse of scopes alert! Just for pretty colours",
+			"match": "\n\t\t\t\t\t\\b(break|cd|call|clear|continue|do|evaluate|exit|fit|help|history|if|for|import|load|lower|pause|plot|print|printerr|pwd|quit|raise|refresh|replot|reread|reset|save|set|show|shell|splot|stats|syste|test|toggle|undefine|unset|update|while|FIT_LIMIT|FIT_MAXITER|FIT_START_LAMBDA|FIT_LAMBDA_FACTOR|FIT_LOG|FIT_SCRIPT|!|functions|var)\\b",
+			"name": "keyword.other.command.gnuplot"
+		},
+		{
+			"match": "\n\t\t\t\t\t\\b(abs|acos|acosh|arg|asin|asinh|atan|atan2|atanh|besj0|besj1|besy0|besy1|ceil|cos|cosh|erf|erfc|exp|floor|gamma|ibeta|igamma|imag|int|inverf|invnorm|lambertw|lgamma|log|log10|norm|rand|real|sgn|sin|sinh|sqrt|tan|tanh)\\b",
+			"name": "support.function.gnuplot"
+		},
+		{
+			"match": "\\b(gprintf|sprintf|strlen|strstrt|substr|system|word|words)\\b",
+			"name": "support.function.string.gnuplot"
+		},
+		{
+			"match": "\n\t\t\t\t\t\\b(on|off|default|inside|outside|lmargin|rmargin|tmargin|bmargin|at|left|right|center|top|bottom|center|vertical|horizontal|Left|Right|noreverse|noinvert|samplen|spacing|width|height|noautotitle|columnheader|title|noenhanced|nobox|linestyle|ls|linetype|lt|linewidth|lw)\\b",
+			"name": "constant.other.type.gnuplot"
+		},
+		{
+			"comments": "These are the terminal types available on my system -- there are probably a lot\n\t\t\t\t\tmore",
+			"match": "\n\t\t\t\t\t\\b(aed512|aed767|aifm|aqua|bitgraph|canvas|cgm|corel|dumb|dxf|eepic|emf|emtex|eps|epslatex|epson_180dpi|epson_60dpi|epson_lx800|fig|gif|gpic|hp2623A|hp2648|hp500c|hpdj|hpgl|hpljii|hppj|imagen|jpeg|kc_tek40xx|km_tek40xx|latex|mf|mif|mp|nec_cp6|okidata|pbm|pcl5|pdf|png|pngcairo|postscript|pslatex|pstex|pstricks|qms|regis|selanar|starc|svg|tandy_60dpi|tek40xx|tek410x|texdraw|tgif|tkcanvas|tpic|unknown|vttek)\\b",
+			"name": "constant.other.terminal.gnuplot"
+		},
+		{
+			"match": "\n\t\t\t\t\t\\b(u(sing)?|t(it(le)?)?|notit(le)?|w(i(th)?)?|steps|fs(teps)?|notitle|l(i(nes)?)?|linespoints|via)\\b",
+			"name": "keyword.modifier.gnuplot"
+		},
+		{
+			"comment": "user defined function / variable",
+			"match": "(?x: \\b # Start with a word boundary (?=\\b[\\w$]*(\\(|.*=|\\s)) # Look-ahead for a\n\t\t\t\t\tbracket or equals or a white space (?![^(]*\\)) # negative look ahead for a closing\n\t\t\t\t\tbracket without an opening one. This stops a from matching in f(a) ( # Group variable\n\t\t\t\t\tname [A-Za-z] # A letter [\\w$]* # Any alphanumeric or $ ) # That is it for the name.\n\t\t\t\t\t)",
+			"name": "variable.other.gnuplot"
+		},
+		{
+			"match": "\\b(if)\\b",
+			"name": "keyword.control.gnuplot"
+		},
+		{
+			"begin": "\\b(show)\\b",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.other.command.gnuplot"
+				}
+			},
+			"contentName": "keyword.line.show.gnuplot",
+			"end": "(?!\\#)($\\n?)",
+			"name": "keyword.line.show.gnuplot",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"begin": "\\b(set)\\b\\s*\\b(terminal)\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.command.gnuplot"
+				},
+				"2": {
+					"name": "keyword.other.setting.gnuplot"
+				}
+			},
+			"end": "(?!\\#)($\\n?)",
+			"name": "keyword.line.set.terminal.gnuplot",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"begin": "\\b(set)\\b\\s*\\b(key)\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.command.gnuplot"
+				},
+				"2": {
+					"name": "keyword.other.setting.gnuplot"
+				}
+			},
+			"end": "(?!\\#)($\\n?)",
+			"name": "keyword.line.set.key.gnuplot",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"begin": "\\b(set)\\b\\s*(?!\\b(terminal|key|for)\\b)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.command.gnuplot"
+				},
+				"2": {
+					"name": "keyword.other.setting.gnuplot"
+				}
+			},
+			"contentName": "keyword.line.set.gnuplot",
+			"end": "(?!\\#)($\\n?)",
+			"name": "keyword.line.set.gnuplot",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		}
+	],
+	"repository": {
+		"number": {
+			"comment": "borrowed from textmate book",
+			"match": "(?x: # turn on extended mode -? # an optional minus (?: [0-9] # a 0-9 character\n\t\t\t\t\t\\d* # followed by zero or more digits ) (?: \\. # a period \\d+ # followed by one or\n\t\t\t\t\tmore digits )? # make decimal portion optional (?: [eE] # an e character [+-]? #\n\t\t\t\t\tfollowed by an option +/- \\d+ # followed by one or more digits (?: \\. # a period \\d+\n\t\t\t\t\t# followed by one or more digits )? # make decimal in exponent power optional )? #\n\t\t\t\t\tmake exponent optional )",
+			"name": "constant.numeric.gnuplot"
+		},
+		"operator": {
+			"comment": "Operator symbols",
+			"match": "\n\t\t\t\t\t\\s*(==|~=|>|>=|<|<=|&|&&|:|\\||\\|\\||\\+|-|\\*|\\.\\*|/|\\./|\\\\|\\.\\\\|\\^|\\.\\^)\\s*",
+			"name": "keyword.operator.symbols.matlab"
+		},
+		"string_double": {
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.gnuplot"
+				}
+			},
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.gnuplot"
+				}
+			},
+			"name": "string.quoted.double.gnuplot",
+			"patterns": [
+				{
+					"match": "\\\\[\\$`\"\\\\\\n]",
+					"name": "constant.character.escape.gnuplot"
+				}
+			]
+		},
+		"string_single": {
+			"begin": "'",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.gnuplot"
+				}
+			},
+			"end": "'",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.gnuplot"
+				}
+			},
+			"name": "string.quoted.single.gnuplot"
+		}
+	},
+	"scopeName": "source.gnuplot",
+	"uuid": "A27F93D4-2AE3-4950-851E-8FA19D3CF999"
+}

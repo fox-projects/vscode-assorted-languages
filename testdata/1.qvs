@@ -1,0 +1,9 @@
+Sub SaveScript
+     Set docProps = ActiveDocument.GetProperties
+     docScript = docProps.Script
+     ''MsgBox(docScript)
+     Set objFSO = CreateObject("Scripting.FileSystemObject")
+     Set objFile = objFSO.CreateTextFile("C:\ScriptFile.txt")
+     objFile.Write(docScript)
+     objFile.Close
+End Sub

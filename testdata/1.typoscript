@@ -1,0 +1,14 @@
+config.additionalHeaders {
+    10 {
+        # The header string
+        header = foo
+
+        # Do not replace previous headers with the same name.
+        replace = 0
+
+        # Force a 401 HTTP response code
+        httpResponseCode = 401
+    }
+    # Always set cache headers to private, overwriting the default TYPO3 Cache-control header
+    20.header = Cache-control: Private
+}

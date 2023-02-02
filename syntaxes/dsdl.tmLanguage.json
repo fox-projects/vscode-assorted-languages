@@ -1,0 +1,123 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "DSDL",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#storage"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.dsdl",
+					"match": "^@\\w+ *"
+				},
+				{
+					"name": "keyword.control.dsdl",
+					"match": "^--- *$"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.dsdl",
+			"begin": "(\"|\\')",
+			"end": "(\"|\\')",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dsdl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"match": "#.*",
+					"name": "comment.line.number-sign.dsdl"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"match": "\\b0x[0-9a-fA-F]+\\b",
+					"name": "constant.numeric.dsdl",
+					"comment": "Matches all hexadecimal numbers"
+				},
+				{
+					"match": "\\b0o[0-7]+\\b",
+					"name": "constant.numeric.dsdl",
+					"comment": "Matches all octal numbers"
+				},
+				{
+					"match": "\\b0b[0-1]+\\b",
+					"name": "constant.numeric.dsdl",
+					"comment": "Matches all binary numbers"
+				},
+				{
+					"match": "\\b[-+]?[1-9]+(?:\\.\\d+)?[Ee][-+]?\\d+\\b",
+					"name": "constant.numeric.dsdl",
+					"comment": "Matches all numbers in scientific notation"
+				},
+				{
+					"match": "\\b[-+]?[0-9]*\\.?[0-9]+\\b",
+					"name": "constant.numeric.dsdl",
+					"comment": "Matches all floating point numbers"
+				},
+				{
+					"match": "\\b(true|false)\\b",
+					"name": "constant.language.dsdl",
+					"comment": "Matches boolean values"
+				}
+			]
+		},
+		"storage": {
+			"patterns": [
+				{
+					"match": "\\b[u]?int([2-9]|[1-5][0-9]|6[0-4])\\b",
+					"name": "storage.type.dsdl",
+					"comment": "Matches (u)intX where 2<=X<=64"
+				},
+				{
+					"match": "\\bfloat(16|32|64)\\b",
+					"name": "storage.type.dsdl",
+					"comment": "Matches float(16|32|64)"
+				},
+				{
+					"match": "\\bvoid([1-9]|[1-5][0-9]|6[0-4])\\b",
+					"name": "storage.type.dsdl",
+					"comment": "Matches voidX where 1<=X<=64"
+				},
+				{
+					"match": "\\bbool\\b",
+					"name": "storage.type.dsdl",
+					"comment": "Mathces bool"
+				},
+				{
+					"match": "\\b(saturated|truncated)\\b",
+					"name": "storage.modifier.dsdl",
+					"comment": "Matches keywords saturated and truncated"
+				},
+				{
+					"match": "^(?![u]?int|void|bool|float|[0-9])\\b(\\w\\.?)+\\b",
+					"name": "storage.type.dsdl",
+					"comment": "Matches all composite types, including those given with full name, except those which starts with the primitive types"
+				}
+			]
+		}
+	},
+	"scopeName": "source.dsdl"
+}

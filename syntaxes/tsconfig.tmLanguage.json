@@ -1,0 +1,241 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "TsConfig",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#includes"
+		},
+		{
+			"include": "#conditions"
+		},
+		{
+			"comment": "Everything after the equal sign",
+			"begin": "(=)(\\s?)",
+			"captures": {
+				"0": {
+					"name": "keyword.operator"
+				}
+			},
+			"end": "(?:\n|$)",
+			"name": "string.interpolated.tsconfig",
+			"patterns": [
+				{
+					"include": "#cobjects"
+				},
+				{
+					"include": "#constants"
+				},
+				{
+					"include": "#interpolation"
+				},
+				{
+					"include": "#strings"
+				}
+			]
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.tsconfig"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.tsconfig"
+				},
+				{
+					"begin": "(^\\s+)?(?=//)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.tsconfig"
+						}
+					},
+					"end": "(?!\\G)",
+					"patterns": [
+						{
+							"begin": "//",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.tsconfig"
+								}
+							},
+							"end": "\\n|(?=\\?>)",
+							"name": "comment.line.double-slash.tsconfig"
+						}
+					]
+				},
+				{
+					"begin": "(^\\s+)?(?=#)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.tsconfig"
+						}
+					},
+					"end": "(?!\\G)",
+					"patterns": [
+						{
+							"begin": "#",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.tsconfig"
+								}
+							},
+							"end": "\\n|(?=\\?>)",
+							"name": "comment.line.number-sign.tsconfig"
+						}
+					]
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "variable.other.tsconfig",
+					"match": "{\\$.*}"
+				}
+			]
+		},
+		"conditions": {
+			"patterns": [
+				{
+					"name": "variable.other.tsconfig",
+					"match": "\\[(adminUser|language|IP|hostname|applicationContext|hour|minute|month|year|dayofweek|dayofmonth|dayofyear|usergroup|loginUser|page|treeLevel|PIDinRootline|PIDupinRootline|compatVersion|globalVar|globalString|global|userFunc|end|((?:\\{1,2}\\w+|\\w+\\\\{1,2})(?:\\w+\\\\{0,2})+)).*\\]"
+				}
+			]
+		},
+		"cobjects": {
+			"patterns": [
+				{
+					"name": "support.class.cobject.tsconfig",
+					"match": "(CASE|COA|COA_INT|CONTENT|EDITPANEL|FILE|FILES|FLUIDTEMPLATE|HMENU|TMENU|IMAGE|IMG_RESOURCE|LOAD_REGISTER|RECORDS|RESTORE_REGISTER|SVG|TEMPLATE|TEXT|USER|USER_INT|PAGE)\\b(?:\n|$)"
+				}
+			]
+		},
+		"interpolation": {
+			"patterns": [
+				{
+					"match": "\\\\[0-7]{1,3}",
+					"name": "constant.numeric.octal.tsconfig"
+				},
+				{
+					"match": "\\\\x[0-9A-Fa-f]{1,2}",
+					"name": "constant.numeric.hex.tsconfig"
+				},
+				{
+					"match": "\\\\[enrt\\\\\\$\\\"]",
+					"name": "constant.character.escape.tsconfig"
+				}
+			]
+		},
+		"string-double-quoted": {
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.tsconfig"
+				}
+			},
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.tsconfig"
+				}
+			},
+			"name": "string.quoted.double.tsconfig",
+			"patterns": [
+				{
+					"include": "#interpolation"
+				}
+			]
+		},
+		"string-single-quoted": {
+			"begin": "'",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.tsconfig"
+				}
+			},
+			"end": "'",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.tsconfig"
+				}
+			},
+			"name": "string.quoted.single.tsconfig",
+			"patterns": [
+				{
+					"match": "\\\\[\\\\']",
+					"name": "constant.character.escape.tsconfig"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"include": "#string-double-quoted"
+				},
+				{
+					"include": "#string-single-quoted"
+				}
+			]
+		},
+		"include_at_rule": {
+			"begin": "\\s*((@)import\\b)\\s*",
+			"captures": {
+				"1": {
+					"name": "keyword.control.include.tsconfig"
+				},
+				"2": {
+					"name": "punctuation.definition.keyword.tsconfig"
+				}
+			},
+			"end": "\\s",
+			"name": "meta.include.tsconfig",
+			"patterns": [
+				{
+					"include": "#strings"
+				}
+			]
+		},
+		"include_tag_rule": {
+			"begin": "<INCLUDE_TYPOSCRIPT:",
+			"beginCaptures": {
+				"0": {
+					"name": "support.function.tsconfig"
+				}
+			},
+			"end": ">",
+			"endCaptures": {
+				"0": {
+					"name": "support.function.tsconfig"
+				}
+			},
+			"patterns": [
+				{
+					"name": "variable.parameter.tsconfig",
+					"match": "(source|extensions|condition)(=)"
+				},
+				{
+					"include": "#strings"
+				}
+			]
+		},
+		"includes": {
+			"patterns": [
+				{
+					"include": "#include_at_rule"
+				},
+				{
+					"include": "#include_tag_rule"
+				}
+			]
+		}
+	},
+	"scopeName": "source.tsconfig"
+}

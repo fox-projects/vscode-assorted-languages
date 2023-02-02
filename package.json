@@ -24,12 +24,20 @@
 		"Programming Languages",
 		"Snippets"
 	],
-	"keywords": [
-		"Linux",
-		"systemd"
-	],
 	"contributes": {
 		"languages": [
+			{
+				"id": "asl",
+				"aliases": [
+					"ASL",
+					"asl"
+				],
+				"extensions": [
+					".asl",
+					".dsl"
+				],
+				"configuration": "./language-configuration/asl.language-configuration.json"
+			},
 			{
 				"id": "m4",
 				"aliases": [
@@ -71,6 +79,17 @@
 				"configuration": "./language-configuration/awk.language-configuration.json"
 			},
 			{
+				"id": "cisco",
+				"aliases": [
+					"Cisco",
+					"cisco"
+				],
+				"extensions": [
+					".ios"
+				],
+				"configuration": "./language-configuration/cisco.language-configuration.json"
+			},
+			{
 				"id": "desktop",
 				"aliases": [
 					"Desktop",
@@ -99,6 +118,17 @@
 				"configuration": "./language-configuration/dircolors.language-configuration.json"
 			},
 			{
+				"id": "dsdl",
+				"aliases": [
+					"DSDL",
+					"dsdl"
+				],
+				"extensions": [
+					".uavcan"
+				],
+				"configuration": "./language-configuration/dsdl.language-configuration.json"
+			},
+			{
 				"id": "env",
 				"aliases": [
 					"Environment Variables",
@@ -114,6 +144,48 @@
 					".env.local"
 				],
 				"configuration": "./language-configuration/env.language-configuration.json"
+			},
+			{
+				"id": "flatbuffers",
+				"aliases": [
+					"Flatbuffers",
+					"flatbuffers",
+					"Flatbuffers Schema",
+					"fbs",
+					"idl"
+				],
+				"extensions": [
+					".fbs",
+					".idl"
+				],
+				"configuration": "./language-configuration/flatbuffer.language-configuration.json"
+			},
+			{
+				"id": "gnuplot",
+				"aliases": [
+					"Gnuplot",
+					"gnuplot"
+				],
+				"extensions": [
+					".gp",
+					".gnuplot",
+					".gnu",
+					".plot",
+					".plt"
+				],
+				"configuration": "./language-configuration/gnuplot.language-configuration.json"
+			},
+			{
+				"id": "haml",
+				"aliases": [
+					"Ruby Haml",
+					"Haml",
+					"haml"
+				],
+				"extensions": [
+					".haml"
+				],
+				"configuration": "./language-configuration/haml.language-configuration.json"
 			},
 			{
 				"id": "handlebars",
@@ -139,6 +211,17 @@
 					".hhf"
 				],
 				"configuration": "./language-configuration/hla.language-configuration.json"
+			},
+			{
+				"id": "hosts",
+				"aliases": [
+					"Hosts File",
+					"hosts"
+				],
+				"extensions": [
+					"hosts"
+				],
+				"configuration": "./language-configuration/hosts.language-configuration.json"
 			},
 			{
 				"id": "i3",
@@ -182,8 +265,60 @@
 				"configuration": "./language-configuration/i3.language-configuration.json"
 			},
 			{
+				"id": "jsonl",
+				"aliases": [
+					"JSON Lines",
+					"jsonl",
+					"JSONL"
+				],
+				"extensions": [
+					".jsonl"
+				],
+				"configuration": "./language-configuration/jsonl.language-configuration.json"
+			},
+			{
+				"id": "linkerscript",
+				"aliases": [
+					"linkerscript"
+				],
+				"extensions": [
+					".ld",
+					".dld",
+					".lds",
+					".x"
+				],
+				"configuration": "./language-configuration/linkerscript.language-configuration.json"
+			},
+			{
+				"id": "m3u",
+				"aliases": [
+					"m3u",
+					"M3U",
+					"m3u8",
+					"M3U8"
+				],
+				"extensions": [
+					".m3u",
+					".m3u8"
+				],
+				"firstLine": "^#!/.*\\b#EXTM3U*\\b",
+				"configuration": "./language-configuration/m3u.language-configuration.json"
+			},
+			{
+				"id": "mapfile",
+				"aliases": [
+					"mapfile",
+					"Linker Map file"
+				],
+				"extensions": [
+					".map"
+				],
+				"configuration": "./language-configuration/mapfile.language-configuration.json"
+			},
+			{
 				"id": "ninja",
 				"aliases": [
+					"ninja",
 					"Ninja"
 				],
 				"extensions": [
@@ -203,6 +338,38 @@
 					".potx"
 				],
 				"configuration": "./language-configuration/po.language-configuration.json"
+			},
+			{
+				"id": "proto3",
+				"extensions": [
+					".proto"
+				],
+				"aliases": [
+					"Protocol Buffers"
+				]
+			},
+			{
+				"id": "qlik",
+				"aliases": [
+					"QlikView",
+					"qlik"
+				],
+				"extensions": [
+					".qvs"
+				],
+				"configuration": "./language-configuration/qlik.language-configuration.json"
+			},
+			{
+				"id": "stylus",
+				"aliases": [
+					"Stylus",
+					"stylus"
+				],
+				"extensions": [
+					".styl",
+					".stylus"
+				],
+				"configuration": "./language-configuration/stylus.language-configuration.json"
 			},
 			{
 				"id": "sxhkdrc",
@@ -241,6 +408,20 @@
 				"configuration": "./language-configuration/systemd.language-configuration.json"
 			},
 			{
+				"id": "t4",
+				"aliases": [
+					"T4 Text Template",
+					"t4",
+					"tt"
+				],
+				"extensions": [
+					".t4",
+					".tt",
+					".ttinclude"
+				],
+				"configuration": "./language-configuration/t4.language-configuration.json"
+			},
+			{
 				"id": "terminfo",
 				"aliases": [
 					"termcap"
@@ -250,6 +431,55 @@
 					".src"
 				],
 				"configuration": "./language-configuration/terminfo.language-configuration.json"
+			},
+			{
+				"id": "thrift",
+				"extensions": [
+					".thrift"
+				],
+				"configuration": "./language-configuration/thrift.language-configuration.json"
+			},
+			{
+				"id": "typoscript",
+				"aliases": [
+					"TypoScript",
+					"typoscript"
+				],
+				"extensions": [
+					".typoscript"
+				],
+				"filenames": [
+					"constants.txt",
+					"ext_conf_template.txt",
+					"ext_typoscript_setup.txt",
+					"ext_typoscript_constants.txt",
+					"setup.txt"
+				],
+				"configuration": "./language-configuration/typo3.language-configuration.json"
+			},
+			{
+				"id": "tsconfig",
+				"aliases": [
+					"TsConfig",
+					"tsconfig"
+				],
+				"extensions": [
+					".tsconfig"
+				],
+				"configuration": "./language-configuration/typo3.language-configuration.json"
+			},
+			{
+				"id": "vcard",
+				"aliases": [
+					"vCard",
+					"vcard",
+					"vcf"
+				],
+				"extensions": [
+					".vcard",
+					".vcf"
+				],
+				"configuration": "./language-configuration/vcard.language-configuration.json"
 			},
 			{
 				"id": "xdefaults",
@@ -264,9 +494,25 @@
 					".xdefaults"
 				],
 				"configuration": "./language-configuration/xresources.language-configuration.json"
+			},
+			{
+				"id": "yarnlock",
+				"aliases": [
+					"yarn.lock",
+					"yarnlock"
+				],
+				"extensions": [
+					"yarn.lock"
+				],
+				"configuration": "./language-configuration/yarnlock.language-configuration.json"
 			}
 		],
 		"grammars": [
+			{
+				"language": "asl",
+				"scopeName": "source.asl",
+				"path": "./language-configuration/asl.language-configuration.json"
+			},
 			{
 				"language": "m4",
 				"scopeName": "source.m4",
@@ -286,6 +532,11 @@
 				"path": "./syntaxes/awk.tmLanguage.json"
 			},
 			{
+				"language": "cisco",
+				"scopeName": "text.cisco",
+				"path": "./syntaxes/cisco.tmLanguage.json"
+			},
+			{
 				"language": "desktop",
 				"scopeName": "source.desktop",
 				"path": "./syntaxes/desktop.tmLanguage.json"
@@ -294,6 +545,11 @@
 				"language": "dircolors",
 				"scopeName": "source.dircolors",
 				"path": "./syntaxes/dircolors.tmLanguage.json"
+			},
+			{
+				"language": "dsdl",
+				"scopeName": "source.dsdl",
+				"path": "./syntaxes/dsdl.tmLanguage.json"
 			},
 			{
 				"scopeName": "text.html.ejs",
@@ -312,6 +568,21 @@
 				"path": "./syntaxes/env.tmLanguage.json"
 			},
 			{
+				"language": "flatbuffers",
+				"scopeName": "source.flatbuffers",
+				"path": "./syntaxes/flatbuffers.tmLanguage.json"
+			},
+			{
+				"language": "gnuplot",
+				"scopeName": "source.gnuplot",
+				"path": "./syntaxes/gnuplot.tmLanguage.json"
+			},
+			{
+				"language": "haml",
+				"scopeName": "text.haml",
+				"path": "./syntaxes/haml.tmLanguage.json"
+			},
+			{
 				"language": "handlebars",
 				"scopeName": "text.html.handlebars",
 				"path": "./syntaxes/handlebars.tmLanguage.json"
@@ -320,6 +591,11 @@
 				"language": "hla",
 				"scopeName": "source.hla",
 				"path": "./syntaxes/hla.tmLanguage.json"
+			},
+			{
+				"language": "hosts",
+				"scopeName": "text.hosts",
+				"path": "./syntaxes/hosts.tmLanguage.json"
 			},
 			{
 				"language": "i3",
@@ -342,6 +618,29 @@
 				"path": "./syntaxes/json5.tmLanguage.json"
 			},
 			{
+				"language": "jsonl",
+				"scopeName": "source.jsonl",
+				"embeddedLanguages": {
+					"line": "json"
+				},
+				"path": "./syntaxes/jsonl.tmLanguage.json"
+			},
+			{
+				"language": "linkerscript",
+				"scopeName": "source.ld",
+				"path": "./syntaxes/linkerscript.tmLanguage.json"
+			},
+			{
+				"language": "m3u",
+				"scopeName": "text.m3u",
+				"path": "./syntaxes/m3u.tmLanguage.json"
+			},
+			{
+				"language": "mapfile",
+				"scopeName": "source.mapfile",
+				"path": "./syntaxes/mapfile.tmLanguage.json"
+			},
+			{
 				"language": "ninja",
 				"scopeName": "source.ninja",
 				"path": "./syntaxes/ninja.tmLanguage.json"
@@ -350,6 +649,28 @@
 				"language": "po",
 				"scopeName": "source.po",
 				"path": "./syntaxes/po.tmLanguage.json"
+			},
+			{
+				"language": "proto3",
+				"scopeName": "source.proto",
+				"path": "./syntaxes/proto3.tmLanguage.json"
+			},
+			{
+				"scopeName": "markdown.codeblock.proto",
+				"path": "./syntaxes/proto3.codeblock.json",
+				"injectTo": [
+					"text.html.markdown"
+				]
+			},
+			{
+				"language": "qlik",
+				"scopeName": "source.qvs",
+				"path": "./syntaxes/qlik.tmLanguage.json"
+			},
+			{
+				"language": "stylus",
+				"scopeName": "source.stylus",
+				"path": "./syntaxes/stylus.tmLanguage.json"
 			},
 			{
 				"language": "sxhkdrc",
@@ -362,14 +683,44 @@
 				"path": "./syntaxes/systemd.tmLanguage.json"
 			},
 			{
+				"language": "t4",
+				"scopeName": "source.t4",
+				"path": "./syntaxes/t4.tmLanguage.json"
+			},
+			{
 				"language": "terminfo",
 				"scopeName": "source.terminfo",
 				"path": "./syntaxes/terminfo.tmLanguage.json"
 			},
 			{
+				"language": "thrift",
+				"scopeName": "source.thrift",
+				"path": "./syntaxes/thrift.tmLanguage.json"
+			},
+			{
+				"language": "typoscript",
+				"scopeName": "source.typoscript",
+				"path": "./syntaxes/typoscript.tmLanguage.json"
+			},
+			{
+				"language": "tsconfig",
+				"scopeName": "source.tsconfig",
+				"path": "./syntaxes/tsconfig.tmLanguage.json"
+			},
+			{
+				"language": "vcard",
+				"scopeName": "source.vcard",
+				"path": "./syntaxes/vcard.tmLanguage.json"
+			},
+			{
 				"language": "xdefaults",
 				"scopeName": "source.xdefaults",
 				"path": "./syntaxes/xdefaults.tmLanguage.json"
+			},
+			{
+				"language": "yarnlock",
+				"scopeName": "text.yarnlock",
+				"path": "./syntaxes/yarnlock.tmLanguage.json"
 			}
 		],
 		"snippets": [
