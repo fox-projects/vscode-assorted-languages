@@ -23,12 +23,14 @@ Syntax highlighting for
 - i3
 - infokey
 - inputrc
+- IO
 - JSON5
 - jsonl
 - Linker Scripts
 - M3U
 - Linker Maps
 - Ninja
+- Odin
 - gettext / po
 - Protobuf
 - QlikView
@@ -61,12 +63,14 @@ Syntax highlighting for
 - [vscode-hla](https://github.com/GreenXenith/vscode-hla) by GreenXenith (MIT)
 - [i3wm-syntax](https://github.com/dcasella/i3wm-syntax) by dcasella (Apache-2.0)
 - [terminfo.sublime-syntax](https://github.com/zgracem/terminfo.sublime-syntax) by zgracem (MIT)
+- [vscode-io-extension](https://github.com/KennethanCeyer/vscode-io-extension) by KennethanCeyer (MIT)
 - [vscode-json5](https://github.com/mrmlnc/vscode-json5) by mrmlnc (MIT)
 - [jsonl](https://github.com/Alpha4/jsonl) by Alpha4 (MIT)
 - [vscode-linkerscript](https://github.com/TheNetAdmin/vscode-linkerscript) by TheNetAdmin (MIT)
 - [vscode-m3u](https://github.com/af4jm/vscode-m3u) by af4jm (Apache-2.0)
 - [vscode-gnu-map](https://github.com/trond-snekvik/vscode-gnu-map) by trond-snekvik (MIT)
 - [vscode-ninja-syntax](https://github.com/melak47/vscode-ninja-syntax) by melak47 (MIT)
+- [odin-vscode](https://github.com/fivemoreminix/odin-vscode) by fivemoreminix (MIT)
 - [vscode-gettext](https://github.com/MrOrz/vscode-gettext) by MrOrz (MIT)
 - [vscode-proto3](https://github.com/zxh0/vscode-proto3) by zxh0 )MIT
 - [textproto-grammar](https://github.com/thejustinwalsh/textproto-grammar) by thejustinwalsh (MIT)

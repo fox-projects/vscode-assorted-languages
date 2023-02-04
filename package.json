@@ -222,6 +222,51 @@
 				"configuration": "./language-configuration/i3.language-configuration.json"
 			},
 			{
+				"id": "ignore",
+				"aliases": [
+					"Ignore File (gitignore syntax)",
+					"ignore"
+				],
+				"extensions": [
+					".gitignore",
+					".npmignore",
+					".coffeelintignore",
+					".dockerignore",
+					".atomignore",
+					".vscodeignore",
+					".eslintignore",
+					".prettierignore",
+					".stylelintignore",
+					".markdownlintignore"
+				],
+				"configuration": "./language-configuration/ignore.language-configuration.json"
+			},
+			{
+				"id": "ignore-slug",
+				"aliases": [
+					"Ignore File for Slug compiler",
+					"ignore-slug"
+				],
+				"extensions": [
+					".slugignore"
+				],
+				"filenames": [
+					".gitignore"
+				],
+				"configuration": "./language-configuration/ignore.language-configuration.json"
+			},
+			{
+				"id": "ignore-hgignore",
+				"aliases": [
+					"Ignore File for Mecurial",
+					"ignore-hg"
+				],
+				"extensions": [
+					".hgignore"
+				],
+				"configuration": "./language-configuration/ignore.language-configuration.json"
+			},
+			{
 				"id": "infokey",
 				"aliases": [
 					"infokey"
@@ -242,6 +287,16 @@
 				"configuration": "./language-configuration/inputrc.language-configuration.json"
 			},
 			{
+				"id": "io",
+				"aliases": [
+					"io"
+				],
+				"extensions": [
+					".io"
+				],
+				"configuration": "./language-configuration/io.language-configuration.json"
+			},
+			{
 				"id": "json5",
 				"aliases": [
 					"JSON5",
@@ -250,7 +305,7 @@
 				"extensions": [
 					".json5"
 				],
-				"configuration": "./language-configuration/i3.language-configuration.json"
+				"configuration": "./language-configuration/json5.language-configuration.json"
 			},
 			{
 				"id": "jsonl",
@@ -313,6 +368,17 @@
 					".ninja"
 				],
 				"configuration": "./language-configuration/ninja.language-configuration.json"
+			},
+			{
+				"id": "odin",
+				"aliases": [
+					"Odin",
+					"odin"
+				],
+				"extensions": [
+					".odin"
+				],
+				"configuration": "./language-configuration/odin.language-configuration.json"
 			},
 			{
 				"id": "po",
@@ -586,6 +652,21 @@
 				"path": "./syntaxes/i3.tmLanguage.json"
 			},
 			{
+				"language": "ignore",
+				"scopeName": "text.ignore",
+				"path": "./syntaxes/ignore.tmLanguage.json"
+			},
+			{
+				"language": "ignore-slug",
+				"scopeName": "text.ignore.slugignore",
+				"path": "./syntaxes/ignore-slug.tmLanguage.json"
+			},
+			{
+				"language": "ignore-hgignore",
+				"scopeName": "text.ignore.hgignore",
+				"path": "./syntaxes/ignore-mercurial.tmLanguage.json"
+			},
+			{
 				"language": "infokey",
 				"scopeName": "source.infokey",
 				"path": "./syntaxes/infokey.tmLanguage.json"
@@ -594,6 +675,11 @@
 				"language": "inputrc",
 				"scopeName": "source.inputrc",
 				"path": "./syntaxes/inputrc.tmLanguage.json"
+			},
+			{
+				"language": "io",
+				"scopeName": "source.io",
+				"path": "./syntaxes/io.tmLanguage.json"
 			},
 			{
 				"language": "json5",
@@ -627,6 +713,11 @@
 				"language": "ninja",
 				"scopeName": "source.ninja",
 				"path": "./syntaxes/ninja.tmLanguage.json"
+			},
+			{
+				"language": "odin",
+				"scopeName": "source.odin",
+				"path": "./syntaxes/odin.tmLanguage.json"
 			},
 			{
 				"language": "po",

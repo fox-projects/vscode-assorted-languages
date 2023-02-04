@@ -1,0 +1,314 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "io",
+	"scopeName": "source.io",
+	"uuid": "3607cc0a-09af-4d1b-bd2d-87fb32c777cd",
+	"fileTypes": [".io"],
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#brackets"
+		},
+		{
+			"include": "#supports"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric.io",
+					"match": "\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f)?\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.io",
+					"match": "(#|//).*"
+				},
+				{
+					"name": "comment.block.io",
+					"begin": "/\\*",
+					"beginCaptures": {
+						"0": {
+							"name": "unctuation.definition.comment.begin.io"
+						}
+					},
+					"end": "\\*/",
+					"endCaptures": {
+						"0": {
+							"name": "unctuation.definition.comment.end.io"
+						}
+					}
+				}
+			]
+		},
+		"brackets": {
+			"patterns": [
+				{
+					"begin": "\\[",
+					"end": "\\]|(?=\\*/)",
+					"patterns": [
+						{
+							"include": "#brackets"
+						}
+					]
+				}
+			]
+		},
+		"supports": {
+			"patterns": [
+				{
+					"include": "#class-identifier"
+				},
+				{
+					"include": "#function-identifier"
+				},
+				{
+					"name": "support.class.io",
+					"match": "\\b(Object|File|Date|URL|Socket|WebRequest|HttpServer|HttpRequestHandler|Server|Thread|Scheduler)\\b"
+				},
+				{
+					"name": "support.class.import.io",
+					"match": "\\b(Importer)\\b"
+				},
+				{
+					"name": "support.class.error.io",
+					"match": "\\b(Exception|Error)\\b"
+				},
+				{
+					"name": "support.class.test.io",
+					"match": "\\b(Suite|Spec|Matcher)\\b"
+				},
+				{
+					"name": "support.class.type.io",
+					"match": "\\b(String|Number|Dictionary|Directory|List|Sequence|Range)\\b"
+				},
+				{
+					"name": "support.type.io",
+					"match": "nil|null|true|false"
+				},
+				{
+					"name": "support.function.io",
+					"match": "\\b(method|block|interpolate|at|atPut|atInsert|with|println|print|run|do)\\b"
+				},
+				{
+					"name": "support.function.error.io",
+					"match": "\\b(raise)\\b"
+				},
+				{
+					"name": "support.function.test.io",
+					"match": "\\b(it|describe|expect|toBe|toEqual|toBeTrue|toBeFalse|toContain|toBeString|toBeNil|toThrowWithMessage|toThrowWithType|toThrow|toHaveSlot|toHaveBeenCalled|toHaveBeenCalledWith|beforeEach|afterEach)\\b"
+				},
+				{
+					"name": "support.function.conditional.io",
+					"match": "\\b(ifTrue|ifFalse|ifTrueIfFalse)\\b"
+				},
+				{
+					"name": "support.function.casting.io",
+					"match": "\\b(asCharacter|asString|asNumber|asMutable|asLowercase|asUppercase|asXML|makeFirstCharacterUppercase|lowercase|uppercase)\\b"
+				},
+				{
+					"name": "support.function.slot.io",
+					"match": "\\b(getSlot|setSlot|addSlot|hasSlot|slotNames)\\b"
+				},
+				{
+					"name": "support.function.proto.io",
+					"match": "\\b(setProtos|setProto|prependProto|appendProto)\\b"
+				},
+				{
+					"name": "support.function.math.io",
+					"match": "\\b(log|log10|mathematical|sqrt|exp|abs|sin|cos|tan|asin|acos|atan|round|floor|ceil|max|min)\\b"
+				},
+				{
+					"name": "support.function.relational.io",
+					"match": "\\b(super)\\b"
+				},
+				{
+					"name": "support.function.compound.io",
+					"match": "\\b(encoding|code|start|fetch|connect|now|year|month|day|hour|minute|second|close|exists|pop|push|join|first|last|keys|hasKey|values|reduce|reverse|reverseReduce|unique|elementsWithName|setItemType|itemType|attributes|sort|sortBy|serialize|slice|split|select|selectInPlace|size|setSize|indexOf|insertAt|flatten|list|vector|map|asyncSend|futureSend|resend|append|appendSeq|beginsWithSeq|betweenSeq|message|openForUpdating|createThread|streamTo|streamWrite|streamReadNextChunk|readBuffer|detect|wait|contains|containsSeq|remove|removeAt|removeFirst|removeLast|setPort|setHostName|argsEvaluatedIn|setPath|doFile|doRelativeFile|writeln|write|getScope|setScope|forwardTo)\\b"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.io",
+					"match": "\\b(call|clone|init|return|yield|type|sender)\\b"
+				},
+				{
+					"name": "keyword.control.error.io",
+					"match": "\\b(try|catch|pass)\\b"
+				},
+				{
+					"name": "keyword.control.test.io",
+					"match": "\\b(suite|spec|specs)\\b"
+				},
+				{
+					"name": "keyword.control.conditional.io",
+					"match": "\\b(if|then|else)\\b"
+				},
+				{
+					"name": "keyword.control.relational.io",
+					"match": "\\b(self)\\b"
+				},
+				{
+					"name": "keyword.control.loop.io",
+					"match": "\\b(to|loop|repeat|redo|retry|while|for|foreach|reverseForeach|break|continue|pause|resume)\\b"
+				},
+				{
+					"name": "keyword.operator.assignment.comparison.io",
+					"match": "==|!="
+				},
+				{
+					"name": "keyword.operator.assignment.relational.io",
+					"match": ">=|<=|>|<"
+				},
+				{
+					"name": "keyword.operator.assignment.logical.io",
+					"match": "&&|\\!|\\|\\|"
+				},
+				{
+					"name": "keyword.operator.assignment.io",
+					"match": "\\=|::=|:="
+				},
+				{
+					"name": "keyword.operator.bitwise.io",
+					"match": "\\&|~|\\^|\\|"
+				},
+				{
+					"name": "keyword.operator.decrement.io",
+					"match": "--"
+				},
+				{
+					"name": "keyword.operator.increment.io",
+					"match": "\\+\\+"
+				},
+				{
+					"name": "keyword.operator.arithmetic.io",
+					"match": "%|\\*|/|-|\\+"
+				},
+				{
+					"name": "keyword.operator.concat.io",
+					"match": "\\.\\."
+				},
+				{
+					"name": "keyword.operator.word.io",
+					"match": "\b(and|or|not|yes|no)\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.io",
+			"patterns": [
+				{
+					"include": "#string-quoted-double"
+				},
+				{
+					"include": "#string-quoted-triple"
+				}
+			]
+		},
+		"class-identifier": {
+			"patterns": [
+				{
+					"name": "support.class.identifier.io",
+					"match": "\\b([[:upper:]](\\w+)?)\\b"
+				}
+			]
+		},
+		"function-identifier": {
+			"patterns": [
+				{
+					"name": "support.function.identifier.io",
+					"match": "\\b(\\w+(?=\\s*\\(\\)))\\b"
+				}
+			]
+		},
+		"string-quoted-double": {
+			"name": "string.quoted.double.io",
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.io"
+				}
+			},
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.io"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#string-interpolate"
+				},
+				{
+					"include": "#string-escape"
+				}
+			]
+		},
+		"string-quoted-triple": {
+			"name": "string.triple.double.io",
+			"begin": "\"\"\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.io"
+				}
+			},
+			"end": "\"\"\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.io"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#string-interpolate"
+				},
+				{
+					"include": "#string-escape"
+				}
+			]
+		},
+		"string-escape": {
+			"patterns": [
+				{
+					"name": "constant.character.escape.io",
+					"match": "\\\\."
+				}
+			]
+		},
+		"string-interpolate": {
+			"name": "meta.interpolate.expression.io",
+			"begin": "#\\{",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.expression.interpolate.begin.js"
+				}
+			},
+			"end": "\\}",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.expression.interpolate.end.js"
+				}
+			},
+			"patterns": [
+				{
+					"name": "variable.interpolate",
+					"match": ".+(?=\\})"
+				}
+			]
+		}
+	}
+}
