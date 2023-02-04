@@ -1,5 +1,4 @@
 {
-	// See: https://code.visualstudio.com/api/language-extensions/language-configuration-guide
 	"comments": {
 		"lineComment": "//",
 		"blockComment": ["/*", "*/"]
@@ -9,7 +8,6 @@
 		["[", "]"],
 		["(", ")"]
 	],
-	// symbols that are auto closed when typing
 	"autoClosingPairs": [
 		{ "open": "{", "close": "}" },
 		{ "open": "[", "close": "]" },
