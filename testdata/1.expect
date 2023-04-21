@@ -1,0 +1,15 @@
+spawn "./a.out"
+
+expect "umber of Pizza"
+send "2\n"
+
+expect "Size of Pizza"
+send "S\n"
+expect "Flour Type"
+send "1\n"
+expect "Cheese Type"
+send "R\n"
+expect "Topping Type"
+send "2\n"
+
+interact

@@ -15,6 +15,7 @@ Syntax highlighting for
 - dsdl
 - EJS
 - env
+- Expect
 - FlatBuffers
 - GNU Plot
 - HAML
@@ -56,6 +57,7 @@ Syntax highlighting for
 - [vscode-dsdl](https://github.com/OpenCyphal/vscode-dsdl) by vscode-dsdl (OpenCyphal)
 - [ejs-grammar](https://github.com/Digitalbrainstem/ejs-grammar) by Digitalbrainstem (MIT)
 - [vscode-env](https://github.com/IronGeek/vscode-env) by IronGeek (MIT)
+- [expect](https://github.com/bdavs/expect) by bdavs (MIT)
 - [FlatbuffersSchema](https://github.com/gaborv/FlatbuffersSchema) by gaborv (MIT)
 - [vscode-gnuplot](https://github.com/mammothb/vscode-gnuplot) by mammothb (MIT)
 - [haml-vscode](https://github.com/karuna/haml-vscode) by karuna (MIT)

@@ -145,6 +145,18 @@
 				"configuration": "./language-configuration/env.language-configuration.json"
 			},
 			{
+				"id": "expect",
+				"aliases": [
+					"Expect",
+					"expect"
+				],
+				"extensions": [
+					".exp",
+					".expect"
+				],
+				"configuration": "./language-configuration/expect.language-configuration.json"
+			},
+			{
 				"id": "flatbuffers",
 				"aliases": [
 					"Flatbuffers",
@@ -620,6 +632,11 @@
 				"language": "env",
 				"scopeName": "source.env",
 				"path": "./syntaxes/env.tmLanguage.json"
+			},
+			{
+				"language": "expect",
+				"scopeName": "source.exp",
+				"path": "./syntaxes/expect.tmLanguage.json"
 			},
 			{
 				"language": "flatbuffers",
