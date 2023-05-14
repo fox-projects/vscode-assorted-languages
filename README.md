@@ -13,6 +13,7 @@ Syntax highlighting for
 - Desktop Files
 - dircolors
 - dsdl
+- EDK2 misc (.fdf, .dsc, .dec, .inf, .uni, .vfr)
 - EJS
 - env
 - Expect
@@ -55,6 +56,7 @@ Syntax highlighting for
 - [desktop-file-support](https://github.com/nico-castell/desktop-file-support) by nico-castell (MIT)
 - [vscode-dircolors](https://github.com/duniul/vscode-dircolors) by duniul (MIT)
 - [vscode-dsdl](https://github.com/OpenCyphal/vscode-dsdl) by vscode-dsdl (OpenCyphal)
+- [edk2-vscode](https://github.com/WalonLi/edk2-vscode) by WalonLi (GPL-3.0)
 - [ejs-grammar](https://github.com/Digitalbrainstem/ejs-grammar) by Digitalbrainstem (MIT)
 - [vscode-env](https://github.com/IronGeek/vscode-env) by IronGeek (MIT)
 - [expect](https://github.com/bdavs/expect) by bdavs (MIT)

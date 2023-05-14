@@ -128,6 +128,50 @@
 				"configuration": "./language-configuration/dsdl.language-configuration.json"
 			},
 			{
+				"id": "edk2_dsc",
+				"extensions": [
+					".dsc"
+				],
+				"configuration": "./confs/edk2_dsc.language-configuration.json"
+			},
+			{
+				"id": "edk2_dec",
+				"extensions": [
+					".dec"
+				],
+				"configuration": "./confs/edk2_dec.language-configuration.json"
+			},
+			{
+				"id": "edk2_fdf",
+				"extensions": [
+					".fdf"
+				],
+				"configuration": "./confs/edk2_fdf.language-configuration.json"
+			},
+			{
+				"id": "edk2_inf",
+				"extensions": [
+					".inf"
+				],
+				"configuration": "./confs/edk2_inf.language-configuration.json"
+			},
+			{
+				"id": "edk2_uni",
+				"extensions": [
+					".uni"
+				],
+				"configuration": "./confs/edk2_uni.language-configuration.json"
+			},
+			{
+				"id": "edk2_vfr",
+				"extensions": [
+					".vfr",
+					".Vfr",
+					".hfr"
+				],
+				"configuration": "./confs/edk2_vfr.language-configuration.json"
+			},
+			{
 				"id": "env",
 				"aliases": [
 					"Environment Variables",
@@ -616,6 +660,36 @@
 				"language": "dsdl",
 				"scopeName": "source.dsdl",
 				"path": "./syntaxes/dsdl.tmLanguage.json"
+			},
+			{
+				"language": "edk2_dsc",
+				"scopeName": "source.edk2_dsc",
+				"path": "./syntaxes/edk2_dsc.tmLanguage.json"
+			},
+			{
+				"language": "edk2_dec",
+				"scopeName": "source.edk2_dec",
+				"path": "./syntaxes/edk2_dec.tmLanguage.json"
+			},
+			{
+				"language": "edk2_fdf",
+				"scopeName": "source.edk2_fdf",
+				"path": "./syntaxes/edk2_fdf.tmLanguage.json"
+			},
+			{
+				"language": "edk2_inf",
+				"scopeName": "source.edk2_inf",
+				"path": "./syntaxes/edk2_inf.tmLanguage.json"
+			},
+			{
+				"language": "edk2_uni",
+				"scopeName": "source.edk2_uni",
+				"path": "./syntaxes/edk2_uni.tmLanguage.json"
+			},
+			{
+				"language": "edk2_vfr",
+				"scopeName": "source.edk2_vfr",
+				"path": "./syntaxes/edk2_vfr.tmLanguage.json"
 			},
 			{
 				"scopeName": "text.html.ejs",
