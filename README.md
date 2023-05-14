@@ -55,7 +55,7 @@ Syntax highlighting for
 - [vscode-cisco-syntax](https://github.com/woodjme/vscode-cisco-syntax) by woodjme (MIT)
 - [desktop-file-support](https://github.com/nico-castell/desktop-file-support) by nico-castell (MIT)
 - [vscode-dircolors](https://github.com/duniul/vscode-dircolors) by duniul (MIT)
-- [vscode-dsdl](https://github.com/OpenCyphal/vscode-dsdl) by vscode-dsdl (OpenCyphal)
+- [vscode-dsdl](https://github.com/OpenCyphal/vscode-dsdl) by OpenCyphal (MIT)
 - [edk2-vscode](https://github.com/WalonLi/edk2-vscode) by WalonLi (GPL-3.0)
 - [ejs-grammar](https://github.com/Digitalbrainstem/ejs-grammar) by Digitalbrainstem (MIT)
 - [vscode-env](https://github.com/IronGeek/vscode-env) by IronGeek (MIT)
@@ -76,7 +76,7 @@ Syntax highlighting for
 - [vscode-ninja-syntax](https://github.com/melak47/vscode-ninja-syntax) by melak47 (MIT)
 - [odin-vscode](https://github.com/fivemoreminix/odin-vscode) by fivemoreminix (MIT)
 - [vscode-gettext](https://github.com/MrOrz/vscode-gettext) by MrOrz (MIT)
-- [vscode-proto3](https://github.com/zxh0/vscode-proto3) by zxh0 )MIT
+- [vscode-proto3](https://github.com/zxh0/vscode-proto3) by zxh0 (MIT)
 - [textproto-grammar](https://github.com/thejustinwalsh/textproto-grammar) by thejustinwalsh (MIT)
 - [vscode-qlik](https://github.com/Gimly/vscode-qlik) by Gimly (MIT)
 - [language-stylus](https://github.com/d4rkr00t/language-stylus) by d4rkr00t (MIT)
@@ -84,7 +84,7 @@ Syntax highlighting for
 - [vscode-systemd](https://github.com/hangxingliu/vscode-systemd) by hangxingliu (MIT)
 - [t4-support](https://github.com/zbecknell/t4-support) by zbecknell (MIT)
 - [vscode-infokey-plugin](https://github.com/UI-Apps/vscode-infokey-plugin) by UI-Apps (MIT)
-- [thrift.tmbundle](https://github.com/textmate/thrift.tmbundle) by textmate
+- [thrift.tmbundle](https://github.com/textmate/thrift.tmbundle) by textmate (custom)
 - [vscode-typo3-typoscript](https://github.com/benjaminkott/vscode-typo3-typoscript) by benjaminkott (MIT)
 - [vscode-vcard](https://github.com/cstrachan88/vscode-vcard) by cstrachan88 (MIT)
 - [xresources](https://github.com/antcap96/xresources) by antcap96 (MIT)
