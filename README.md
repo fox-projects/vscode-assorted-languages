@@ -13,7 +13,7 @@ Syntax highlighting for
 - Desktop Files
 - dircolors
 - dsdl
-- EDK2 misc (.fdf, .dsc, .dec, .inf, .uni, .vfr)
+- EDK2 misc (`.fdf`, `.dsc`, `.dec`, `.inf`, `.uni`, `.vfr`)
 - EJS
 - env
 - Expect
