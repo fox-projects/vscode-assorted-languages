@@ -284,16 +284,25 @@
 					"ignore"
 				],
 				"extensions": [
+					".cvsignore",
+					".bzrignore",
 					".gitignore",
+					".hgignore",
 					".npmignore",
-					".coffeelintignore",
+					".earthlyignore",
 					".dockerignore",
+					".containerignore",
 					".atomignore",
 					".vscodeignore",
+					".coffeelintignore",
+					".jshintignore",
+					".tslintignore",
 					".eslintignore",
 					".prettierignore",
 					".stylelintignore",
-					".markdownlintignore"
+					".markdownlintignore",
+					".gcloudignore",
+					".artifactignore"
 				],
 				"configuration": "./language-configuration/ignore.language-configuration.json"
 			},
