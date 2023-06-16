@@ -1,4 +1,4 @@
-ackage load_json
+package load_json
 
 import "core:fmt"
 import "core:encoding/json"

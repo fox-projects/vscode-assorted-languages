@@ -1,0 +1,145 @@
+{
+	"fileTypes": ["logstash.conf", "logstash.conf.j2", "logstash.conf.template"],
+	"name": "Logstash",
+	"patterns": [
+		{
+			"comment": "classes: inputs, codecs, filters and outputs",
+			"match": "^(input|filter|codec|output)",
+			"name": "entity.name.type.class.logstash"
+		},
+		{
+			"captures": {
+				"2": {
+					"name": "keyword.operator.logstash"
+				},
+				"5": {
+					"name": "entity.name.function.logstash"
+				}
+			},
+			"comment": "complex if/else if statements",
+			"match": "((and|or)(\\s+)(\\[)(\\w*)(\\]))+",
+			"name": "text.logstash"
+		},
+		{
+			"comment": "Operators",
+			"match": "(==|!=|<|>|<=|>=|=~|!~|in|not in|and|or|nand|xor|!)",
+			"name": "keyword.operator.logstash"
+		},
+		{
+			"captures": {
+				"2": {
+					"name": "entity.name.function.logstash"
+				}
+			},
+			"comment": "Groked Field",
+			"match": "(%{)(\\w*)(})",
+			"name": "entity.name.function.logstash"
+		},
+		{
+			"comment": "Double quoted string values",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"match": "\\\\\""
+				},
+				{
+					"match": "[^\"]"
+				}
+			],
+			"name": "string.text.logstash"
+		},
+		{
+			"comment": "Single quoted string values",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"match": "\\\\'"
+				},
+				{
+					"match": "[^']"
+				}
+			],
+			"name": "string.text.logstash"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.control.logstash"
+				},
+				"4": {
+					"name": "entity.name.function.logstash"
+				},
+				"7": {
+					"name": "keyword.operator.logstash"
+				}
+			},
+			"comment": "if/else if statements",
+			"match": "(if|else if)(\\s+)(\\[)(\\w*)(\\])(\\s*)(==|!=|<|>|<=|>=|=~|!~|in|not in|!)",
+			"name": "text.logstash"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.control.logstash"
+				}
+			},
+			"comment": "else statements",
+			"match": "(else)(\\s+)({)",
+			"name": "text.logstash"
+		},
+		{
+			"captures": {
+				"2": {
+					"name": "entity.name.function.logstash"
+				},
+				"5": {
+					"name": "variable.text.logstash"
+				},
+				"7": {
+					"name": "keyword.operator.logstash"
+				}
+			},
+			"comment": "functions: types of inputs, codecs, filters and outputs",
+			"match": "^(\\s*)(\\w+)(\\s*{)(\\s*)?(\\w+)?(\\s*)?(=>)?(\\s*)?",
+			"name": "text.logstash"
+		},
+		{
+			"comment": "Comments",
+			"match": "^(\\s*)?#.+",
+			"name": "comment.line.number-sign.logstash"
+		},
+		{
+			"captures": {
+				"2": {
+					"name": "variable.text.logstash"
+				},
+				"4": {
+					"name": "keyword.operator.logstash"
+				},
+				"6": {
+					"name": "constant.numeric.logstash"
+				}
+			},
+			"comment": "Variables: Number values",
+			"match": "^(\\s*)?(\\w+)(\\s*)?(=>)(\\s*)?(\\d+)",
+			"name": "keyword.text.logstash"
+		},
+		{
+			"captures": {
+				"2": {
+					"name": "variable.text.logstash"
+				},
+				"4": {
+					"name": "keyword.operator.logstash"
+				}
+			},
+			"comment": "Variables: String values",
+			"match": "^(\\s*)?(\\w+)(\\s*)?(=>)(\\s*)?",
+			"name": "keyword.text.logstash"
+		}
+	],
+	"scopeName": "text.logstash",
+	"uuid": "ca03e751-04ef-4330-9a6b-9b99aae1c418"
+}

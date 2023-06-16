@@ -7,6 +7,7 @@ Never worry about syntax highlighting for miscellaneous files again!
 Syntax highlighting for
 
 - asl
+- ASM x86_64
 - autotools (autoconf / automake)
 - AWK
 - CISCO
@@ -26,9 +27,11 @@ Syntax highlighting for
 - infokey
 - inputrc
 - IO
+- jq
 - JSON5
 - jsonl
 - Linker Scripts
+- Logstash
 - M3U
 - Linker Maps
 - Ninja
@@ -46,10 +49,13 @@ Syntax highlighting for
 - VCard
 - Xresources / Xdefaults
 - Yarn Lockfiles
+- Zone Files (Bind)
+- Vagrantfile
 
 ## Acknowledgements
 
 - [vscode-asl](https://github.com/marysaka/vscode-asl) by marysaka (MIT)
+- [x86_64-assembly-vscode](https://github.com/13xforever/x86_64-assembly-vscode) by 13xforever (MIT)
 - [vscode_autotools](https://github.com/maelvls/vscode_autotools) by maelvls (GPL-3.0)
 - [vscode-awk](https://github.com/luggage66/vscode-awk) by luggage66 (MIT)
 - [vscode-cisco-syntax](https://github.com/woodjme/vscode-cisco-syntax) by woodjme (MIT)
@@ -68,9 +74,11 @@ Syntax highlighting for
 - [i3wm-syntax](https://github.com/dcasella/i3wm-syntax) by dcasella (Apache-2.0)
 - [terminfo.sublime-syntax](https://github.com/zgracem/terminfo.sublime-syntax) by zgracem (MIT)
 - [vscode-io-extension](https://github.com/KennethanCeyer/vscode-io-extension) by KennethanCeyer (MIT)
+- [jq-syntax-highlighting](https://github.com/orentrutner/jq-syntax-highlighting) by orentrutner (MIT)
 - [vscode-json5](https://github.com/mrmlnc/vscode-json5) by mrmlnc (MIT)
 - [jsonl](https://github.com/Alpha4/jsonl) by Alpha4 (MIT)
 - [vscode-linkerscript](https://github.com/TheNetAdmin/vscode-linkerscript) by TheNetAdmin (MIT)
+- [vscode-logstash-configuration-syntax](https://github.com/randomchance/vscode-logstash-configuration-syntax) by randomchance (MIT)
 - [vscode-m3u](https://github.com/af4jm/vscode-m3u) by af4jm (Apache-2.0)
 - [vscode-gnu-map](https://github.com/trond-snekvik/vscode-gnu-map) by trond-snekvik (MIT)
 - [vscode-ninja-syntax](https://github.com/melak47/vscode-ninja-syntax) by melak47 (MIT)
@@ -89,5 +97,6 @@ Syntax highlighting for
 - [vscode-vcard](https://github.com/cstrachan88/vscode-vcard) by cstrachan88 (MIT)
 - [xresources](https://github.com/antcap96/xresources) by antcap96 (MIT)
 - [vscode-yarn-lock-syntax](https://github.com/mariusschulz/vscode-yarn-lock-syntax) by mariusschulz (MIT)
+- [vscode-zonefile](https://github.com/compilenix/vscode-zonefile) by compilenix (MIT)
 
 Extension icon by Pierre Bamin on [Unsplash](https://unsplash.com/photos/BFvNJXf2rpg).

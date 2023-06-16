@@ -38,6 +38,21 @@
 				"configuration": "./language-configuration/asl.language-configuration.json"
 			},
 			{
+				"id": "asm-intel-x86-generic",
+				"aliases": [
+					"x86 and x86_64 Assembly",
+					"asm-intel-x86-generic"
+				],
+				"extensions": [
+					".asm",
+					".nasm",
+					".yasm",
+					".inc",
+					".s"
+				],
+				"configuration": "./language-configuration/x86-64.language-configuration.json"
+			},
+			{
 				"id": "m4",
 				"aliases": [
 					"autoconf m4",
@@ -362,6 +377,17 @@
 				"configuration": "./language-configuration/io.language-configuration.json"
 			},
 			{
+				"id": "jq",
+				"aliases": [
+					"jq",
+					"jq"
+				],
+				"extensions": [
+					".jq"
+				],
+				"configuration": "./language-configuration/jq.language-configuration.json"
+			},
+			{
 				"id": "json5",
 				"aliases": [
 					"JSON5",
@@ -396,6 +422,19 @@
 					".x"
 				],
 				"configuration": "./language-configuration/linkerscript.language-configuration.json"
+			},
+			{
+				"id": "logstash",
+				"aliases": [
+					"Logstash",
+					"logstash"
+				],
+				"filenamePatterns": [
+					"*logstash.conf",
+					"*logstash.conf.j2",
+					"*logstash.conf.template"
+				],
+				"configuration": "./language-configuration/logstash.language-configuration.json"
 			},
 			{
 				"id": "m3u",
@@ -624,6 +663,28 @@
 					"yarn.lock"
 				],
 				"configuration": "./language-configuration/yarnlock.language-configuration.json"
+			},
+			{
+				"id": "zone",
+				"aliases": [
+					"Bind9 DNS Zone",
+					"zone"
+				],
+				"extensions": [
+					".zone",
+					".signed",
+					".db",
+					".dns"
+				],
+				"configuration": "./language-configuration/zone.language-configuration.json"
+			},
+			{
+				"id": "ruby",
+				"filenames": [
+					"Vagrantfile",
+					".vagrantuser",
+					"Vagrantfile.local"
+				]
 			}
 		],
 		"grammars": [
@@ -631,6 +692,11 @@
 				"language": "asl",
 				"scopeName": "source.asl",
 				"path": "./language-configuration/asl.language-configuration.json"
+			},
+			{
+				"language": "asm-intel-x86-generic",
+				"scopeName": "source.asm.x86_64",
+				"path": "./syntaxes/language-x86_64-assembly.tmLanguage"
 			},
 			{
 				"language": "m4",
@@ -782,6 +848,11 @@
 				"path": "./syntaxes/io.tmLanguage.json"
 			},
 			{
+				"language": "jq",
+				"scopeName": "source.jq",
+				"path": "./syntaxes/jq.tmLanguage.json"
+			},
+			{
 				"language": "json5",
 				"scopeName": "source.json5",
 				"path": "./syntaxes/json5.tmLanguage.json"
@@ -798,6 +869,11 @@
 				"language": "linkerscript",
 				"scopeName": "source.ld",
 				"path": "./syntaxes/linkerscript.tmLanguage.json"
+			},
+			{
+				"language": "logstash",
+				"scopeName": "text.logstash",
+				"path": "./syntaxes/logstash.tmLanguage.json"
 			},
 			{
 				"language": "m3u",
@@ -895,6 +971,11 @@
 				"language": "yarnlock",
 				"scopeName": "text.yarnlock",
 				"path": "./syntaxes/yarnlock.tmLanguage.json"
+			},
+			{
+				"language": "zone",
+				"scopeName": "text.zone_file",
+				"path": "./syntaxes/zone.tmLanguage.json"
 			}
 		],
 		"configurationDefaults": {

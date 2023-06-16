@@ -1,0 +1,119 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "jq",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#punctuation"
+		},
+		{
+			"include": "#literals"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#identifiers"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment",
+					"match": "#.*$"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword",
+					"match": "(?<!\\.|\\$)\\b(and|as|empty|not|or|reduce)\\b(?!\\.)"
+				},
+				{
+					"name": "keyword.control",
+					"match": "(?<!\\.|\\$)\\b(break|catch|elif|else|end|if|label|then|try)\\b(?!\\.)"
+				},
+				{
+					"name": "constant.language",
+					"match": "(?<!\\.|\\$)\\b(false|null|true)\\b(?!\\.)"
+				}
+			]
+		},
+		"punctuation": {
+			"patterns": [
+				{
+					"name": "punctuation.pipe.jq",
+					"match": "\\|"
+				},
+				{
+					"name": "punctuation",
+					"match": "!=|%|\\*|\\(|\\)|-|==|=|\\+|\\[|\\{|\\]|\\}|:|;|,|<=|<|\\.\\.|\\.|>=|>|//|/|\\?"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				}
+			]
+		},
+		"literals": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\b\\d+(\\.\\d+)?"
+				}
+			]
+		},
+		"identifiers": {
+			"patterns": [
+				{
+					"name": "variable.language",
+					"match": "(?<!\\.|\\$)\\b(bbb)\\b(?!\\.)"
+				},
+				{
+					"match": "\\b(def)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+					"captures": {
+						"1": { "name": "keyword.def" },
+						"2": { "name": "entity.name.function" }
+					}
+				},
+				{
+					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()",
+					"captures": {
+						"1": { "name": "meta.function-call" },
+						"2": { "name": "punctuation" }
+					}
+				},
+				{
+					"name": "variable",
+					"match": "\\$[a-zA-Z_][a-zA-Z0-9_]*"
+				},
+				{
+					"name": "property",
+					"match": "[a-zA-Z][a-zA-Z0-9]*\\b(?!:)"
+				},
+				{
+					"match": "([a-zA-Z][a-zA-Z0-9]*)\\b(:)",
+					"captures": {
+						"1": { "name": "meta.object-literal.key" },
+						"2": { "name": "punctuation" }
+					}
+				}
+			]
+		}
+	},
+	"scopeName": "source.jq"
+}
