@@ -233,8 +233,8 @@
 			{
 				"id": "gnuplot",
 				"aliases": [
-					"Gnuplot",
-					"gnuplot"
+					"gnuplot",
+					"Gnuplot"
 				],
 				"extensions": [
 					".gp",
@@ -691,12 +691,12 @@
 			{
 				"language": "asl",
 				"scopeName": "source.asl",
-				"path": "./language-configuration/asl.language-configuration.json"
+				"path": "./syntaxes/asl.tmLanguage.json"
 			},
 			{
 				"language": "asm-intel-x86-generic",
 				"scopeName": "source.asm.x86_64",
-				"path": "./syntaxes/language-x86_64-assembly.tmLanguage"
+				"path": "./syntaxes/language-x86_64-assembly.tmLanguage.json"
 			},
 			{
 				"language": "m4",

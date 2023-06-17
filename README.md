@@ -67,7 +67,7 @@ Syntax highlighting for
 - [vscode-env](https://github.com/IronGeek/vscode-env) by IronGeek (MIT)
 - [expect](https://github.com/bdavs/expect) by bdavs (MIT)
 - [FlatbuffersSchema](https://github.com/gaborv/FlatbuffersSchema) by gaborv (MIT)
-- [vscode-gnuplot](https://github.com/mammothb/vscode-gnuplot) by mammothb (MIT)
+- [vscode-gnuplot](https://github.com/MarioSchwalbe/vscode-gnuplot) by MarioSchwalbe (GPL-3.0)
 - [haml-vscode](https://github.com/karuna/haml-vscode) by karuna (MIT)
 - [vscode-handlebars](https://github.com/andrejunges/vscode-handlebars) by andrejunges (MIT)
 - [vscode-hla](https://github.com/GreenXenith/vscode-hla) by GreenXenith (MIT)
@@ -98,5 +98,6 @@ Syntax highlighting for
 - [xresources](https://github.com/antcap96/xresources) by antcap96 (MIT)
 - [vscode-yarn-lock-syntax](https://github.com/mariusschulz/vscode-yarn-lock-syntax) by mariusschulz (MIT)
 - [vscode-zonefile](https://github.com/compilenix/vscode-zonefile) by compilenix (MIT)
+- [VS-code-vagrantfile](https://github.com/mastazi/VS-code-vagrantfile) by mastazi (MIT)
 
 Extension icon by Pierre Bamin on [Unsplash](https://unsplash.com/photos/BFvNJXf2rpg).

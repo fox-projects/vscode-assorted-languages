@@ -1,3 +1,8 @@
+set size square
+set parametric
+set hidden3d
+set title "Blah"
+
 # simple plotting
 plot '2col.dat'                                # assumes col1=x, col2=y; shows '+' at data points
 plot '2col.dat' with lines                     # connect points with a line
