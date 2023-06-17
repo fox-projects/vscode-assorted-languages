@@ -1,0 +1,30 @@
+{
+	"scopeName": "source.shell.bats.extended",
+	"injectionSelector": "L:source.shell.bats -string -comment",
+	"patterns": [
+		{
+			"match": "@test\\b",
+			"name": "keyword.control.bats"
+		},
+		{
+			"match": "\\b(run|load|bats_load_library|skip|setup|teardown|setup_file|teardown_file)\\b",
+			"name": "support.function.bats.builtin"
+		},
+		{
+			"match": "\\b(fail|batslib_(err|count_lines|is_single_line|get_max_single_line_key_width|print_kv_single|print_kv_multi|print_kv_single_or_multi|prefix|mark|is_caller|err|decorate))\\b",
+			"name": "support.function.bats.assertions"
+		},
+		{
+			"match": "\\b(assert|refute|assert_(equal|not_equal|success|failure|output|line)|refute_(output|line))\\b",
+			"name": "support.function.bats.assertions"
+		},
+		{
+			"match": "\\b(stub|unstub)\\b",
+			"name": "support.function.bats.assertions"
+		},
+		{
+			"match": "\\b(assert_((((file|dir|link|block|character|socket|fifo)_)?(not_)?exist)|(file_((not_)?(executable|owner|group_id_set|user_id_set|empty|permission))|not_file_permission)|file_size_equals|size_(not_)?zero|(no_|not_)?sticky_bit|file_contains|(not_)?symlink_to))\\b",
+			"name": "support.function.bats.assertions"
+		}
+	]
+}

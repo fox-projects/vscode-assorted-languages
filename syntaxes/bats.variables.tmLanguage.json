@@ -1,0 +1,22 @@
+{
+	"scopeName": "source.shell.bats.variables",
+	"injectionSelector": "L:source.shell.bats -comment",
+	"patterns": [
+		{
+			"match": "\\$(output|status|lines|stderr|stderr_lines)\\b",
+			"name": "support.variable.bats"
+		},
+		{
+			"match": "\\$BATS_(RUN_COMMAND|TEST_(FILENAME|DIRNAME|NAMES?|DESCRIPTION)|(SUITE_)?TEST_NUMBER|((RUN|FILE|SUITE|TEST)_)?TMPDIR|FILE_EXTENSION|VERSION)\\b",
+			"name": "support.variable.bats"
+		},
+		{
+			"match": "\\$\\{#?(output|status|lines|stderr|stderr_lines)\\b",
+			"captures": {
+				"1": {
+					"name": "support.variable.bats"
+				}
+			}
+		}
+	]
+}

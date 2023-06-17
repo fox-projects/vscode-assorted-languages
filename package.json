@@ -93,6 +93,19 @@
 				"configuration": "./language-configuration/awk.language-configuration.json"
 			},
 			{
+				"id": "bats",
+				"aliases": [
+					"Bats (Bash Automated Testing System)",
+					"Bats",
+					"BATS",
+					"bats"
+				],
+				"extensions": [
+					".bats"
+				],
+				"configuration": "./language-configuration/bats.language-configuration.json"
+			},
+			{
 				"id": "cisco",
 				"aliases": [
 					"Cisco",
@@ -715,6 +728,25 @@
 				"language": "awk",
 				"scopeName": "source.awk",
 				"path": "./syntaxes/awk.tmLanguage.json"
+			},
+			{
+				"language": "bats",
+				"scopeName": "source.shell.bats",
+				"path": "./syntaxes/bats.tmLanguage.json"
+			},
+			{
+				"scopeName": "source.shell.bats.extended",
+				"path": "./syntaxes/bats.extended.tmLanguage.json",
+				"injectTo": [
+					"source.shell.bats"
+				]
+			},
+			{
+				"scopeName": "source.shell.bats.variables",
+				"path": "./syntaxes/bats.variables.tmLanguage.json",
+				"injectTo": [
+					"source.shell.bats"
+				]
 			},
 			{
 				"language": "cisco",

@@ -1,0 +1,14 @@
+{
+	"fileTypes": ["bats"],
+	"foldingStartMarker": "\\b(if|case)\\b|(\\{|\\b(do)\\b)$",
+	"foldingStopMarker": "^\\s*(\\}|(done|fi|esac)\\b)",
+	"keyEquivalent": "^~B",
+	"name": "Bats",
+	"patterns": [
+		{
+			"include": "source.shell"
+		}
+	],
+	"scopeName": "source.shell.bats",
+	"uuid": "D001D6FC-04A3-4BB6-9588-A6BCE46DDEDB"
+}

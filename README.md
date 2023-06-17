@@ -10,6 +10,7 @@ Syntax highlighting for
 - ASM x86_64
 - autotools (autoconf / automake)
 - AWK
+- Bats
 - CISCO
 - Desktop Files
 - dircolors
@@ -58,6 +59,7 @@ Syntax highlighting for
 - [x86_64-assembly-vscode](https://github.com/13xforever/x86_64-assembly-vscode) by 13xforever (MIT)
 - [vscode_autotools](https://github.com/maelvls/vscode_autotools) by maelvls (GPL-3.0)
 - [vscode-awk](https://github.com/luggage66/vscode-awk) by luggage66 (MIT)
+- [bats](https://github.com/jetmartin/bats) by jetmartin (MIT)
 - [vscode-cisco-syntax](https://github.com/woodjme/vscode-cisco-syntax) by woodjme (MIT)
 - [desktop-file-support](https://github.com/nico-castell/desktop-file-support) by nico-castell (MIT)
 - [vscode-dircolors](https://github.com/duniul/vscode-dircolors) by duniul (MIT)
