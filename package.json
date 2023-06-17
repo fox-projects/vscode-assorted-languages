@@ -720,12 +720,12 @@
 			{
 				"language": "asm-intel-x86-generic",
 				"scopeName": "source.asm.x86_64",
-				"path": "./syntaxes/language-x86_64-assembly.tmLanguage.json"
+				"path": "./syntaxes/x86-64.tmLanguage.json"
 			},
 			{
 				"language": "m4",
 				"scopeName": "source.m4",
-				"path": "./language-configuration/autoconf.language-configuration.json",
+				"path": "./syntaxes/autoconf.tmLanguage.json",
 				"embeddedLanguages": {
 					"source.shell": "shellscript"
 				}
@@ -733,7 +733,7 @@
 			{
 				"language": "automake",
 				"scopeName": "source.automake",
-				"path": "./language-configuration/automake.language-configuration.json"
+				"path": "./syntaxes/automake.tmLanguage.json"
 			},
 			{
 				"language": "awk",
