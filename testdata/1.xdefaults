@@ -1,0 +1,22 @@
+*AutoRaise: on
+*DeIconifyWarp: on
+*warp:on
+*TitleFont:andysans12
+*scrollBar: true
+*font: Rom10.500
+Mwm*menu*foreground: black
+Mwm*menu*background: CornflowerBlue
+Mwm*menu*RootMenu*foreground: black
+Mwm*menu*RootMenu*background: CornflowerBlue
+Mwm*icon*foreground: grey25
+Mwm*icon*background: LightGray
+Mwm*foreground: black
+Mwm*background: LightSkyBlue
+Mwm*bottomShadowColor: Blue1
+Mwm*topShadowColor: CornflowerBlue
+Mwm*activeForeground: white
+Mwm*activeBackground: Blue1
+Mwm*activeBottomShadowColor: black
+Mwm*activeTopShadowColor: LightSkyBlue
+Mwm*border: black
+Mwm*highlight:white

@@ -1,0 +1,30 @@
+COLOR tty
+EIGHTBIT yes
+
+TERM console
+TERM linux
+
+TERM alacritty
+TERM rxvt-unicode-256color
+TERM screen-256color
+TERM st-256color
+TERM xterm-256color
+TERM xterm-kitty
+
+NORMAL 00
+FILE 00
+DIR 0;36
+LINK 0;35 # symlink
+ORPHAN 0;31 # symlink to nonexistant file or non-stat'able file
+MISSING 0;31
+FIFO 0;33
+SOCK 0;33
+DOOR 0;33
+BLK 0;33 # block device driver
+CHR 0;33 # character device driver
+EXEC 0;32 # (+x)
+SUID 0;33 # (u+s)
+SGID 0;33 # (g+s)
+STICKY 0;33 # (+t)
+STICKY_OTHER_WRITABLE 0;33 # (o+w) and (+t)
+OTHER_WRITABLE 0;31 # (o+w) and not (+t)
