@@ -32,6 +32,7 @@ Syntax highlighting for
 - JSON5
 - jsonl
 - Linker Scripts
+- Log
 - Logstash
 - M3U
 - Linker Maps
@@ -80,6 +81,7 @@ Syntax highlighting for
 - [vscode-json5](https://github.com/mrmlnc/vscode-json5) by mrmlnc (MIT)
 - [jsonl](https://github.com/Alpha4/jsonl) by Alpha4 (MIT)
 - [vscode-linkerscript](https://github.com/TheNetAdmin/vscode-linkerscript) by TheNetAdmin (MIT)
+- [vscode-log-output-colorizer](https://github.com/IBM-Cloud/vscode-log-output-colorizer) by IBM-Cloud (MIT)
 - [vscode-logstash-configuration-syntax](https://github.com/randomchance/vscode-logstash-configuration-syntax) by randomchance (MIT)
 - [vscode-m3u](https://github.com/af4jm/vscode-m3u) by af4jm (Apache-2.0)
 - [vscode-gnu-map](https://github.com/trond-snekvik/vscode-gnu-map) by trond-snekvik (MIT)

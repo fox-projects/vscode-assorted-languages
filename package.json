@@ -437,6 +437,17 @@
 				"configuration": "./language-configuration/linkerscript.language-configuration.json"
 			},
 			{
+				"id": "logfile",
+				"aliases": [
+					"logfile",
+					"log"
+				],
+				"extensions": [
+					".log"
+				],
+				"configuration": "./language-configuration/log.language-configuration.json"
+			},
+			{
 				"id": "logstash",
 				"aliases": [
 					"Logstash",
@@ -901,6 +912,11 @@
 				"language": "linkerscript",
 				"scopeName": "source.ld",
 				"path": "./syntaxes/linkerscript.tmLanguage.json"
+			},
+			{
+				"language": "logfile",
+				"scopeName": "text.logfile",
+				"path": "./syntaxes/log.tmLanguage.json"
 			},
 			{
 				"language": "logstash",
