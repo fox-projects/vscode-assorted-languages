@@ -19,7 +19,7 @@ Syntax highlighting for
 - env
 - Expect
 - FlatBuffers
-- GNU Plot
+- gnuplot
 - HAML
 - Handlebars
 - HLA
