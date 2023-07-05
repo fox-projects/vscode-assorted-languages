@@ -37,10 +37,16 @@ Syntax highlighting for
 - M3U
 - Linker Maps
 - Ninja
+- Nix
 - Odin
 - gettext / po
+- pbxproj
 - Protobuf
+- Prototxt
 - QlikView
+- Shader HLSL (High-Level Shading Language)
+- Shader GLSL (OpenGL Shading Language)
+- Shader Cg (C for Graphics)
 - Stylus
 - sxhkdrc
 - systemd
@@ -86,11 +92,14 @@ Syntax highlighting for
 - [vscode-m3u](https://github.com/af4jm/vscode-m3u) by af4jm (Apache-2.0)
 - [vscode-gnu-map](https://github.com/trond-snekvik/vscode-gnu-map) by trond-snekvik (MIT)
 - [vscode-ninja-syntax](https://github.com/melak47/vscode-ninja-syntax) by melak47 (MIT)
+- [vscode-nix](https://github.com/bbenoist/vscode-nix) by bbenoist (MIT)
 - [odin-vscode](https://github.com/fivemoreminix/odin-vscode) by fivemoreminix (MIT)
 - [vscode-gettext](https://github.com/MrOrz/vscode-gettext) by MrOrz (MIT)
+- [syntax-project-pbxproj](https://github.com/MarioMatheus/syntax-project-pbxproj) by MarioMatheus (MIT)
 - [vscode-proto3](https://github.com/zxh0/vscode-proto3) by zxh0 (MIT)
 - [textproto-grammar](https://github.com/thejustinwalsh/textproto-grammar) by thejustinwalsh (MIT)
 - [vscode-qlik](https://github.com/Gimly/vscode-qlik) by Gimly (MIT)
+- [vscode-shader](https://github.com/stef-levesque/vscode-shader) by stef-levesque (MIT)
 - [language-stylus](https://github.com/d4rkr00t/language-stylus) by d4rkr00t (MIT)
 - [sxhkdrc-syntax](https://github.com/mosbasik/sxhkdrc-syntax) by mosbasik (MIT)
 - [vscode-systemd](https://github.com/hangxingliu/vscode-systemd) by hangxingliu (MIT)
