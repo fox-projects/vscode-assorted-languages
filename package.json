@@ -582,48 +582,6 @@
 				]
 			},
 			{
-				"id": "glsl",
-				"aliases": [
-					"GLSL",
-					"OpenGL Shading Language",
-					"glsl"
-				],
-				"extensions": [
-					".vs",
-					".fs",
-					".gs",
-					".vsf",
-					".fsh",
-					".gsh",
-					".vshader",
-					".fshader",
-					".gshader",
-					".comp",
-					".vert",
-					".tesc",
-					".tese",
-					".frag",
-					".geom",
-					".glsl",
-					".glslv",
-					".glslf",
-					".glslg"
-				],
-				"configuration": "./language-configuration/shader-glsl.language-configuration.json"
-			},
-			{
-				"id": "cg",
-				"aliases": [
-					"Cg",
-					"C for Graphics",
-					"cg"
-				],
-				"extensions": [
-					".cg"
-				],
-				"configuration": "./language-configuration/shader-cg.language-configuration.json"
-			},
-			{
 				"id": "stylus",
 				"aliases": [
 					"Stylus",
@@ -1071,56 +1029,6 @@
 				"language": "qlik",
 				"scopeName": "source.qvs",
 				"path": "./syntaxes/qlik.tmLanguage.json"
-			},
-			{
-				"language": "glsl",
-				"scopeName": "source.glsl",
-				"path": "./syntaxes/shader-glsl.tmLanguage.json"
-			},
-			{
-				"language": "cg",
-				"scopeName": "source.cg",
-				"path": "./syntaxes/shader-cg.tmLanguage.json"
-			},
-			{
-				"scopeName": "text.html.glsl",
-				"path": "./syntaxes/shader-glsl-html.tmLanguage.json",
-				"injectTo": [
-					"text.html"
-				],
-				"embeddedLanguages": {
-					"source.glsl": "glsl"
-				}
-			},
-			{
-				"scopeName": "source.cpp.glsl",
-				"path": "./syntaxes/shader-glsl-cpp.tmLanguage.json",
-				"injectTo": [
-					"source.cpp"
-				],
-				"embeddedLanguages": {
-					"source.glsl": "glsl"
-				}
-			},
-			{
-				"scopeName": "source.cpp.hlsl",
-				"path": "./syntaxes/shader-hlsl-cpp.tmLanguage.json",
-				"injectTo": [
-					"source.cpp"
-				],
-				"embeddedLanguages": {
-					"source.hlsl": "hlsl"
-				}
-			},
-			{
-				"scopeName": "source.cpp.cg",
-				"path": "./syntaxes/shader-cg-cpp.tmLanguage.json",
-				"injectTo": [
-					"source.cpp"
-				],
-				"embeddedLanguages": {
-					"source.cg": "cg"
-				}
 			},
 			{
 				"language": "stylus",

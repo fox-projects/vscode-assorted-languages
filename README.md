@@ -44,9 +44,6 @@ Syntax highlighting for
 - Protobuf
 - Prototxt
 - QlikView
-- Shader HLSL (High-Level Shading Language)
-- Shader GLSL (OpenGL Shading Language)
-- Shader Cg (C for Graphics)
 - Stylus
 - sxhkdrc
 - systemd
@@ -99,7 +96,6 @@ Syntax highlighting for
 - [vscode-proto3](https://github.com/zxh0/vscode-proto3) by zxh0 (MIT)
 - [textproto-grammar](https://github.com/thejustinwalsh/textproto-grammar) by thejustinwalsh (MIT)
 - [vscode-qlik](https://github.com/Gimly/vscode-qlik) by Gimly (MIT)
-- [vscode-shader](https://github.com/stef-levesque/vscode-shader) by stef-levesque (MIT)
 - [language-stylus](https://github.com/d4rkr00t/language-stylus) by d4rkr00t (MIT)
 - [sxhkdrc-syntax](https://github.com/mosbasik/sxhkdrc-syntax) by mosbasik (MIT)
 - [vscode-systemd](https://github.com/hangxingliu/vscode-systemd) by hangxingliu (MIT)
