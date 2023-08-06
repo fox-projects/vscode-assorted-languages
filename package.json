@@ -1093,7 +1093,14 @@
 		],
 		"configurationDefaults": {
 			"files.associations": {
-				"*.ejs": "html"
+				"*.rasi": "css",
+				"*.bbmodel": "json",
+				"*.sublime-snippet": "xml",
+				"*.hbs": "html",
+				"*.ejs": "html",
+				"*.Xresources": "xdefaults",
+				"i3/config": "i3",
+				"i3/*.conf": "i3"
 			},
 			"emmet.includeLanguages": {
 				"ejs": "html"
