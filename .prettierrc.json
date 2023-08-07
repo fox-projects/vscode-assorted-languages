@@ -1,6 +1,1 @@
-{
-	"useTabs": true,
-	"semi": false,
-	"singleQuote": true,
-	"trailingComma": "all"
-}
+"@hyperupcall/prettier-config"

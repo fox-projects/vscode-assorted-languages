@@ -1,14 +1,24 @@
-lockfileVersion: 5.4
+lockfileVersion: '6.0'
 
-specifiers:
-  prettier: ^2.7.1
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 devDependencies:
-  prettier: 2.7.1
+  '@hyperupcall/prettier-config':
+    specifier: ^0.6.0
+    version: 0.6.0
+  prettier:
+    specifier: ^2.7.1
+    version: 2.7.1
 
 packages:
 
-  /prettier/2.7.1:
+  /@hyperupcall/prettier-config@0.6.0:
+    resolution: {integrity: sha512-nAJ+/9eZ4pnc/zVi3GvIE1hWIUjopr7iCaTQstW4hGeL8XjnUPMGz9Pn97PDqAWyDieQ8TT4PM+IILwaWFtBiQ==}
+    dev: true
+
+  /prettier@2.7.1:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
