@@ -1143,6 +1143,7 @@
 		}
 	},
 	"devDependencies": {
+		"@hyperupcall/prettier-config": "^0.6.0",
 		"prettier": "^2.7.1"
 	}
 }
