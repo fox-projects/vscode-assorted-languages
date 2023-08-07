@@ -1,0 +1,101 @@
+{
+  "fileTypes": [
+    "td"
+  ],
+  "foldingStartMarker": "/\\*\\*|\\{\\s*$",
+  "foldingStopMarker": "\\*\\*/|^\\s*\\\n}",
+  "name": "TableGen",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "match": "\\b(def|let|in|code|dag|string|list|bits|bit|field|include|defm|foreach|class|multiclass|int|if|then|else|defset|defvar)\\b",
+      "name": "keyword.control.tablegen"
+    },
+    {
+      "begin": "\"",
+      "end": "\"",
+      "name": "string.quoted.double.untitled",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.tablegen"
+        }
+      ]
+    },
+    {
+      "begin": "\\[\n\t{",
+      "end": "\n\t}\n]",
+      "name": "string.unquoted.tablegen"
+    },
+    {
+      "match": "\\b\\d+\\b",
+      "name": "constant.numeric.dec.tablegen"
+    },
+    {
+      "match": "\\b0b[\n\t01\n]+\\b",
+      "name": "constant.numeric.bin.tablegen"
+    },
+    {
+      "match": "\\b0x[\n\t0-9a-fA-F\n]+\\b",
+      "name": "constant.numeric.hex.tablegen"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "captures": {
+            "1": {
+              "name": "meta.toc-list.banner.block.tablegen"
+            }
+          },
+          "match": "^/\\* =(\\s*.*?)\\s*= \\*/$\\n?",
+          "name": "comment.block.tablegen"
+        },
+        {
+          "begin": "/\\*",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.tablegen"
+            }
+          },
+          "end": "\\*/",
+          "name": "comment.block.tablegen"
+        },
+        {
+          "match": "\\*/.*\\n",
+          "name": "invalid.illegal.stray-comment-end.tablegen"
+        },
+        {
+          "captures": {
+            "1": {
+              "name": "meta.toc-list.banner.line.tablegen"
+            }
+          },
+          "match": "^ // =(\\s*.*?)\\s*=\\s*$\\n?",
+          "name": "comment.line.banner.tablegen"
+        },
+        {
+          "begin": " //",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.tablegen"
+            }
+          },
+          "end": "$\\n?",
+          "name": "comment.line.double-slash.tablegen",
+          "patterns": [
+            {
+              "match": "(?>\\\\\\s*\\n)",
+              "name": "punctuation.separator.continuation.tablegen"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scopeName": "source.tablegen",
+  "uuid": "3A090BFC-E74B-4993-8DAE-7CCF6D238A32"
+}

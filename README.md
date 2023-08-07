@@ -32,6 +32,7 @@ Syntax highlighting for
 - JSON5
 - jsonl
 - Linker Scripts
+- LLVM IR
 - Log
 - Logstash
 - M3U
@@ -48,6 +49,7 @@ Syntax highlighting for
 - sxhkdrc
 - systemd
 - T4
+- LLVM TableGen
 - terminfo
 - Thrift
 - Typo3
@@ -84,6 +86,8 @@ Syntax highlighting for
 - [vscode-json5](https://github.com/mrmlnc/vscode-json5) by mrmlnc (MIT)
 - [jsonl](https://github.com/Alpha4/jsonl) by Alpha4 (MIT)
 - [vscode-linkerscript](https://github.com/TheNetAdmin/vscode-linkerscript) by TheNetAdmin (MIT)
+- [llvm-syntax-highlighting](https://github.com/colejcummins/llvm-syntax-highlighting) by colejcummins (MIT)
+- [vscode-llvm-tablegen](https://github.com/jakoberzar/vscode-llvm-tablegen) by jakoberzar (MIT)
 - [vscode-log-output-colorizer](https://github.com/IBM-Cloud/vscode-log-output-colorizer) by IBM-Cloud (MIT)
 - [vscode-logstash-configuration-syntax](https://github.com/randomchance/vscode-logstash-configuration-syntax) by randomchance (MIT)
 - [vscode-m3u](https://github.com/af4jm/vscode-m3u) by af4jm (Apache-2.0)
