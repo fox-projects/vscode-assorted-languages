@@ -52,6 +52,7 @@ Syntax highlighting for
 - LLVM TableGen
 - terminfo
 - Thrift
+- todotxt
 - Typo3
 - VCard
 - Xresources / Xdefaults
@@ -106,6 +107,7 @@ Syntax highlighting for
 - [t4-support](https://github.com/zbecknell/t4-support) by zbecknell (MIT)
 - [vscode-infokey-plugin](https://github.com/UI-Apps/vscode-infokey-plugin) by UI-Apps (MIT)
 - [thrift.tmbundle](https://github.com/textmate/thrift.tmbundle) by textmate (custom)
+- [todotxt](https://github.com/dunstontc/vscode-todotxt) by dunstontc (MIT)
 - [vscode-typo3-typoscript](https://github.com/benjaminkott/vscode-typo3-typoscript) by benjaminkott (MIT)
 - [vscode-vcard](https://github.com/cstrachan88/vscode-vcard) by cstrachan88 (MIT)
 - [xresources](https://github.com/antcap96/xresources) by antcap96 (MIT)

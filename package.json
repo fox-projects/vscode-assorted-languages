@@ -685,6 +685,18 @@
 				"configuration": "./language-configuration/thrift.language-configuration.json"
 			},
 			{
+				"id": "todo",
+				"aliases": [
+					"todo",
+					"todo"
+				],
+				"extensions": [
+					"todo.txt",
+					"done.txt"
+				],
+				"configuration": "./language-configuration/todotxt.language-configuration.json"
+			},
+			{
 				"id": "typoscript",
 				"aliases": [
 					"TypoScript",
@@ -1092,6 +1104,11 @@
 				"language": "thrift",
 				"scopeName": "source.thrift",
 				"path": "./syntaxes/thrift.tmLanguage.json"
+			},
+			{
+				"language": "todo",
+				"scopeName": "source.todo",
+				"path": "./syntaxes/todotxt.tmLanguage.json"
 			},
 			{
 				"language": "typoscript",

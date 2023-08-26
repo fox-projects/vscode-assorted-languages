@@ -1,0 +1,844 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "todo",
+	"scopeName": "source.todo",
+	"patterns": [
+		{
+			"include": "#meta"
+		},
+		{
+			"include": "#priority"
+		}
+	],
+	"repository": {
+		"meta": {
+			"patterns": [
+				{
+					"begin": "(^x)",
+					"end": "$",
+					"name": "comment.line.done.todo"
+				}
+			]
+		},
+		"priority": {
+			"patterns": [
+				{
+					"begin": "^([0-9]{4}-[0-9]{2}-[0-9]{2})",
+					"beginCaptures": {
+						"1": {
+							"name": "constant.numeric.date.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.none.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([aA])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.a.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([bB])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.b.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([cC])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.c.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([dD])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.d.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([eE])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.e.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([fF])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.f.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([gG])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.g.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([hH])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.h.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([iI])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.i.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([jJ])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.j.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([kK])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.k.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([lL])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.l.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([mM])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.m.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([nN])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.n.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([oO])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.o.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([pP])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.p.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([qQ])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.q.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([rR])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.r.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([sS])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.s.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([tT])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.t.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([uU])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.u.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([vV])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.v.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([wW])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.w.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([xX])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.x.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([yY])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.y.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				},
+				{
+					"begin": "^(\\()([zZ])(\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"end": "($)",
+					"name": "meta.priority.z.todo",
+					"patterns": [
+						{
+							"include": "#date"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#variable"
+						}
+					]
+				}
+			]
+		},
+		"date": {
+			"patterns": [
+				{
+					"name": "constant.numeric.date.todo",
+					"match": "([0-9]{4}-[0-9]{2}-[0-9]{2})"
+				}
+			]
+		},
+		"variable": {
+			"patterns": [
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.project.todo"
+						},
+						"2": {
+							"name": "variable.other.project.todo"
+						}
+					},
+					"match": "\\s([+])([^:\\s]+\\b)"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.context.todo"
+						},
+						"2": {
+							"name": "variable.context.todo"
+						}
+					},
+					"match": "\\s([@])([^:\\s]+\\b)"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "variable.other.key-value.todo"
+						},
+						"2": {
+							"name": "punctuation.definition.variable.todo"
+						},
+						"3": {
+							"name": "variable.other.key-value.todo"
+						}
+					},
+					"match": "([a-zA-Z0-9]+)(:)([^:\\s]+\\b)"
+				},
+				{
+					"captures": {
+						"2": {
+							"name": "variable.priority.todo"
+						},
+						"1": {
+							"name": "punctuation.definition.priority.todo"
+						},
+						"3": {
+							"name": "punctuation.definition.priority.todo"
+						}
+					},
+					"match": "(\\()([a-zA-Z])(\\))"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"include": "#qstring-single"
+				},
+				{
+					"include": "#qstring-double"
+				},
+				{
+					"include": "#qstring-backtick"
+				}
+			]
+		},
+		"qstring-double": {
+			"name": "string.quoted.double.todo",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": []
+		},
+		"qstring-single": {
+			"name": "string.quoted.single.todo",
+			"begin": "'",
+			"end": "'",
+			"patterns": []
+		},
+		"qstring-backtick": {
+			"name": "string.quoted.backtick.todo",
+			"begin": "`",
+			"end": "`",
+			"patterns": []
+		}
+	}
+}
