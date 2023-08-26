@@ -1,0 +1,9 @@
+#command
+
+#line-edit
+
+#env
+LESS = -FRQ
+LESS_ADVANCED_PREPROCESSOR = 1
+LESSOPEN= |source-highlight-esc.sh\ %s
+LESSHISTSIZE= 32768

@@ -1,0 +1,19 @@
+#command
+
+#line-edit
+
+#env
+a = b
+LESS = -FRQ
+LESS_ADVANCED_PREPROCESSOR=1 # lesspipe.sh
+# export LESSOPEN="|source-highlight-esc.sh %s"
+LESSHISTSIZE='32768'
+LESSHISTFILE="$XDG_STATE_HOME/history/less_history"
+LESS_TERMCAP_mb=$'\e[1;31m' # start blink
+LESS_TERMCAP_md=$'\e[1;36m' # start bold
+LESS_TERMCAP_me=$'\e[0m' # end all
+LESS_TERMCAP_so=$'\e[01;44;33m' # start reverse video
+LESS_TERMCAP_se=$'\e[0m' # end reverse video
+LESS_TERMCAP_us=$'\e[1;32m' # start underline
+LESS_TERMCAP_ue=$'\e[0m' # end underline
+LESS_TERMCAP_us=$'\e[1;32m' # start underline

@@ -1,0 +1,53 @@
+{
+	"name": "lesskey configuration file",
+	"patterns": [
+		{
+			"include": "#sections"
+		},
+		{
+			"include": "#section-keys"
+		},
+		{
+			"include": "#section-env"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"sections": {
+			"patterns": [
+				{
+					"name": "entity.name.section",
+					"match": "^#(command|line-edit|env)[ \t]*$"
+				}
+			]
+		},
+		"section-keys": {
+			"patterns": [
+				{
+					"name": "entity.assignment",
+					"match": "^\\s*\\w\\s+\\s"
+				}
+			]
+		},
+		"section-env": {
+			"patterns": [
+				{
+					"name": "entity.assignment",
+					"match": "^\\s*\\w\\s*=\\s*\\w"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "^\\s*#.*\\n"
+				}
+			]
+		}
+	},
+	"scopeName": "source.lesskey",
+	"uuid": "dde9500d-f769-40fd-80dc-4a08f06ff35e"
+}

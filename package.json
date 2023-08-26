@@ -424,6 +424,16 @@
 				"configuration": "./language-configuration/jsonl.language-configuration.json"
 			},
 			{
+				"id": "lesskey",
+				"aliases": [
+					"lesskey"
+				],
+				"extensions": [
+					".lesskey"
+				],
+				"configuration": "./language-configuration/lesskey.language-configuration.json"
+			},
+			{
 				"id": "linkerscript",
 				"aliases": [
 					"linkerscript"
@@ -984,6 +994,11 @@
 				"path": "./syntaxes/jsonl.tmLanguage.json"
 			},
 			{
+				"language": "lesskey",
+				"scopeName": "source.lesskey",
+				"path": "./syntaxes/lesskey.tmLanguage.json"
+			},
+			{
 				"language": "linkerscript",
 				"scopeName": "source.ld",
 				"path": "./syntaxes/linkerscript.tmLanguage.json"
@@ -1148,6 +1163,7 @@
 				"*.sublime-snippet": "xml",
 				"*.hbs": "html",
 				"*.ejs": "html",
+				"lesskey": "lesskey",
 				"*.Xresources": "xdefaults",
 				"i3/config": "i3",
 				"i3/*.conf": "i3",

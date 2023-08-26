@@ -31,6 +31,7 @@ Syntax highlighting for
 - jq
 - JSON5
 - jsonl
+- lesskey
 - Linker Scripts
 - LLVM IR
 - Log
