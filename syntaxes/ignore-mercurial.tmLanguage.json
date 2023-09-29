@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "ignore-mercurial",
-	"scopeName": "text.ignore.hgignore",
+	"scopeName": "text.ignore.mercurial",
 	"fileTypes": ["hgignore"],
 	"maxTokensPerLine": 100,
 	"patterns": [

@@ -1,5 +1,6 @@
 {
 	"name": "vscode-assorted-languages",
+	"type": "module",
 	"displayName": "Assorted Languages",
 	"description": "Syntax Highlighting for an assortment of languages",
 	"version": "0.26.2",
@@ -50,7 +51,7 @@
 					".inc",
 					".s"
 				],
-				"configuration": "./language-configuration/x86-64.language-configuration.json"
+				"configuration": "./language-configuration/asm-intel-x86-generic.language-configuration.json"
 			},
 			{
 				"id": "m4",
@@ -64,7 +65,7 @@
 					"configure.in",
 					".m4"
 				],
-				"configuration": "./language-configuration/autoconf.language-configuration.json"
+				"configuration": "./language-configuration/m4.language-configuration.json"
 			},
 			{
 				"id": "automake",
@@ -77,7 +78,7 @@
 					".am.inc",
 					"Makefile.in"
 				],
-				"configuration": "./language-configuration/automake.tmLanguage.json"
+				"configuration": "./language-configuration/automake.language-configuration.json"
 			},
 			{
 				"id": "awk",
@@ -160,35 +161,35 @@
 				"extensions": [
 					".dsc"
 				],
-				"configuration": "./confs/edk2_dsc.language-configuration.json"
+				"configuration": "./language-configuration/edk2_dsc.language-configuration.json"
 			},
 			{
 				"id": "edk2_dec",
 				"extensions": [
 					".dec"
 				],
-				"configuration": "./confs/edk2_dec.language-configuration.json"
+				"configuration": "./language-configuration/edk2_dec.language-configuration.json"
 			},
 			{
 				"id": "edk2_fdf",
 				"extensions": [
 					".fdf"
 				],
-				"configuration": "./confs/edk2_fdf.language-configuration.json"
+				"configuration": "./language-configuration/edk2_fdf.language-configuration.json"
 			},
 			{
 				"id": "edk2_inf",
 				"extensions": [
 					".inf"
 				],
-				"configuration": "./confs/edk2_inf.language-configuration.json"
+				"configuration": "./language-configuration/edk2_inf.language-configuration.json"
 			},
 			{
 				"id": "edk2_uni",
 				"extensions": [
 					".uni"
 				],
-				"configuration": "./confs/edk2_uni.language-configuration.json"
+				"configuration": "./language-configuration/edk2_uni.language-configuration.json"
 			},
 			{
 				"id": "edk2_vfr",
@@ -197,7 +198,7 @@
 					".Vfr",
 					".hfr"
 				],
-				"configuration": "./confs/edk2_vfr.language-configuration.json"
+				"configuration": "./language-configuration/edk2_vfr.language-configuration.json"
 			},
 			{
 				"id": "env",
@@ -241,7 +242,7 @@
 					".fbs",
 					".idl"
 				],
-				"configuration": "./language-configuration/flatbuffer.language-configuration.json"
+				"configuration": "./language-configuration/flatbuffers.language-configuration.json"
 			},
 			{
 				"id": "gnuplot",
@@ -308,7 +309,7 @@
 			{
 				"id": "ignore",
 				"aliases": [
-					"Ignore File (gitignore syntax)",
+					"Ignore File",
 					"ignore"
 				],
 				"extensions": [
@@ -349,7 +350,7 @@
 				"configuration": "./language-configuration/ignore.language-configuration.json"
 			},
 			{
-				"id": "ignore-hgignore",
+				"id": "ignore-mercurial",
 				"aliases": [
 					"Ignore File for Mecurial",
 					"ignore-hg"
@@ -466,7 +467,7 @@
 				"extensions": [
 					".log"
 				],
-				"configuration": "./language-configuration/log.language-configuration.json"
+				"configuration": "./language-configuration/logfile.language-configuration.json"
 			},
 			{
 				"id": "logstash",
@@ -559,7 +560,7 @@
 				]
 			},
 			{
-				"id": "project.pbxproj",
+				"id": "pbxproj",
 				"aliases": [
 					"Project.pbxproj",
 					"project.pbxproj"
@@ -625,10 +626,11 @@
 				"configuration": "./language-configuration/sxhkdrc.language-configuration.json"
 			},
 			{
-				"id": "systemd-conf",
+				"id": "systemd-unit",
 				"aliases": [
 					"Systemd Configuration",
 					"systemd-conf",
+					"systemd-unit",
 					"systemd-unit-file"
 				],
 				"extensions": [
@@ -648,7 +650,7 @@
 					".slice",
 					".scope"
 				],
-				"configuration": "./language-configuration/systemd.language-configuration.json"
+				"configuration": "./language-configuration/systemd-unit.language-configuration.json"
 			},
 			{
 				"id": "t4",
@@ -698,13 +700,14 @@
 				"id": "todo",
 				"aliases": [
 					"todo",
-					"todo"
+					"todo",
+					"todotxt"
 				],
 				"extensions": [
 					"todo.txt",
 					"done.txt"
 				],
-				"configuration": "./language-configuration/todotxt.language-configuration.json"
+				"configuration": "./language-configuration/todo.language-configuration.json"
 			},
 			{
 				"id": "typoscript",
@@ -722,7 +725,7 @@
 					"ext_typoscript_constants.txt",
 					"setup.txt"
 				],
-				"configuration": "./language-configuration/typo3.language-configuration.json"
+				"configuration": "./language-configuration/typoscript.language-configuration.json"
 			},
 			{
 				"id": "tsconfig",
@@ -733,7 +736,7 @@
 				"extensions": [
 					".tsconfig"
 				],
-				"configuration": "./language-configuration/typo3.language-configuration.json"
+				"configuration": "./language-configuration/typoscript.language-configuration.json"
 			},
 			{
 				"id": "vcard",
@@ -760,7 +763,7 @@
 					".Xdefaults",
 					".xdefaults"
 				],
-				"configuration": "./language-configuration/xresources.language-configuration.json"
+				"configuration": "./language-configuration/xdefaults.language-configuration.json"
 			},
 			{
 				"id": "yarnlock",
@@ -805,12 +808,12 @@
 			{
 				"language": "asm-intel-x86-generic",
 				"scopeName": "source.asm.x86_64",
-				"path": "./syntaxes/x86-64.tmLanguage.json"
+				"path": "./syntaxes/asm-intel-x86-generic.tmLanguage.json"
 			},
 			{
 				"language": "m4",
 				"scopeName": "source.m4",
-				"path": "./syntaxes/autoconf.tmLanguage.json",
+				"path": "./syntaxes/m4.tmLanguage.json",
 				"embeddedLanguages": {
 					"source.shell": "shellscript"
 				}
@@ -952,12 +955,12 @@
 			},
 			{
 				"language": "ignore-slug",
-				"scopeName": "text.ignore.slugignore",
+				"scopeName": "text.ignore.slug",
 				"path": "./syntaxes/ignore-slug.tmLanguage.json"
 			},
 			{
-				"language": "ignore-hgignore",
-				"scopeName": "text.ignore.hgignore",
+				"language": "ignore-mercurial",
+				"scopeName": "text.ignore.mercurial",
 				"path": "./syntaxes/ignore-mercurial.tmLanguage.json"
 			},
 			{
@@ -1011,7 +1014,7 @@
 			{
 				"language": "logfile",
 				"scopeName": "text.logfile",
-				"path": "./syntaxes/log.tmLanguage.json"
+				"path": "./syntaxes/logfile.tmLanguage.json"
 			},
 			{
 				"language": "logstash",
@@ -1049,7 +1052,7 @@
 				"path": "./syntaxes/po.tmLanguage.json"
 			},
 			{
-				"language": "project.pbxproj",
+				"language": "pbxproj",
 				"scopeName": "source.pbxproj",
 				"path": "./syntaxes/pbxproj.tmLanguage.json"
 			},
@@ -1060,7 +1063,7 @@
 			},
 			{
 				"scopeName": "markdown.codeblock.proto",
-				"path": "./syntaxes/proto3.codeblock.json",
+				"path": "./syntaxes/proto3.codeblock.tmLanguage.json",
 				"injectTo": [
 					"text.html.markdown"
 				]
@@ -1096,9 +1099,9 @@
 				"path": "./syntaxes/sxhkdrc.tmLanguage.json"
 			},
 			{
-				"language": "systemd-conf",
+				"language": "systemd-unit",
 				"scopeName": "source.systemd",
-				"path": "./syntaxes/systemd.tmLanguage.json"
+				"path": "./syntaxes/systemd-unit.tmLanguage.json"
 			},
 			{
 				"language": "t4",
@@ -1123,7 +1126,7 @@
 			{
 				"language": "todo",
 				"scopeName": "source.todo",
-				"path": "./syntaxes/todotxt.tmLanguage.json"
+				"path": "./syntaxes/todo.tmLanguage.json"
 			},
 			{
 				"language": "typoscript",

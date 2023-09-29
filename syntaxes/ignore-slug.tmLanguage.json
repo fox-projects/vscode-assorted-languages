@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "ignore-slug",
-	"scopeName": "text.ignore.slugignore",
+	"scopeName": "text.ignore.slug",
 	"fileTypes": ["slugignore"],
 	"maxTokensPerLine": 100,
 	"patterns": [

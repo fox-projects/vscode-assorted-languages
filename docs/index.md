@@ -1,4 +1,3 @@
-# VSCode Assorted Languages Extension
+# VSCode Assorted Languages
 
-An assorted selection of syntaxes for miscellaneous formats, so you never have to worry about proper syntax highlighting again!
-
+A VSCode extension with syntaxes for miscellaneous languages. Individually, these languages don't warrent an extension; but collectively, they do.
