@@ -1163,6 +1163,7 @@
 				"*.sublime-snippet": "xml",
 				"*.hbs": "html",
 				"*.ejs": "html",
+				"*.emu": "html",
 				"lesskey": "lesskey",
 				"*.Xresources": "xdefaults",
 				"i3/config": "i3",
