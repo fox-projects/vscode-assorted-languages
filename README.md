@@ -6,60 +6,68 @@ Never worry about syntax highlighting for miscellaneous files again!
 
 Syntax highlighting for
 
-- asl
-- ASM x86_64
-- autotools (autoconf / automake)
-- AWK
-- Bats
-- CISCO
-- Desktop Files
-- dircolors
-- dsdl
-- EDK2 misc (`.fdf`, `.dsc`, `.dec`, `.inf`, `.uni`, `.vfr`)
-- EJS
-- env
-- Expect
-- FlatBuffers
-- gnuplot
-- HAML
-- Handlebars
-- HLA
-- i3
-- infokey
-- inputrc
-- IO
-- jq
-- JSON5
-- jsonl
-- lesskey
-- Linker Scripts
-- LLVM IR
-- Log
-- Logstash
-- M3U
-- Linker Maps
-- Ninja
-- Nix
-- Odin
-- gettext / po
-- pbxproj
-- Protobuf
-- Prototxt
-- QlikView
-- Stylus
-- sxhkdrc
-- systemd
-- T4
-- LLVM TableGen
-- terminfo
-- Thrift
-- todotxt
-- Typo3
-- VCard
-- Xresources / Xdefaults
-- Yarn Lockfiles
-- Zone Files (Bind)
-- Vagrantfile
+- asl (`.asl`, `.dsl`)
+- asm-intel-x86-generic (`.asm`, `.nasm`, `.yasm`, `.inc`, `.s`)
+- m4 (`configure.ac`, `configure.in`, `.m4`)
+- automake (`.am`, `.am.inc`, `Makefile.in`)
+- awk (`.awk`, `.gawk`, `.mawk`)
+- bats (`.bats`)
+- cisco (`.ios`)
+- desktop (`.desktop`, `.theme`)
+- dircolors (`.dircolors`, `.dir_colors`)
+- dsdl (`.uavcan`)
+- edk2_dsc (`.dsc`)
+- edk2_dec (`.dec`)
+- edk2_fdf (`.fdf`)
+- edk2_inf (`.inf`)
+- edk2_uni (`.uni`)
+- edk2_vfr (`.vfr`, `.Vfr`, `.hfr`)
+- env (`.env`, `.env.sample`, `.env.example`, `.env.development`, `.env.staging`, `.env.production`, `.env.local`)
+- expect (`.exp`, `.expect`)
+- flatbuffers (`.fbs`, `.idl`)
+- gnuplot (`.gp`, `.gnuplot`, `.gnu`, `.plot`, `.plt`)
+- haml (`.haml`)
+- handlebars (`.handlebars`, `.hbr`, `.hbs`, `.tpl`)
+- hla (`.hla`, `.hhf`)
+- i3 (`.i3.config`)
+- ignore (`.cvsignore`, `.bzrignore`, `.gitignore`, `.hgignore`, `.npmignore`, `.earthlyignore`, `.dockerignore`, `.containerignore`, `.atomignore`, `.vscodeignore`, `.coffeelintignore`, `.jshintignore`, `.tslintignore`, `.eslintignore`, `.prettierignore`, `.stylelintignore`, `.markdownlintignore`, `.gcloudignore`, `.artifactignore`)
+- ignore-slug (`.slugignore`)
+- ignore-mercurial (`.hgignore`)
+- infokey (`infokey`)
+- inputrc (`inputrc`)
+- io (`.io`)
+- jq (`.jq`)
+- json5 (`.json5`)
+- jsonl (`.jsonl`)
+- lesskey (`.lesskey`)
+- linkerscript (`.ld`, `.dld`, `.lds`, `.x`)
+- llvm (`.ll`)
+- logfile (`.log`)
+- m3u (`.m3u`, `.m3u8`)
+- mapfile (`.map`)
+- ninja (`.ninja`)
+- nix (`.nix`)
+- odin (`.odin`)
+- po (`.po`, `.pot`, `.potx`)
+- proto3 (`.proto`)
+- pbxproj (`.pbxproj`)
+- textproto (`.pbtxt`, `.prototxt`, `.textproto`)
+- qlik (`.qvs`)
+- hlsl (`.sf`)
+- stylus (`.styl`, `.stylus`)
+- sxhkdrc (`.sxhkdrc.conf`)
+- systemd-unit (`.link`, `.netdev`, `.network`, `.service`, `.socket`, `.device`, `.mount`, `.automount`, `.swap`, `.target`, `.path`, `.timer`, `.snapshot`, `.slice`, `.scope`)
+- t4 (`.t4`, `.tt`, `.ttinclude`)
+- tablegen (`.td`)
+- terminfo (`.termcap`, `.src`)
+- thrift (`.thrift`)
+- todo (`todo.txt`, `done.txt`)
+- typoscript (`.typoscript`)
+- tsconfig (`.tsconfig`)
+- vcard (`.vcard`, `.vcf`)
+- xdefaults (`.Xresources`, `.xresources`, `.Xdefaults`, `.xdefaults`)
+- yarnlock (`yarn.lock`)
+- zone (`.zone`, `.signed`, `.db`, `.dns`)
 
 ## Acknowledgements
 

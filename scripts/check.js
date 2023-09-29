@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
-import path from 'node:path'
 
 const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
 
@@ -77,5 +76,3 @@ for (const file of fs.readdirSync('./language-configuration')) {
 		}
 	}
 }
-
-// Assert that README.md has all the stuff package.json has
