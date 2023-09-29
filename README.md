@@ -4,7 +4,11 @@ Never worry about syntax highlighting for miscellaneous files again!
 
 ## Usage
 
-Syntax highlighting for
+```sh
+code --install-extension install EdwinKofler.vscode-assorted-languages
+```
+
+## Language Support
 
 - asl (`.asl`, `.dsl`)
 - asm-intel-x86-generic (`.asm`, `.nasm`, `.yasm`, `.inc`, `.s`)
