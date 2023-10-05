@@ -10,6 +10,7 @@ code --install-extension install EdwinKofler.vscode-assorted-languages
 
 ## Language Support
 
+<!-- block-start -->
 - asl (`.asl`, `.dsl`)
 - asm-intel-x86-generic (`.asm`, `.nasm`, `.yasm`, `.inc`, `.s`)
 - m4 (`configure.ac`, `configure.in`, `.m4`)
@@ -47,6 +48,7 @@ code --install-extension install EdwinKofler.vscode-assorted-languages
 - linkerscript (`.ld`, `.dld`, `.lds`, `.x`)
 - llvm (`.ll`)
 - logfile (`.log`)
+- logstash
 - m3u (`.m3u`, `.m3u8`)
 - mapfile (`.map`)
 - ninja (`.ninja`)
@@ -72,6 +74,8 @@ code --install-extension install EdwinKofler.vscode-assorted-languages
 - xdefaults (`.Xresources`, `.xresources`, `.Xdefaults`, `.xdefaults`)
 - yarnlock (`yarn.lock`)
 - zone (`.zone`, `.signed`, `.db`, `.dns`)
+- ruby
+<!-- block-end -->
 
 ## Acknowledgements
 

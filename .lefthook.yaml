@@ -1,4 +1,6 @@
 pre-commit:
   commands:
-    check:
-      run: './scripts/check.js'
+    check-files:
+      run: './scripts/check-files.js'
+    write-readme:
+      run: './scripts/write-readme.js'
