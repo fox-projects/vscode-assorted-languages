@@ -1,6 +1,9 @@
+assert_lefthook_installed: true
 pre-commit:
   commands:
     check-files:
       run: './scripts/check-files.js'
     write-readme:
+      # files: 'printf "%s\n" package.json README.md'
       run: './scripts/write-readme.js'
+      stage_fixed: true

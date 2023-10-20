@@ -11,7 +11,7 @@ let str = ''
 		if (extensionsStr.length > 0) {
 			extensionsStr = '(' + extensionsStr + ')'
 		}
-		str += `- ${language.id} ${extensionsStr}\n`
+		str += `- ${language.id} ${extensionsStr}`.trim() + '\n'
 	}
 }
 

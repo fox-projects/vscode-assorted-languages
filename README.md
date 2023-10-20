@@ -35,7 +35,7 @@ code --install-extension install EdwinKofler.vscode-assorted-languages
 - handlebars (`.handlebars`, `.hbr`, `.hbs`, `.tpl`)
 - hla (`.hla`, `.hhf`)
 - i3 (`.i3.config`)
-- ignore (`.cvsignore`, `.bzrignore`, `.gitignore`, `.hgignore`, `.npmignore`, `.earthlyignore`, `.dockerignore`, `.containerignore`, `.atomignore`, `.vscodeignore`, `.coffeelintignore`, `.jshintignore`, `.tslintignore`, `.eslintignore`, `.prettierignore`, `.stylelintignore`, `.markdownlintignore`, `.gcloudignore`, `.artifactignore`)
+- ignore (`.mignore`, `.cvsignore`, `.bzrignore`, `.gitignore`, `.hgignore`, `.npmignore`, `.earthlyignore`, `.dockerignore`, `.containerignore`, `.atomignore`, `.vscodeignore`, `.coffeelintignore`, `.jshintignore`, `.tslintignore`, `.eslintignore`, `.prettierignore`, `.stylelintignore`, `.markdownlintignore`, `.gcloudignore`, `.artifactignore`)
 - ignore-slug (`.slugignore`)
 - ignore-mercurial (`.hgignore`)
 - infokey (`infokey`)

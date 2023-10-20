@@ -313,6 +313,7 @@
 					"ignore"
 				],
 				"extensions": [
+					".mignore",
 					".cvsignore",
 					".bzrignore",
 					".gitignore",
