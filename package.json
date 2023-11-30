@@ -3,7 +3,7 @@
 	"type": "module",
 	"displayName": "Assorted Languages",
 	"description": "Syntax Highlighting for an assortment of languages",
-	"version": "0.27.0",
+	"version": "0.28.0",
 	"publisher": "EdwinKofler",
 	"icon": "assets/icon.png",
 	"engines": {
