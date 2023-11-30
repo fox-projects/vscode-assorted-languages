@@ -94,6 +94,13 @@
 				"configuration": "./language-configuration/awk.language-configuration.json"
 			},
 			{
+				"id": "awk-regexp",
+				"aliases": [
+					"awk-regexp"
+				],
+				"configuration": "./language-configuration/awk-regexp.language-configuration.json"
+			},
+			{
 				"id": "bats",
 				"aliases": [
 					"Bats (Bash Automated Testing System)",
@@ -827,7 +834,21 @@
 			{
 				"language": "awk",
 				"scopeName": "source.awk",
-				"path": "./syntaxes/awk.tmLanguage.json"
+				"path": "./syntaxes/awk.tmLanguage.json",
+				"embeddedLanguages": {
+					"source.awk.regexp": "awk-regexp"
+				}
+			},
+			{
+				"language": "awk-regexp",
+				"scopeName": "source.awk.regexp",
+				"path": "./syntaxes/awk-regexp.tmLanguage.json",
+				"embeddedLanguages": {
+					"meta.embedded.regexp": "regexp"
+				},
+				"injectTo": [
+					"source.awk"
+				]
 			},
 			{
 				"language": "bats",

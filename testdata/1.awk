@@ -1,5 +1,12 @@
 #!/usr/bin/env awk
 
+/^ab#$#/gimy {
+# <-    punctuation.definition.regex.begin.awk
+#      ^ punctuation.definition.regex.end.awk
+#       ^^^^ keyword.other.awk
+#^^^^^^^^^^^ string.regexp
+}
+
 # comment
 # comment
 # comment

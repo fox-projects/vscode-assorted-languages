@@ -16,6 +16,7 @@ code --install-extension install EdwinKofler.vscode-assorted-languages
 - m4 (`configure.ac`, `configure.in`, `.m4`)
 - automake (`.am`, `.am.inc`, `Makefile.in`)
 - awk (`.awk`, `.gawk`, `.mawk`)
+- awk-regexp
 - bats (`.bats`)
 - cisco (`.ios`)
 - desktop (`.desktop`, `.theme`)
@@ -131,5 +132,6 @@ code --install-extension install EdwinKofler.vscode-assorted-languages
 - [vscode-yarn-lock-syntax](https://github.com/mariusschulz/vscode-yarn-lock-syntax) by mariusschulz (MIT)
 - [vscode-zonefile](https://github.com/compilenix/vscode-zonefile) by compilenix (MIT)
 - [VS-code-vagrantfile](https://github.com/mastazi/VS-code-vagrantfile) by mastazi (MIT)
+- [regex-syntax-highlighter-vscode](https://github.com/RedCMD/regex-syntax-highlighter-vscode/tree/main) by RedCMD (MIT)
 
 Extension icon by Pierre Bamin on [Unsplash](https://unsplash.com/photos/BFvNJXf2rpg).
