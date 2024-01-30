@@ -1,4 +1,5 @@
 {
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"fileTypes": ["asm", "nasm", "yasm", "inc", "s"],
 	"name": "x86 and x86_64 Assembly",
 	"patterns": [

@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/Septh/tmlanguage/master/tmLanguage.schema.json",
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"scopeName": "text.m3u",
 	"name": "M3U",
 	"fileTypes": ["m3u", "m3u8"],

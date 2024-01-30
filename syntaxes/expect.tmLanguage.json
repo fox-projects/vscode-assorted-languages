@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "Expect",
 	"patterns": [
 		{
@@ -23,42 +23,52 @@
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.expect",
-				"match": "\\b(if|else|while|for|foreach|return|set|expect|send|spawn|interact|exp_continue|puts|incr|failed|sleep|proc|send_user|eof|timeout|global|exp_internal|exp_open|exit|expr|lindex|stty|log_user|log_file|default|expect_after|switch)\\b"
-			},
-			{
-				"name": "keyword.operator.expect",
-				"match": "(==|<|>|<=|>=|!=)"
-			},
-			{
-				"name": "keyword.other.expect",
-				"match": "\\s(\\-\\w+)\\s"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.expect",
+					"match": "\\b(if|else|while|for|foreach|return|set|expect|send|spawn|interact|exp_continue|puts|incr|failed|sleep|proc|send_user|eof|timeout|global|exp_internal|exp_open|exit|expr|lindex|stty|log_user|log_file|default|expect_after|switch)\\b"
+				},
+				{
+					"name": "keyword.operator.expect",
+					"match": "(==|<|>|<=|>=|!=)"
+				},
+				{
+					"name": "keyword.other.expect",
+					"match": "\\s(\\-\\w+)\\s"
+				}
+			]
 		},
 		"comment": {
-			"patterns": [{
-				"name": "comment.expect",
-				"match": "^\\s*(#).*$\\n?"
-			}]
+			"patterns": [
+				{
+					"name": "comment.expect",
+					"match": "^\\s*(#).*$\\n?"
+				}
+			]
 		},
 		"function": {
-			"patterns": [{
-				"name": "entity.name.function.expect",
-				"match": "(?<=^|{)\\s*(proc)\\s+([^\\s]+)"
-			}]
+			"patterns": [
+				{
+					"name": "entity.name.function.expect",
+					"match": "(?<=^|{)\\s*(proc)\\s+([^\\s]+)"
+				}
+			]
 		},
 		"variable": {
-			"patterns": [{
-				"name": "variable.expect",
-				"match": "(\\$[\\w{}\\-\\_]+)"
-			}]
+			"patterns": [
+				{
+					"name": "variable.expect",
+					"match": "(\\$[\\w{}\\-\\_]+)"
+				}
+			]
 		},
 		"constant": {
-			"patterns": [{
-				"name": "constant.numeric.expect",
-				"match": "(?<!\\S)(0[xX][0-9a-fA-F]+|[-+]?[0-9]*\\.?[0-9]+)(?!\\S)"
-			}]
+			"patterns": [
+				{
+					"name": "constant.numeric.expect",
+					"match": "(?<!\\S)(0[xX][0-9a-fA-F]+|[-+]?[0-9]*\\.?[0-9]+)(?!\\S)"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.expect",

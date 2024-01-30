@@ -1,4 +1,5 @@
 {
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"fileTypes": ["haml", "html.haml"],
 	"foldingStartMarker": "^\\s*([-%#\\:\\.\\w\\=].*)\\s$",
 	"foldingStopMarker": "^\\s*$",

@@ -1,4 +1,5 @@
 {
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"fileTypes": ["logstash.conf", "logstash.conf.j2", "logstash.conf.template"],
 	"name": "Logstash",
 	"patterns": [

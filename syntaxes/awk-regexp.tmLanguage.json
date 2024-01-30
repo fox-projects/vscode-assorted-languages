@@ -1,6 +1,6 @@
 {
 	"version": "https://github.com/RedCMD/regex-syntax-highlighter-vscode",
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"scopeName": "source.awk.regexp",
 	"name": "Regexp",
 	"injectionSelector": "L:string.regexp.js -meta.embedded.regexp",
@@ -9,7 +9,7 @@
 			"begin": "(?<!\\+\\+)(?<=(?>[=(:,\\[?+!]|(?>^|[^._$[:alnum:]])(?>return|case)|=>|&&|\\|\\||\\*/)\\s*\\/)(?![\\/*])",
 			"end": "(?=/|$)",
 			"name": "meta.embedded.regexp",
-			"patterns": [ { "include": "#regexp" } ]
+			"patterns": [{ "include": "#regexp" }]
 		}
 	],
 	"repository": {
@@ -47,7 +47,7 @@
 					},
 					"end": "(\\))|(?=/)",
 					"endCaptures": { "1": { "name": "punctuation.definition.group.regexp" } },
-					"patterns": [ { "include": "#regexp" } ]
+					"patterns": [{ "include": "#regexp" }]
 				},
 				{
 					"name": "meta.group.regexp",
@@ -59,7 +59,7 @@
 					},
 					"end": "\\)|(?=/)",
 					"endCaptures": { "0": { "name": "punctuation.definition.group.regexp" } },
-					"patterns": [ { "include": "#regexp" } ]
+					"patterns": [{ "include": "#regexp" }]
 				},
 				{
 					"name": "constant.other.character-class.set.regexp",
@@ -69,7 +69,9 @@
 						"2": { "name": "keyword.operator.negation.regexp" }
 					},
 					"end": "(\\])",
-					"endCaptures": { "1": { "name": "punctuation.definition.character-class.regexp" } },
+					"endCaptures": {
+						"1": { "name": "punctuation.definition.character-class.regexp" }
+					},
 					"comment": "as a temporary measure; because balancedBracketScopes, unbalancedBracketScopes and tokenTypes don't seem to work with injected grammars",
 					"contentName": "regex",
 					"patterns": [

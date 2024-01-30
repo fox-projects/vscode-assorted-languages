@@ -1,4 +1,5 @@
 {
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "Embedded Javascript",
 	"scopeName": "text.html.ejs",
 	"injectionSelector": "L:text.html",

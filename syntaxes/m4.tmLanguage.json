@@ -1,5 +1,5 @@
 {
-	"$schema": "https://cdn.rawgit.com/martinring/tmlanguage/master/tmlanguage.json",
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"comment": "Adapted from https://git.gnome.org/browse/gtksourceview/tree/data/language-specs/m4.lang",
 	"name": "Autoconf M4",
 	"scopeName": "source.m4",

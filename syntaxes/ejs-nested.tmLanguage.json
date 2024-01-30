@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"scopeName": "text.html.ejs.override-js",
 	"injectionSelector": "L:text.html.ejs (* - meta.embedded.block.html) meta.block.js - (comment.block, text.html.ejs.override-js)",
 	"patterns": [

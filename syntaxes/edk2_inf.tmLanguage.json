@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "source.edk2_inf",
 	"patterns": [
 		{
