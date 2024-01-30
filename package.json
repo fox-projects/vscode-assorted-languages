@@ -336,6 +336,7 @@
 					"ignore"
 				],
 				"extensions": [
+					".agignore",
 					".mignore",
 					".cvsignore",
 					".chefignore",
@@ -589,6 +590,16 @@
 				"aliases": [
 					"Protocol Buffers"
 				]
+			},
+			{
+				"id": "psqlrc",
+				"extensions": [
+					".psqlrc"
+				],
+				"filenames": [
+					"psqlrc.conf"
+				],
+				"configuration": "./language-configuration/psqlrc.language-configuration.json"
 			},
 			{
 				"id": "pbxproj",
@@ -1110,6 +1121,11 @@
 				"language": "proto3",
 				"scopeName": "source.proto",
 				"path": "./syntaxes/proto3.tmLanguage.json"
+			},
+			{
+				"language": "psqlrc",
+				"scopeName": "source.psqlrc",
+				"path": "./syntaxes/psqlrc.tmLanguage.json"
 			},
 			{
 				"scopeName": "markdown.codeblock.proto",
