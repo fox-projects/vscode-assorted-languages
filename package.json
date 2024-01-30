@@ -1,15 +1,12 @@
 {
 	"name": "vscode-assorted-languages",
+	"version": "0.28.0",
 	"type": "module",
 	"displayName": "Assorted Languages",
 	"description": "Syntax Highlighting for an assortment of languages",
-	"version": "0.28.0",
-	"publisher": "EdwinKofler",
-	"icon": "assets/icon.png",
-	"engines": {
-		"vscode": "^1.54.0"
-	},
-	"license": "BSD-3-Clause",
+	"categories": [
+		"Programming Languages"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/hyperupcall/vscode-assorted-languages"
@@ -21,9 +18,17 @@
 		"name": "Edwin Kofler",
 		"url": "https://edwinkofler.com"
 	},
-	"categories": [
-		"Programming Languages"
-	],
+	"publisher": "EdwinKofler",
+	"license": "BSD-3-Clause",
+	"engines": {
+		"vscode": "^1.54.0"
+	},
+	"devDependencies": {
+		"@hyperupcall/prettier-config": "^0.7.0",
+		"prettier": "^3.0.3",
+		"prettier-plugin-pkg": "^0.18.0"
+	},
+	"icon": "assets/icon.png",
 	"contributes": {
 		"languages": [
 			{
@@ -151,6 +156,13 @@
 					"dir_colors"
 				],
 				"configuration": "./language-configuration/dircolors.language-configuration.json"
+			},
+			{
+				"id": "digrc",
+				"extensions": [
+					".digrc"
+				],
+				"configuration": "./language-configuration/digrc.language-configuration.json"
 			},
 			{
 				"id": "dsdl",
@@ -322,9 +334,16 @@
 				"extensions": [
 					".mignore",
 					".cvsignore",
+					".chefignore",
+					".boringignore",
+					"ignore-glob",
 					".bzrignore",
 					".gitignore",
 					".hgignore",
+					".mtn-ignore",
+					".nodemonignore",
+					".p4ignore",
+					".tfignore",
 					".npmignore",
 					".earthlyignore",
 					".dockerignore",
@@ -885,6 +904,11 @@
 				"path": "./syntaxes/dircolors.tmLanguage.json"
 			},
 			{
+				"language": "digrc",
+				"scopeName": "source.digrc",
+				"path": "./syntaxes/digrc.tmLanguage.json"
+			},
+			{
 				"language": "dsdl",
 				"scopeName": "source.dsdl",
 				"path": "./syntaxes/dsdl.tmLanguage.json"
@@ -1200,10 +1224,5 @@
 				"ejs": "html"
 			}
 		}
-	},
-	"devDependencies": {
-		"@hyperupcall/prettier-config": "^0.7.0",
-		"prettier": "^3.0.3",
-		"prettier-plugin-pkg": "^0.18.0"
 	}
 }

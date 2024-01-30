@@ -1,6 +1,6 @@
 #!/usr/bin/env awk
 
-/^ab#$#/gimy {
+/^ab(some|other)#$#/gimy {
 # <-    punctuation.definition.regex.begin.awk
 #      ^ punctuation.definition.regex.end.awk
 #       ^^^^ keyword.other.awk

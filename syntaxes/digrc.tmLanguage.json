@@ -1,0 +1,24 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "digrc",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#option"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign",
+					"begin": "^\\s*#.*",
+					"end": "\\n"
+				}
+			]
+		}
+	},
+	"scopeName": "source.digrc"
+}
