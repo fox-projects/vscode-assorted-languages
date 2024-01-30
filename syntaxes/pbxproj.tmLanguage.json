@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "Project.pbxproj",
+	"scopeName": "source.pbxproj",
 	"patterns": [
 		{ "include": "#keywords" },
 		{ "include": "#numbers" },
@@ -65,6 +66,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.pbxproj"
+	}
 }

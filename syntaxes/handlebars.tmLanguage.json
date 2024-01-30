@@ -1,5 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
+	"name": "Handlebars",
+	"scopeName": "text.html.handlebars",
+	"uuid": "70E91676-DE0A-4266-A2B9-3AD2E535E484",
 	"fileTypes": [
 		"handlebars",
 		"handlebars.html",
@@ -15,7 +18,6 @@
 		"template",
 		"tmpl"
 	],
-	"name": "Handlebars",
 	"patterns": [
 		{
 			"include": "#yfm"
@@ -776,7 +778,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "text.html.handlebars",
-	"uuid": "70E91676-DE0A-4266-A2B9-3AD2E535E484"
+	}
 }

@@ -1,7 +1,9 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"fileTypes": ["ninja"],
 	"name": "Ninja",
+	"scopeName": "source.ninja",
+	"uuid": "e837e9ed-6ad9-4103-b705-50503a86fc83",
+	"fileTypes": ["ninja"],
 	"patterns": [
 		{
 			"captures": {
@@ -81,7 +83,5 @@
 			"match": "\\${[[:alnum:]_.-]+}",
 			"name": "variable.other.ninja"
 		}
-	],
-	"scopeName": "source.ninja",
-	"uuid": "e837e9ed-6ad9-4103-b705-50503a86fc83"
+	]
 }

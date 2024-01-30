@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "DSDL",
+	"scopeName": "source.dsdl",
 	"patterns": [
 		{
 			"include": "#keywords"
@@ -118,6 +119,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.dsdl"
+	}
 }

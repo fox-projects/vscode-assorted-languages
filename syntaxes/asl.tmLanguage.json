@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "ASL",
+	"scopeName": "source.asl",
 	"fileTypes": ["asl", "dsl"],
 	"patterns": [
 		{
@@ -53,6 +54,5 @@
 			"match": "\\b(Revision)\\b",
 			"name": "constant.other.asl"
 		}
-	],
-	"scopeName": "source.asl"
+	]
 }

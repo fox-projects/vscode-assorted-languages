@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "Desktop",
+	"scopeName": "source.desktop",
 	"patterns": [
 		{
 			"include": "#layout"
@@ -101,6 +102,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.desktop"
+	}
 }

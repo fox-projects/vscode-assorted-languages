@@ -1,7 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"fileTypes": ["fbs"],
 	"name": "Flatbuffers Schema",
+	"scopeName": "source.flatbuffers",
+	"fileTypes": ["fbs"],
 	"patterns": [
 		{
 			"include": "#comments"
@@ -433,6 +434,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.flatbuffers"
+	}
 }

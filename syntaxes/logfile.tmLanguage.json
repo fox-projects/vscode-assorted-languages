@@ -1,8 +1,9 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"scopeName": "text.log",
-	"fileTypes": ["log"],
 	"name": "Logfile",
+	"scopeName": "text.log",
+	"uuid": "ab259404-3072-4cd4-a943-7cbbd32e373f",
+	"fileTypes": ["log"],
 	"patterns": [
 		{
 			"match": "\"(.*?)\"",
@@ -80,6 +81,5 @@
 			"match": "(-)+>|├(─)+|└(─)+",
 			"name": "comment.line"
 		}
-	],
-	"uuid": "ab259404-3072-4cd4-a943-7cbbd32e373f"
+	]
 }

@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "Odin",
+	"scopeName": "source.odin",
 	"patterns": [
 		{
 			"include": "#comments"
@@ -354,6 +355,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.odin"
+	}
 }

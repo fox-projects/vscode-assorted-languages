@@ -7,7 +7,9 @@ const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
 let str = ''
 {
 	for (const language of packageJson.contributes.languages) {
-		let extensionsStr = (language.extensions || []).map((item) => `\`${item}\``).join(', ')
+		let extensionsStr = (language.extensions || [])
+			.map((item) => `\`${item}\``)
+			.join(', ')
 		if (extensionsStr.length > 0) {
 			extensionsStr = '(' + extensionsStr + ')'
 		}
@@ -18,6 +20,6 @@ let str = ''
 let readmeText = fs.readFileSync('README.md', 'utf-8')
 let result = readmeText.replace(
 	/(?<=<!-- block-start -->\n).*?(?=<!-- block-end -->)/su,
-	str
+	str,
 )
 fs.writeFileSync('README.md', result)

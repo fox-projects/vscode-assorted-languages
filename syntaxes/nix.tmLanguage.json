@@ -1,7 +1,9 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"fileTypes": ["nix"],
 	"name": "Nix",
+	"scopeName": "source.nix",
+	"uuid": "0514fd5f-acb6-436d-b42c-7643e6d36c8f",
+	"fileTypes": ["nix"],
 	"patterns": [
 		{
 			"include": "#expression"
@@ -1193,7 +1195,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.nix",
-	"uuid": "0514fd5f-acb6-436d-b42c-7643e6d36c8f"
+	}
 }

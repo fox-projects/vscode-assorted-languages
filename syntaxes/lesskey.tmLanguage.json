@@ -1,6 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "lesskey configuration file",
+	"scopeName": "source.lesskey",
+	"uuid": "dde9500d-f769-40fd-80dc-4a08f06ff35e",
 	"patterns": [
 		{
 			"include": "#sections"
@@ -48,7 +50,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.lesskey",
-	"uuid": "dde9500d-f769-40fd-80dc-4a08f06ff35e"
+	}
 }

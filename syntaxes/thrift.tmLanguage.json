@@ -1,8 +1,10 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"fileTypes": ["thrift"],
-	"keyEquivalent": "^~T",
 	"name": "Thrift",
+	"scopeName": "source.thrift",
+	"uuid": "9E5704AC-54ED-4D7C-946C-6DC3727BDC4C",
+	"keyEquivalent": "^~T",
+	"fileTypes": ["thrift"],
 	"patterns": [
 		{
 			"include": "#comments"
@@ -697,7 +699,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.thrift",
-	"uuid": "9E5704AC-54ED-4D7C-946C-6DC3727BDC4C"
+	}
 }

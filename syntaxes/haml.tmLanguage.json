@@ -1,10 +1,12 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
+	"name": "Ruby Haml",
+	"scopeName": "text.haml",
+	"uuid": "3D727049-DD05-45DF-92A5-D50EA36FD035",
+	"keyEquivalent": "^~H",
 	"fileTypes": ["haml", "html.haml"],
 	"foldingStartMarker": "^\\s*([-%#\\:\\.\\w\\=].*)\\s$",
 	"foldingStopMarker": "^\\s*$",
-	"keyEquivalent": "^~H",
-	"name": "Ruby Haml",
 	"patterns": [
 		{
 			"begin": "^(\\s*)==",
@@ -592,7 +594,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "text.haml",
-	"uuid": "3D727049-DD05-45DF-92A5-D50EA36FD035"
+	}
 }

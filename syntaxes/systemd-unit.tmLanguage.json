@@ -1,6 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "systemd configuration file",
+	"scopeName": "source.systemd",
+	"uuid": "277f468c-7fcf-4987-9e55-51927eb0c911",
 	"patterns": [
 		{
 			"include": "#comments"
@@ -237,7 +239,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.systemd",
-	"uuid": "277f468c-7fcf-4987-9e55-51927eb0c911"
+	}
 }

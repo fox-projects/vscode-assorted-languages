@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"scopeName": "source.xdefaults",
 	"name": "Xdefaults",
+	"scopeName": "source.xdefaults",
 	"patterns": [
 		{
 			"include": "#comments"

@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "LLVM",
+	"scopeName": "source.ll",
 	"patterns": [
 		{
 			"include": "#function-headers"
@@ -280,6 +281,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.ll"
+	}
 }

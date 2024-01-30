@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"scopeName": "source.terminfo",
 	"name": "terminfo",
+	"scopeName": "source.terminfo",
 	"patterns": [
 		{
 			"include": "#comments"

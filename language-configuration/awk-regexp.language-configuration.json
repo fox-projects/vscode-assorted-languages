@@ -16,7 +16,5 @@
 		["(", ")"],
 		["[", "]"]
 	],
-	"colorizedBracketPairs": [
-		["(", ")"]
-	]
+	"colorizedBracketPairs": [["(", ")"]]
 }

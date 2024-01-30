@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "Expect",
+	"scopeName": "source.exp",
 	"patterns": [
 		{
 			"include": "#keywords"
@@ -84,6 +85,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.exp"
+	}
 }

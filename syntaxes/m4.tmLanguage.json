@@ -1,9 +1,46 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"comment": "Adapted from https://git.gnome.org/browse/gtksourceview/tree/data/language-specs/m4.lang",
 	"name": "Autoconf M4",
 	"scopeName": "source.m4",
+	"uuid": "cd50bfc0-2ccb-47b9-a157-98b00816d909",
+	"comment": "Adapted from https://git.gnome.org/browse/gtksourceview/tree/data/language-specs/m4.lang",
 	"fileTypes": ["configure.ac", "configure.in", "m4"],
+	"patterns": [
+		{
+			"include": "#m4-quoted-shell"
+		},
+		{
+			"include": "#m4-pure"
+		},
+		{
+			"include": "#shell-interpolation"
+		},
+		{
+			"include": "#shell-compound-command"
+		},
+		{
+			"include": "#shell-pathname"
+		},
+		{
+			"include": "#shell-string"
+		},
+		{
+			"include": "#shell-loop"
+		},
+		{
+			"include": "#shell-function-definition"
+		},
+		{
+			"include": "#shell-redirection"
+		},
+		{
+			"include": "source.shell"
+		},
+		{
+			"name": "invalid.illegal.syntax-error",
+			"match": "\\)"
+		}
+	],
 	"repository": {
 		"m4-quoted": {
 			"comment": "'m4-quoted' matches text between quote brackets and highlights it as pure M4 (no shell code allowed).",
@@ -1700,42 +1737,5 @@
 				}
 			]
 		}
-	},
-	"patterns": [
-		{
-			"include": "#m4-quoted-shell"
-		},
-		{
-			"include": "#m4-pure"
-		},
-		{
-			"include": "#shell-interpolation"
-		},
-		{
-			"include": "#shell-compound-command"
-		},
-		{
-			"include": "#shell-pathname"
-		},
-		{
-			"include": "#shell-string"
-		},
-		{
-			"include": "#shell-loop"
-		},
-		{
-			"include": "#shell-function-definition"
-		},
-		{
-			"include": "#shell-redirection"
-		},
-		{
-			"include": "source.shell"
-		},
-		{
-			"name": "invalid.illegal.syntax-error",
-			"match": "\\)"
-		}
-	],
-	"uuid": "cd50bfc0-2ccb-47b9-a157-98b00816d909"
+	}
 }

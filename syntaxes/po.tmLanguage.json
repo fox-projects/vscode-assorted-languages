@@ -1,8 +1,10 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"fileTypes": ["po", "pot", "potx"],
-	"keyEquivalent": "^~G",
 	"name": "Gettext",
+	"scopeName": "source.po",
+	"uuid": "F07730BD-59BC-41D0-AC3F-4AB2DCB6C54A",
+	"keyEquivalent": "^~G",
+	"fileTypes": ["po", "pot", "potx"],
 	"patterns": [
 		{
 			"begin": "^(?=(msgid(_plural)?|msgctxt)\\s*\"[^\"])|^\\s*$",
@@ -222,7 +224,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.po",
-	"uuid": "F07730BD-59BC-41D0-AC3F-4AB2DCB6C54A"
+	}
 }

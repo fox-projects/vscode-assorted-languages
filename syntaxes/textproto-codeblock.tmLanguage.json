@@ -1,5 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
+	"scopeName": "markdown.textproto.codeblock",
 	"fileTypes": [],
 	"injectionSelector": "L:text.html.markdown",
 	"patterns": [
@@ -41,6 +42,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "markdown.textproto.codeblock"
+	}
 }

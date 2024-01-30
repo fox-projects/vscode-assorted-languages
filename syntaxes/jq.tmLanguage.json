@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "jq",
+	"scopeName": "source.jq",
 	"patterns": [
 		{
 			"include": "#comments"
@@ -114,6 +115,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.jq"
+	}
 }

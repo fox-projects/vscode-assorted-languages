@@ -1,8 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
+	"name": "JSON5",
 	"scopeName": "source.json5",
 	"fileTypes": ["json5"],
-	"name": "JSON5",
 	"patterns": [{ "include": "#comments" }, { "include": "#value" }],
 	"repository": {
 		"array": {

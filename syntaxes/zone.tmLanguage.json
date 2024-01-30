@@ -2,6 +2,7 @@
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "Bind9 DNS Zone",
 	"scopeName": "text.zone_file",
+	"uuid": "e7258f23-3f2a-4b03-80e1-ac8990b47a6d",
 	"fileTypes": ["zone", "db"],
 	"patterns": [
 		{
@@ -65,6 +66,5 @@
 				}
 			}
 		}
-	],
-	"uuid": "e7258f23-3f2a-4b03-80e1-ac8990b47a6d"
+	]
 }

@@ -2,6 +2,7 @@
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "ignore",
 	"scopeName": "text.ignore",
+	"maxTokensPerLine": 100,
 	"fileTypes": [
 		"gitignore",
 		"npmignore",
@@ -14,7 +15,6 @@
 		"stylelintignore",
 		"markdownlintignore"
 	],
-	"maxTokensPerLine": 100,
 	"patterns": [
 		{
 			"include": "#comment"

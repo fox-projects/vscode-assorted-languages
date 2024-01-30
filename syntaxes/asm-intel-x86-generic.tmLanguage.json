@@ -1,7 +1,9 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"fileTypes": ["asm", "nasm", "yasm", "inc", "s"],
 	"name": "x86 and x86_64 Assembly",
+	"scopeName": "source.asm.x86_64",
+	"uuid": "05d6565d-991a-4e88-8e28-63bb21197f32",
+	"fileTypes": ["asm", "nasm", "yasm", "inc", "s"],
 	"patterns": [
 		{
 			"include": "#registers"
@@ -1341,7 +1343,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.asm.x86_64",
-	"uuid": "05d6565d-991a-4e88-8e28-63bb21197f32"
+	}
 }

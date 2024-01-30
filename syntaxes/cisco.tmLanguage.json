@@ -1,9 +1,11 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
+	"name": "Cisco",
+	"scopeName": "text.cisco",
+	"uuid": "f3ba50f0-2bad-48b7-9509-f6d72e353ddb",
 	"fileTypes": ["ios"],
 	"foldingStartMarker": "^interface|^router|^ip access-list extended",
 	"foldingStopMarker": "^!",
-	"name": "Cisco",
 	"patterns": [
 		{
 			"match": "^\\s*no ",
@@ -174,7 +176,5 @@
 			"match": "\\b(frame-relay|service-policy)\\b",
 			"name": "keyword.other.map-class.cisco"
 		}
-	],
-	"scopeName": "text.cisco",
-	"uuid": "f3ba50f0-2bad-48b7-9509-f6d72e353ddb"
+	]
 }

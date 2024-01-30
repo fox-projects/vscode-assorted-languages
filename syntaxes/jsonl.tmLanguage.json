@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "JSON Lines",
+	"scopeName": "source.jsonl",
 	"patterns": [
 		{
 			"include": "#line"
@@ -12,6 +13,5 @@
 			"patterns": [{ "include": "source.json" }],
 			"end": "\n"
 		}
-	},
-	"scopeName": "source.jsonl"
+	}
 }

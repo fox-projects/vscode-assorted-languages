@@ -2,7 +2,46 @@
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "Automake",
 	"scopeName": "source.automake",
+	"uuid": "db931ddb-e919-4736-bd7d-fcf6e1ceca7f",
 	"fileTypes": ["am", "am.inc", "Makefile.in"],
+	"patterns": [
+		{
+			"include": "#no-subst-comment"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#special-assignment"
+		},
+		{
+			"name": "meta.assignment.automake",
+			"begin": "^([a-zA-Z_@][\\w@]*)\\s*([\\+\\?:]?=)",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.other.automake"
+				},
+				"2": {
+					"name": "keyword.operator.assignment.automake"
+				}
+			},
+			"end": "(?<!\\\\)\\n$",
+			"patterns": [
+				{
+					"include": "#assignment-rhs"
+				},
+				{
+					"include": "#comment"
+				}
+			]
+		},
+		{
+			"include": "source.makefile2"
+		},
+		{
+			"include": "#substitution"
+		}
+	],
 	"repository": {
 		"escaped-char": {
 			"comment": "Copy of Makefile",
@@ -313,44 +352,5 @@
 			"match": "\\\\$",
 			"patterns": []
 		}
-	},
-	"patterns": [
-		{
-			"include": "#no-subst-comment"
-		},
-		{
-			"include": "#comment"
-		},
-		{
-			"include": "#special-assignment"
-		},
-		{
-			"name": "meta.assignment.automake",
-			"begin": "^([a-zA-Z_@][\\w@]*)\\s*([\\+\\?:]?=)",
-			"beginCaptures": {
-				"1": {
-					"name": "variable.other.automake"
-				},
-				"2": {
-					"name": "keyword.operator.assignment.automake"
-				}
-			},
-			"end": "(?<!\\\\)\\n$",
-			"patterns": [
-				{
-					"include": "#assignment-rhs"
-				},
-				{
-					"include": "#comment"
-				}
-			]
-		},
-		{
-			"include": "source.makefile2"
-		},
-		{
-			"include": "#substitution"
-		}
-	],
-	"uuid": "db931ddb-e919-4736-bd7d-fcf6e1ceca7f"
+	}
 }

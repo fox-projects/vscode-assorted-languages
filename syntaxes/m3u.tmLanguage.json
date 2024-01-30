@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"scopeName": "text.m3u",
 	"name": "M3U",
+	"scopeName": "text.m3u",
 	"fileTypes": ["m3u", "m3u8"],
 	"patterns": [
 		{

@@ -1,9 +1,11 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
+	"name": "TableGen",
+	"scopeName": "source.tablegen",
+	"uuid": "3A090BFC-E74B-4993-8DAE-7CCF6D238A32",
 	"fileTypes": ["td"],
 	"foldingStartMarker": "/\\*\\*|\\{\\s*$",
 	"foldingStopMarker": "\\*\\*/|^\\s*\\\n}",
-	"name": "TableGen",
 	"patterns": [
 		{
 			"include": "#comments"
@@ -94,7 +96,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.tablegen",
-	"uuid": "3A090BFC-E74B-4993-8DAE-7CCF6D238A32"
+	}
 }

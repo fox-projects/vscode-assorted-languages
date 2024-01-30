@@ -1,10 +1,10 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "i3",
-	"author": "skk",
 	"scopeName": "source.i3",
-	"fileTypes": [".i3/config", "i3/config"],
 	"uuid": "bb9ebd33-1b88-4310-acef-41720bcac38f",
+	"author": "skk",
+	"fileTypes": [".i3/config", "i3/config"],
 	"patterns": [
 		{
 			"name": "criteria",

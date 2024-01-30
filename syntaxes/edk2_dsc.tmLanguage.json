@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "source.edk2_dsc",
+	"scopeName": "source.edk2_dsc",
 	"patterns": [
 		{
 			"include": "#edk2_dsc_color"
@@ -71,6 +72,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.edk2_dsc"
+	}
 }

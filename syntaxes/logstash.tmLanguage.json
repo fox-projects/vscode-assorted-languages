@@ -1,7 +1,9 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"fileTypes": ["logstash.conf", "logstash.conf.j2", "logstash.conf.template"],
 	"name": "Logstash",
+	"scopeName": "text.logstash",
+	"uuid": "ca03e751-04ef-4330-9a6b-9b99aae1c418",
+	"fileTypes": ["logstash.conf", "logstash.conf.j2", "logstash.conf.template"],
 	"patterns": [
 		{
 			"comment": "classes: inputs, codecs, filters and outputs",
@@ -140,7 +142,5 @@
 			"match": "^(\\s*)?(\\w+)(\\s*)?(=>)(\\s*)?",
 			"name": "keyword.text.logstash"
 		}
-	],
-	"scopeName": "text.logstash",
-	"uuid": "ca03e751-04ef-4330-9a6b-9b99aae1c418"
+	]
 }

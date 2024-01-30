@@ -2,8 +2,8 @@
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "ignore-slug",
 	"scopeName": "text.ignore.slug",
-	"fileTypes": ["slugignore"],
 	"maxTokensPerLine": 100,
+	"fileTypes": ["slugignore"],
 	"patterns": [
 		{
 			"include": "#comment"

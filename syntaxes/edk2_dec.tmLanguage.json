@@ -1,6 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
 	"name": "source.edk2_dec",
+	"scopeName": "source.edk2_dec",
 	"patterns": [
 		{
 			"include": "#edk2_dec_color"
@@ -67,6 +68,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.edk2_dec"
+	}
 }

@@ -1,7 +1,9 @@
 {
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"fileTypes": ["qvs"],
 	"name": "QlikView",
+	"scopeName": "source.qvs",
+	"uuid": "76c5d355-f146-4396-8714-8a4b1e687fc2",
+	"fileTypes": ["qvs"],
 	"patterns": [
 		{
 			"include": "#scriptStatements"
@@ -356,7 +358,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.qvs",
-	"uuid": "76c5d355-f146-4396-8714-8a4b1e687fc2"
+	}
 }

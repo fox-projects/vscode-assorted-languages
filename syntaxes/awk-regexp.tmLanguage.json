@@ -1,8 +1,7 @@
 {
-	"version": "https://github.com/RedCMD/regex-syntax-highlighter-vscode",
 	"$schema": "https://json.schemastore.org/tmLanguage.json",
-	"scopeName": "source.awk.regexp",
 	"name": "Regexp",
+	"scopeName": "source.awk.regexp",
 	"injectionSelector": "L:string.regexp.js -meta.embedded.regexp",
 	"patterns": [
 		{
@@ -125,5 +124,6 @@
 				}
 			]
 		}
-	}
+	},
+	"version": "https://github.com/RedCMD/regex-syntax-highlighter-vscode"
 }
