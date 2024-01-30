@@ -6,7 +6,6 @@ module.exports = {
 			files: '*.tmLanguage.json',
 			options: {
 				plugins: ['prettier-plugin-sort-json'],
-				parser: 'json',
 				jsonSortOrder: JSON.stringify({
 					$schema: null,
 					name: null,
@@ -24,6 +23,26 @@ module.exports = {
 					'/^\\d+/': 'numeric',
 					patterns: null,
 					repository: null,
+				}),
+			},
+		},
+		{
+			files: '*.language-configuration.json',
+			options: {
+				plugins: ['prettier-plugin-sort-json'],
+				jsonSortOrder: JSON.stringify({
+					$schema: null,
+					comments: null,
+					wordPattern: null,
+					colorizedBracketPairs: null,
+					brackets: null,
+					autoCloseBefore: null,
+					autoClosingPairs: null,
+					surroundingPairs: null,
+					lineComment: null,
+					blockComment: null,
+					'/^[^\\d+]/': 'lexical',
+					'/^\\d+/': 'numeric',
 				}),
 			},
 		},

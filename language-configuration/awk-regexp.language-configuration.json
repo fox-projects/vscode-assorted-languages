@@ -1,20 +1,20 @@
 {
+	"colorizedBracketPairs": [["(", ")"]],
 	"brackets": [
 		["(", ")"],
 		["[", "]"],
 		["{", "}"],
 		["<", ">"]
 	],
+	"autoCloseBefore": "()[{< |$+*?",
 	"autoClosingPairs": [
 		["(", ")"],
 		["[", "]"],
 		["{", "}"],
 		["<", ">"]
 	],
-	"autoCloseBefore": "()[{< |$+*?",
 	"surroundingPairs": [
 		["(", ")"],
 		["[", "]"]
-	],
-	"colorizedBracketPairs": [["(", ")"]]
+	]
 }
