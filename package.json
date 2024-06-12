@@ -330,6 +330,20 @@
 				"configuration": "./language-configuration/i3.language-configuration.json"
 			},
 			{
+				"id": "icalendar",
+				"aliases": [
+					"iCalendar",
+					"icalendar"
+				],
+				"extensions": [
+					".ical",
+					".icalendar",
+					".ics",
+					".ifb"
+				],
+				"configuration": "./language-configuration/icalendar.language-configuration.json"
+			},
+			{
 				"id": "ignore",
 				"aliases": [
 					"Ignore File",
@@ -1008,6 +1022,11 @@
 				"language": "i3",
 				"scopeName": "source.i3",
 				"path": "./syntaxes/i3.tmLanguage.json"
+			},
+			{
+				"language": "icalendar",
+				"scopeName": "source.icalendar",
+				"path": "./syntaxes/icalendar.tmLanguage.json"
 			},
 			{
 				"language": "ignore",
