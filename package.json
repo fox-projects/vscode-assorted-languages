@@ -9,27 +9,24 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/hyperupcall/vscode-assorted-languages"
+		"url": "https://github.com/fox-projects/vscode-assorted-languages.git"
 	},
 	"bugs": {
-		"url": "https://github.com/hyperupcall/vscode-assorted-languages/issues"
+		"url": "https://github.com/fox-projects/vscode-assorted-languages/issues"
 	},
-	"author": {
-		"name": "Edwin Kofler",
-		"url": "https://edwinkofler.com"
-	},
+	"author": "Edwin Kofler <edwin@kofler.dev> (https://edwinkofler.com)",
 	"publisher": "EdwinKofler",
 	"license": "BSD-3-Clause",
+	"private": false,
 	"engines": {
 		"vscode": "^1.54.0"
 	},
 	"scripts": {
-		"format": "prettier --write ."
+		"format": "hyperupcall-scripts-nodejs format",
+		"lint": "hyperupcall-scripts-nodejs lint"
 	},
 	"devDependencies": {
-		"@hyperupcall/prettier-config": "^0.7.0",
-		"prettier": "^3.3.2",
-		"prettier-plugin-pkg": "^0.18.1",
+		"@hyperupcall/scripts-nodejs": "0.2.1",
 		"prettier-plugin-sort-json": "^4.0.0"
 	},
 	"icon": "assets/icon.png",
@@ -1263,5 +1260,9 @@
 				"ejs": "html"
 			}
 		}
-	}
+	},
+	"markdownlint-cli2": {
+		"extends": "./node_modules/@hyperupcall/markdownlint-config/.markdownlint.json"
+	},
+	"prettier": "@hyperupcall/scripts-nodejs/config-prettier.js"
 }
