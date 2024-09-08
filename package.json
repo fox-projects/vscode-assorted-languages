@@ -1,6 +1,6 @@
 {
 	"name": "vscode-assorted-languages",
-	"version": "0.30.0",
+	"version": "0.31.0",
 	"type": "module",
 	"displayName": "Assorted Languages",
 	"description": "Syntax Highlighting for an assortment of languages",
