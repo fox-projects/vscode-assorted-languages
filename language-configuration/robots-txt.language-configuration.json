@@ -1,0 +1,15 @@
+{
+	"comments": {
+		"lineComment": "#"
+	},
+	"folding": {
+		"markers": {
+			"start": "^User-agent:",
+			"end": "^\\s*$"
+		}
+	},
+	"indentationRules": {
+		"increaseIndentPattern": "^User-agent:",
+		"decreaseIndentPattern": "^\\s*$"
+	}
+}

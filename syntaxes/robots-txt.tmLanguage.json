@@ -1,0 +1,57 @@
+{
+	"$schema": "https://json.schemastore.org/tmLanguage.json",
+	"name": "robots.txt",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#rule-block"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign.robots-txt",
+					"match": "#.*$"
+				}
+			]
+		},
+		"rule-block": {
+			"patterns": [
+				{
+					"match": "(?i)^([\\s*a-zA-Z0-9-/\\\\.]+\\s*)(:)?\\s*([^\\#]*)",
+					"captures": {
+						"1": {
+							"name": "constant.language.robots-txt",
+							"patterns": [
+								{
+									"name": "invalid.illegal.directive.robots-txt",
+									"match": "(?i)^(?!\\s*(allow|crawl-delay|disallow|host|sitemap|user-agent)\\s*$).*"
+								}
+							]
+						},
+						"2": {
+							"name": "punctuation.colon.robots-txt"
+						},
+						"3": {
+							"name": "string.unquoted.value.robots-txt",
+							"patterns": [
+								{
+									"match": "-?\\d+(\\.\\d+)?",
+									"name": "constant.numeric.robots-txt"
+								},
+								{
+									"match": "true|false",
+									"name": "constant.language.robots-txt"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	},
+	"scopeName": "text.robots-txt"
+}

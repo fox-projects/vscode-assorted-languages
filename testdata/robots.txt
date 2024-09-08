@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /
+
+User-agent: *
+Disallow: /~joe/junk.html
+Disallow: /~joe/foo.html
+Disallow: /~joe/bar.html
+
+# this is a comment

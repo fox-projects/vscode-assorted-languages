@@ -11,7 +11,6 @@ code --install-extension install EdwinKofler.vscode-assorted-languages
 ## Language Support
 
 <!-- block-start -->
-
 - asl (`.asl`, `.dsl`)
 - asm-intel-x86-generic (`.asm`, `.nasm`, `.yasm`, `.inc`, `.s`)
 - m4 (`configure.ac`, `configure.in`, `.m4`)
@@ -65,6 +64,7 @@ code --install-extension install EdwinKofler.vscode-assorted-languages
 - textproto (`.pbtxt`, `.prototxt`, `.textproto`)
 - qlik (`.qvs`)
 - hlsl (`.sf`)
+- robots-txt
 - stylus (`.styl`, `.stylus`)
 - sxhkdrc (`.sxhkdrc.conf`)
 - systemd-unit (`.link`, `.netdev`, `.network`, `.service`, `.socket`, `.device`, `.mount`, `.automount`, `.swap`, `.target`, `.path`, `.timer`, `.snapshot`, `.slice`, `.scope`)
@@ -84,6 +84,7 @@ code --install-extension install EdwinKofler.vscode-assorted-languages
 
 ## Acknowledgements
 
+- [vscode-robots-dot-txt-support](https://github.com/BeardedFish/vscode-robots-dot-txt-support) by BeardedFish (MIT)
 - [vscode-asl](https://github.com/marysaka/vscode-asl) by marysaka (MIT)
 - [x86_64-assembly-vscode](https://github.com/13xforever/x86_64-assembly-vscode) by 13xforever (MIT)
 - [vscode_autotools](https://github.com/maelvls/vscode_autotools) by maelvls (GPL-3.0)

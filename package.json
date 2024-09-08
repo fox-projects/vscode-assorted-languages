@@ -657,6 +657,14 @@
 				]
 			},
 			{
+				"id": "robots-txt",
+				"filenames": [
+					"robots.txt",
+					"robots-txt"
+				],
+				"configuration": "./language-configuration/robots-txt.language-configuration.json"
+			},
+			{
 				"id": "stylus",
 				"aliases": [
 					"Stylus",
@@ -1169,6 +1177,11 @@
 				"language": "qlik",
 				"scopeName": "source.qvs",
 				"path": "./syntaxes/qlik.tmLanguage.json"
+			},
+			{
+				"language": "robots-txt",
+				"scopeName": "text.robots-txt",
+				"path": "./syntaxes/robots-txt.tmLanguage.json"
 			},
 			{
 				"language": "stylus",
